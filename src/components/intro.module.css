@@ -1,0 +1,88 @@
+:root {
+    --primary-blue: #7d8a8d;
+    --secondary-blue: #264d75;
+    --slate-black: #252525;
+    overflow-x: hidden;
+}
+::selection {
+    color: white;
+    background: var(--slate-black);
+}
+@font-face {
+    font-family: "playfair";
+    src: url("../assets/fonts/playfair/PlayfairDisplay-VariableFont_wght.ttf");
+}
+@font-face {
+    font-family: "Poppins";
+    src: url("../assets/fonts/Poppins/Poppins-Regular.ttf");
+}
+.introWrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    width: 100%;
+    height: 100vh;
+    /* padding-top: 40px; */
+    background: var(--primary-blue);
+    color: var(--slate-black);
+}
+.introLines {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-left: 70px;
+    padding-bottom: 100px;
+}
+.greet{
+    font-family: "playfair";
+    font-size: 3rem;
+    margin: 0;
+    padding-bottom: 24px;
+    font-weight: bolder;
+}
+.bigFont {
+    font-size: 4rem;
+    padding-bottom: 24px;
+    margin: 0;
+    font-weight: bold;
+}
+.feel {
+    font-size: 24px;
+    font-family: "Poppins";
+}
+.name {
+    color: white;
+}
+.imgWrapper{
+    max-width: 800px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+.meImg img {
+    width: 70%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    filter: drop-shadow(2px 4px 16px var(--slate-black));
+    animation: spin .9s linear;
+}
+
+@keyframes spin {
+    0% {
+        opacity: 0;
+        transform: rotateY(90deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateX(0deg);
+    }
+}
+
+.code {
+    background: var(--slate-black);
+    padding: 2px;
+    color: white;
+    font-size: 16px;
+}
