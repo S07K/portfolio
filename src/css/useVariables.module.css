@@ -1,0 +1,31 @@
+:root {
+    --primary-blue: #7d8a8d;
+    --secondary-blue: #264d75;
+    --slate-black: #252525;
+}
+
+.bgPrimary {
+    background: var(--primary-blue);
+}
+.bgSecondary {
+    background: var(--secondary-blue);
+}
+.bgSlate {
+    background: var(--slate-black);
+}
+.bgWhite {
+    background: rgba(255, 255, 255, 0.551);
+    backdrop-filter: blur(8px);
+}
+.colorPrimary {
+    color: var(--primary-blue)
+}
+.colorSecondary {
+    color: var(--secondary-blue)
+}
+.colorSlate {
+    color: var(--slate-black)
+}
+.colorWhite {
+    color: white;
+}

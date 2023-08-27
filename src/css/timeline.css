@@ -1,0 +1,137 @@
+ul,
+li {
+    margin: 0;
+    padding: 0;
+
+}
+
+span::first-letter {
+    text-transform: capitalize;
+}
+
+/* START TIMELINE 
+ the width of the list parent is optional 
+if you set this width 
+A hover sample effect is added as well as an active state*/
+
+.base-timeline {
+    list-style-type: none;
+    counter-reset: number;
+    /* number 2021*/
+    position: relative;
+    display: block;
+    z-index: 2;
+    width: 75%;
+    /* change or remove*/
+
+}
+
+.base-timeline::before {
+    content: '';
+    width: 100%;
+    border-top: 2px solid var(--slate-black);
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    z-index: -1;
+
+}
+
+/* set width of time-line this can be px, percentage or other unit
+3 is the number of list items minus 1 when using percentage
+*/
+.base-timeline__item {
+    position: relative;
+    display: inline-block;
+    width: calc(100% / 6);
+    /* change width */
+    transition: cubic-bezier(0, 0, 0.2, 1);;
+
+}
+
+.base-timeline__item::before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    counter-increment: number;
+    /* number -1*/
+    content: counter(number) '';
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    color: var(--slate-black);
+    border: 1px solid var(--slate-black);
+    font-weight: bold;
+    transition: all 0.6s ease-in-out;
+    box-sizing: border-box;
+
+}
+
+/* modifier with use of the data-year attribute */
+.base-timeline__item--data::before {
+    content: attr(data-year);
+    width: 60px;
+    height: 60px;
+}
+
+/* hover element */
+.base-timeline__item:hover::before {
+    content: attr(data-year);
+    background-color: var(--primary-blue);
+    color: white;
+    border: 1px solid var(--primary-blue);
+    transform: scale(4);
+    cursor: pointer;
+}
+.base-timeline__item--active::before {
+    background-color: var(--secondary-blue);
+    color: white;
+    border: 2px solid;
+    border-color: var(--secondary-blue);
+
+
+}
+.base-timeline__item--active:hover::before {
+    content: attr(data-year);
+    background-color: var(--secondary-blue);
+    color: white;
+    border: 1px solid var(--secondary-blue);
+    transform: scale(4);
+}
+
+
+.base-timeline__item:last-child {
+    width: 0;
+}
+
+/* summary text is optional and can be anything */
+
+.base-timeline__summary-text {
+    position: absolute;
+    bottom: -3em;
+    left: 15px;
+}
+.base-timeline__item.dot::before {
+    background-color: var(--slate-black);
+    content: '1';
+    color: var(--slate-black);
+    width: 45px;
+    height: 45px;
+}
+.base-timeline__item.dot:hover::before {
+    /* background-color: var(--slate-black); */
+    transform: scale(1);
+    cursor: none;
+}
+.base-timeline__item.graduate-dot::before {
+    background-color: white;
+    content: url(../assets/images/graduate.svg);
+    color: var(--slate-black);
+    width: 60px;
+    height: 60px;
+}
+.base-timeline__item.graduate-dot:hover::before {
+    /* background-color: var(--slate-black); */
+    transform: scale(2);
+}

@@ -4,7 +4,7 @@
     --slate-black: #252525;
     overflow-x: hidden;
 }
-::selection {
+.introWrapper *::selection {
     color: white;
     background: var(--slate-black);
 }
@@ -26,6 +26,36 @@
     background: var(--primary-blue);
     color: var(--slate-black);
 }
+.brief *::selection {
+    color: var(--slate-black);
+    background: white;
+}
+.brief {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 10px 70px 50px 70px;
+    background: var(--slate-black);
+    color: #fff;
+}
+.brief h1 {
+    /* position: absolute;
+    top: 0; */
+    left: 70px;
+    font-size: 11rem;
+    margin: 0;
+}
+.brief span {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.brief p {
+    font-family: "Poppins";
+}
+.brief b {
+    color: var(--primary-blue);
+}
 .introLines {
     display: flex;
     flex-direction: column;
@@ -45,6 +75,7 @@
     font-size: 4rem;
     padding-bottom: 24px;
     margin: 0;
+    text-align: left;
     font-weight: bold;
 }
 .feel {
