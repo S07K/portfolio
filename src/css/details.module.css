@@ -1,0 +1,22 @@
+.expTitle {
+    font-size: 30px !important;
+}
+.details {
+    padding-left: 30px;
+}
+.expCompany {
+    font-size: 27px !important;
+    margin-bottom: 0;
+}
+.expDesignation {
+    font-size: 20px !important;
+    margin: 0;
+}
+.expDuration {
+    font-size: 15px !important;
+    margin: 0;
+    color: var(--primary-blue);
+}
+.expCaption {
+    font-size: 11px !important;
+}

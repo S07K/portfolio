@@ -1,8 +1,4 @@
-::selection {
-    color: white;
-    background: var(--slate-black);
-}
-.experience {
+.education {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -11,17 +7,17 @@
     background: white;
     color: var(--slate-black);
 }
-
-.experience h1 {
+.education h1 {
     left: 70px;
     font-size: 10rem;
     margin: 0;
 }
 
-/* .timeline{
-    overflow-x: scroll;
-    overflow-y: hidden;
-} */
-.timeline ul{
-    width: 100%;
+@media (max-width: 767px) {
+    .education h1 {
+        font-size: 3rem;
+    }
+    .education {
+        padding: 80px 16px 50px 16px;
+    }
 }

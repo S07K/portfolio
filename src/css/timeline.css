@@ -81,7 +81,7 @@ A hover sample effect is added as well as an active state*/
     background-color: var(--primary-blue);
     color: white;
     border: 1px solid var(--primary-blue);
-    transform: scale(4);
+    transform: scale(2);
     cursor: pointer;
 }
 .base-timeline__item--active::before {
@@ -97,7 +97,7 @@ A hover sample effect is added as well as an active state*/
     background-color: var(--secondary-blue);
     color: white;
     border: 1px solid var(--secondary-blue);
-    transform: scale(4);
+    transform: scale(2);
 }
 
 

@@ -3,7 +3,7 @@ import useVarStyle from '../css/useVariables.module.css';
 
 function scrollHandler() {
     window.addEventListener("scroll", function () {
-        console.log('scrolled')
+        // console.log('scrolled')
         const nav = document.querySelector(`.${NavbarStyle.navWrapper}`);
     
         if (window.scrollY > 200) {
