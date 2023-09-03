@@ -8,7 +8,7 @@ const Navbar = () => {
 
     const navState = useSelector((state) => state.navstate.data)
     const dispatch = useDispatch()
-    
+
     const switchViewHandler = (key) => {
         const newData = cloneDeep(navState)
         let lastActiveView = Object.keys(newData).filter(key => newData[key] === true)
@@ -21,24 +21,18 @@ const Navbar = () => {
         <div className={`${styles.navWrapper} + ${!navState.intro ? styles.slateTheme : ''}`}>
             <div
                 className={styles.brand}
-                onClick={() => switchViewHandler('intro')}
+
             >
-                <Link to="/"><span>Shubham</span></Link>
+                <Link to="/"><span onClick={() => switchViewHandler('intro')}>Shubham</span></Link>
             </div>
-            <div
-                onClick={() => switchViewHandler('exp')}
-            >
-                <Link to="/experience"><span>Experience</span></Link>
+            <div>
+                <Link to="/experience"><span onClick={() => switchViewHandler('exp')}>Experience</span></Link>
             </div>
-            <div
-                onClick={() => switchViewHandler('edu')}
-            >
-                <Link to="/education"><span>Education</span></Link>
+            <div>
+                <Link to="/education"><span onClick={() => switchViewHandler('edu')}>Education</span></Link>
             </div>
-            <div
-                onClick={() => switchViewHandler('extraC')}
-            >
-                <Link to="/extra-curricular"><span>Extra-curricular</span></Link>
+            <div>
+                <Link to="/projects"><span onClick={() => switchViewHandler('projects')}>Projects</span></Link>
             </div>
         </div>
     );

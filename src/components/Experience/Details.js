@@ -9,7 +9,9 @@ const content_2023 = <div>
         <p className={style.expDuration}>July 5<sup>th</sup> - present</p>
         <p>
             <b>Skills:</b> Zoho <b>·</b> Zoho Extension <b>·</b> UI development <b>·</b> Design <b>·</b> User Experience Design (UED) <b>·</b> User Experience (UX) <b>·</b> User Interface Design <b>·</b> Git <b>·</b> jQuery
-            {/* <b>Description:</b> Zoho <b>·</b> Zoho Extension <b>·</b> UI development <b>·</b> Design <b>·</b> User Experience Design (UED) <b>·</b> User Experience (UX) <b>·</b> User Interface Design <b>·</b> Git <b>·</b> jQuery */}
+            <br></br>
+            <br></br>
+            <b>Description:</b> In my current capacity, I have independently developed a ZOHO Extension by seamlessly integrating the company's messaging API services. This project underscores my self-reliant and autonomous approach to project execution, as I took sole responsibility for its development without the involvement of any other team members. Furthermore, I presently serve as a valued member of the React development team, contributing to the collective effort and success of our projects.
         </p>
     </div>
 </div>
@@ -59,6 +61,9 @@ const content_2021 = <div>
             <p className={style.expDuration}>Sep 2021 - Nov 2021</p>
             <p>
                 <b>Skills:</b> Git
+                <br></br>
+                <br></br>
+                <b>Description:</b> I have created visually appealing website loaders that offer effortless integration across various applications.
             </p>
         </div>
     </div>

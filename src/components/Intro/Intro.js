@@ -27,6 +27,8 @@ const Intro = ({ isActive }) => {
                             />
                         </p>
                         <span className={styles.feel}><i>Glad to have you here</i> :)</span>
+                        <div className={styles.socialAccounts}>
+                        </div>
 
                     </div>
                     <div className={styles.imgWrapper}>

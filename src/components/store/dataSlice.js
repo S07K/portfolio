@@ -7,7 +7,7 @@ export const navSlice = createSlice({
         intro: true,
         exp: false,
         edu: false,
-        extraC: false
+        projects: false
     }
   },
   reducers: {

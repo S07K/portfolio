@@ -166,3 +166,7 @@
 
 
 }
+
+.timeline :hover {
+    text-decoration: underline;
+}

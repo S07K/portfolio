@@ -3,6 +3,25 @@
     --secondary-blue: #264d75;
     --slate-black: #252525;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+  
+::-webkit-scrollbar-track {
+    background: whitesmoke; 
+    opacity: 0;
+    
+}
+   
+::-webkit-scrollbar-thumb {
+    background: var(--slate-black); 
+    height: 5px;
+}
+  
+::-webkit-scrollbar-thumb:hover{
+    background: var(--slate-black); 
 }
 .introWrapper *::selection {
     color: white;
@@ -116,4 +135,11 @@
     padding: 2px;
     color: white;
     font-size: 16px;
+}
+
+.socialAccounts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
 }

@@ -3,7 +3,7 @@ import Navbar from './components/Nav/Navbar';
 import Intro from './components/Intro/Intro';
 import Experience from './components/Experience/Experience';
 import Education from './components/Education/Education';
-import ExtraCurricular from './components/ExtraCurricular/ExtraCurricular';
+import Projects from './components/Projects/Projects';
 import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect } from 'react';
@@ -32,7 +32,7 @@ function App() {
         break;
       case '/education': switchViewHandler('edu')
         break;
-      case '/extra-curricular': switchViewHandler('extraC')
+      case '/projects': switchViewHandler('projects')
         break;
       default: switchViewHandler('intro')
         break;
@@ -46,7 +46,7 @@ function App() {
           <Route path="/" element={<Intro isActive={navState.intro} />} />
           <Route path="experience" element={<Experience isActive={navState.exp} />} />
           <Route path="education" element={<Education isActive={navState.edu} />} />
-          <Route path="extra-curricular" element={<ExtraCurricular isActive={navState.extraC} />} />
+          <Route path="projects" element={<Projects isActive={navState.projects} />} />
         </Routes>
     </BrowserRouter>
   );
