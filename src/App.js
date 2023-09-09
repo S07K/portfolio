@@ -55,7 +55,7 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Intro isActive={navState.intro} />} />
+            <Route path="portfolio" element={<Intro isActive={navState.intro} />} />
             <Route path="experience" element={<Experience isActive={navState.exp} />} />
             <Route path="education" element={<Education isActive={navState.edu} />} />
             <Route path="projects" element={<Projects isActive={navState.projects} />} />
