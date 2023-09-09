@@ -135,3 +135,31 @@ A hover sample effect is added as well as an active state*/
     /* background-color: var(--slate-black); */
     transform: scale(2);
 }
+
+@media screen and (max-width: 770px) and (min-width: 200px) {
+    .base-timeline__item:hover::before, 
+    .base-timeline__item--active:hover::before, 
+    .base-timeline__item.graduate-dot:hover::before {
+        transform: scale(1);
+    }
+    /* .base-timeline__item--data::before {
+        content: attr(data-year);
+        width: 30px;
+        height: 30px;
+    }
+    .base-timeline__item.graduate-dot::before {
+        background-color: white;
+        content: url(../assets/images/graduate.svg);
+        color: var(--slate-black);
+        width: 30px;
+        height: 30px;
+    } */
+}
+
+@media screen and (max-width: 1000px) and (min-width: 770px) {
+    .base-timeline__item:hover::before, 
+    .base-timeline__item--active:hover::before, 
+    .base-timeline__item.graduate-dot:hover::before {
+        transform: scale(1.5);
+    }
+}

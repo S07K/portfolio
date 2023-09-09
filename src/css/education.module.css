@@ -13,11 +13,14 @@
     margin: 0;
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 770px) and (min-width: 200px) {
     .education h1 {
         font-size: 3rem;
     }
-    .education {
-        padding: 80px 16px 50px 16px;
+}
+
+@media screen and (max-width: 1000px) and (min-width: 770px) {
+    .education h1 {
+        font-size: 8rem;
     }
 }

@@ -4,16 +4,40 @@
     flex-direction: column;
     height: auto;
     padding: 80px 70px 50px 70px;
-    background: white;
     color: var(--slate-black);
 }
+
 .projects h1 {
     left: 70px;
     font-size: 10rem;
     margin: 0;
 }
+
 .projectsWrapper {
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: auto auto auto auto;
+    grid-gap: 8px;
+}
+
+@media screen and (max-width: 770px) and (min-width: 200px) {
+    .projectsWrapper {
+        grid-template-columns: auto
+    }
+
+    .projects h1 {
+        left: 70px;
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 770px) {
+    .projectsWrapper {
+        grid-template-columns: auto auto
+    }
+
+    .projects h1 {
+        left: 70px;
+        font-size: 8rem;
+    }
 }

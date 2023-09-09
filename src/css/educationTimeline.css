@@ -167,6 +167,6 @@
 
 }
 
-.timeline :hover {
+.timeline a:hover {
     text-decoration: underline;
 }

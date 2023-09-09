@@ -25,3 +25,19 @@
 .timeline ul{
     width: 100%;
 }
+
+@media screen and (max-width: 770px) and (min-width: 200px) {
+    .experience h1 {
+        font-size: 3rem;
+    }
+    /* work for the experience timeline here */
+    .timeline {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 770px) {
+    .experience h1 {
+        font-size: 8rem;
+    }
+}

@@ -7,7 +7,6 @@ const Experience = ({ isActive }) => {
     const [year, change] = useState('2023')
 
     const toggleYear = (yr) => {
-        console.log(yr)
         change(yr);
     }
 

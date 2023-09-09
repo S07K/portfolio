@@ -5,18 +5,27 @@ import techroneImg from "../../assets/images/techrone-app.png"
 import royalEatsImg from "../../assets/images/royal eats.png"
 import healthyfyMeImg from "../../assets/images/Healthy Me.jpeg"
 import chhatramateImg from "../../assets/images/chhatramate.png"
+import oldPorfolio from "../../assets/images/oldPortfolio.png"
 
 const ProjectList = [
     {
         id: '1',
-        img: techroneImg,
-        name: 'Techrone App',
-        url: 'https://main--jovial-panini-51602d.netlify.app/',
-        description: 'Tried to build a React app. A Drone E-commerce App landing page.',
+        img: oldPorfolio,
+        name: 'Old Portfolio',
+        url: 'https://s07k.github.io/s7k',
+        description: 'Old portfolio website which I made in college while learning the web dev skills',
         techStack: ''
     },
     {
         id: '2',
+        img: techroneImg,
+        name: 'Techrone App',
+        url: 'https://main--jovial-panini-51602d.netlify.app/',
+        description: 'Tried to build a React app. A Drone E-commerce App landing page. Its only a wireframe sign up or login pages are static',
+        techStack: ''
+    },
+    {
+        id: '3',
         img: royalEatsImg,
         name: 'Royal Eats',
         url: 'https://s07k.github.io/Royal-Eats/',
@@ -24,7 +33,7 @@ const ProjectList = [
         techStack: ''
     },
     {
-        id: '3',
+        id: '4',
         img: healthyfyMeImg,
         name: 'Healthy Me!',
         url: 'https://s07k.github.io/Royal-Eats/',
@@ -32,11 +41,11 @@ const ProjectList = [
         techStack: ''
     },
     {
-        id: '4',
+        id: '5',
         img: chhatramateImg,
         name: 'CHHATRAMATE',
         url: 'https://www.figma.com/proto/uMmE2f1Us1kTAS7OGfjKS9/CHHATRAMATE?node-id=15%3A34&starting-point-node-id=15%3A34',
-        description: 'Tried to Design UI/UX.',
+        description: 'Tried to Design UI/UX for a fake solo brainstormed app. This App is a tool to take notes of anything.',
         techStack: ''
     },
 ]

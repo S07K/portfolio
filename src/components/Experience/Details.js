@@ -63,7 +63,7 @@ const content_2021 = <div>
                 <b>Skills:</b> Git
                 <br></br>
                 <br></br>
-                <b>Description:</b> I have created visually appealing website loaders that offer effortless integration across various applications.
+                <b>Description:</b> Created visually appealing website loaders that offer effortless integration across various applications.
             </p>
         </div>
     </div>
