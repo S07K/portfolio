@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.d8d98edd.css",
+    "main.js": "/portfolio/static/js/main.344de33f.js",
+    "static/js/787.1ed0c42c.chunk.js": "/portfolio/static/js/787.1ed0c42c.chunk.js",
+    "static/media/mewithoutbg.png": "/portfolio/static/media/mewithoutbg.dacd99bdb7475c0eb2a8.png",
+    "static/media/royal eats.png": "/portfolio/static/media/royal eats.1fb6856be902d77f2080.png",
+    "static/media/techrone-app.png": "/portfolio/static/media/techrone-app.bb83cbf6ece238f2a59b.png",
+    "static/media/chhatramate.png": "/portfolio/static/media/chhatramate.f0c5f8273cbf2cfe20ef.png",
+    "static/media/oldPortfolio.png": "/portfolio/static/media/oldPortfolio.5425103bc388ccbc14eb.png",
+    "static/media/PlayfairDisplay-VariableFont_wght.ttf": "/portfolio/static/media/PlayfairDisplay-VariableFont_wght.3f7c141215e6d22d0f1e.ttf",
+    "static/media/Healthy Me.jpeg": "/portfolio/static/media/Healthy Me.8b791471d65552a8446f.jpeg",
+    "static/media/Poppins-Regular.ttf": "/portfolio/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
+    "static/media/FontsFree-Net-Autography.ttf": "/portfolio/static/media/FontsFree-Net-Autography.55963d19acc499209e6e.ttf",
+    "static/media/InDev.svg": "/portfolio/static/media/InDev.002a50daf7ae3710f0df38203f7f305d.svg",
+    "static/media/graduate.svg": "/portfolio/static/media/graduate.42b92fac7a75e9144263.svg",
+    "index.html": "/portfolio/index.html",
+    "main.d8d98edd.css.map": "/portfolio/static/css/main.d8d98edd.css.map",
+    "main.344de33f.js.map": "/portfolio/static/js/main.344de33f.js.map",
+    "787.1ed0c42c.chunk.js.map": "/portfolio/static/js/787.1ed0c42c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d8d98edd.css",
+    "static/js/main.344de33f.js"
+  ]
+}
