@@ -23,7 +23,7 @@ const Navbar = () => {
                 className={styles.brand}
 
             >
-                <Link to="/"><span onClick={() => switchViewHandler('intro')}>Shubham</span></Link>
+                <Link to="/portfolio"><span onClick={() => switchViewHandler('intro')}>Shubham</span></Link>
             </div>
             <div>
                 <Link to="/experience"><span onClick={() => switchViewHandler('exp')}>Experience</span></Link>
