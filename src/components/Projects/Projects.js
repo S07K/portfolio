@@ -6,6 +6,7 @@ import royalEatsImg from "../../assets/images/royal eats.png"
 import healthyfyMeImg from "../../assets/images/Healthy Me.jpeg"
 import chhatramateImg from "../../assets/images/chhatramate.png"
 import oldPorfolio from "../../assets/images/oldPortfolio.png"
+import {ReactComponent as Github} from '../../assets/images/github.svg'
 
 const ProjectList = [
     {
@@ -55,6 +56,11 @@ const ProjectCards = ProjectList.map((project) => {
 })
 
 const Projects = ({ isActive }) => {
+    const openAllRepos = () => {
+        window.open('https://github.com/S07K?tab=repositories', '_blank')
+    }
+
+
     return (isActive ? <div className={styles.projects}>
         <div>
             <h1>
@@ -63,6 +69,12 @@ const Projects = ({ isActive }) => {
             <br></br>
             <div className={styles.projectsWrapper}>
                 {ProjectCards}
+            </div>
+            <div className={styles.btnWrapper} onClick={() => openAllRepos()}>
+                <div className={styles.githubRepoBtnWrapper}>
+                    <p>See all projects</p> 
+                    <Github />
+                </div>
             </div>
         </div>
     </div> : '')

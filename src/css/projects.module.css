@@ -5,6 +5,7 @@
     height: auto;
     padding: 80px 70px 50px 70px;
     color: var(--slate-black);
+    font-family: 'poppins';
 }
 
 .projects h1 {
@@ -16,8 +17,43 @@
 .projectsWrapper {
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 8px;
+    grid-template-columns: auto auto auto;
+    grid-gap: 44px;
+}
+
+.btnWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.githubRepoBtnWrapper:hover {
+    cursor: pointer;
+    background: var(--secondary-blue);
+}
+
+.githubRepoBtnWrapper {
+    width: 150px;
+    background: var(--slate-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 8px;
+    border-radius: 20px;
+    padding: 8px 16px;
+    transition: ease-in-out .3s;
+}
+
+.githubRepoBtnWrapper p {
+    margin: 0
+}
+
+.githubRepoBtnWrapper svg {
+    width: 20px;
+    height: 20px;
 }
 
 @media screen and (max-width: 770px) and (min-width: 200px) {

@@ -144,6 +144,19 @@
     align-items: center;
     gap: 16px;
 }
+
+.socialAccounts svg {
+    width: 24px;
+    height: 24px;
+    transition: ease-in-out .3s;
+    color: white;
+}
+
+.socialAccounts svg:hover {
+    color: var(--slate-black);
+    cursor: pointer;
+}
+
 @media (pointer:none), (pointer:coarse) {
 
 }

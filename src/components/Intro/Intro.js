@@ -7,7 +7,20 @@ import {ReactComponent as Fb} from '../../assets/images/facebook.svg'
 import {ReactComponent as Twitter_X} from '../../assets/images/twitter-x.svg'
 import {ReactComponent as LinkedIn} from '../../assets/images/linkedin.svg'
 
+const urls = {
+    github: 'https://github.com/S07K',
+    insta: 'https://www.instagram.com/sam_07_00_/',
+    facebook: 'https://www.facebook.com/profile.php?id=100012603552078',
+    twitter_x: 'https://twitter.com/sam_07_00_',
+    linkedin: 'https://www.linkedin.com/in/shubham-kumar-957a33200/',
+}
+
 const Intro = ({ isActive }) => {
+
+    const openUrl = (url_for) => {
+        window.open(urls[url_for], '_blank')
+    }
+
     return (
         isActive ?
             <>
@@ -33,11 +46,11 @@ const Intro = ({ isActive }) => {
                         </p>
                         <span className={styles.feel}><i>Glad to have you here</i> :)</span>
                         <div className={styles.socialAccounts}>
-                            <Github /> 
-                            <Insta />
-                            <Fb />
-                            <Twitter_X />
-                            <LinkedIn />
+                            <Github onClick={() => openUrl('github')}/> 
+                            <Insta onClick={() => openUrl('insta')}/>
+                            <Fb onClick={() => openUrl('facebook')}/>
+                            <Twitter_X onClick={() => openUrl('twitter_x')}/>
+                            <LinkedIn onClick={() => openUrl('linkedin')}/>
                         </div>
 
                     </div>
