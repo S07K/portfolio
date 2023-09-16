@@ -1,6 +1,11 @@
 import styles from '../../css/intro.module.css';
 import img from '../../assets/images/mewithoutbg.png';
 import { TypeAnimation } from 'react-type-animation';
+import {ReactComponent as Github} from '../../assets/images/github.svg'
+import {ReactComponent as Insta} from '../../assets/images/instagram.svg'
+import {ReactComponent as Fb} from '../../assets/images/facebook.svg'
+import {ReactComponent as Twitter_X} from '../../assets/images/twitter-x.svg'
+import {ReactComponent as LinkedIn} from '../../assets/images/linkedin.svg'
 
 const Intro = ({ isActive }) => {
     return (
@@ -20,7 +25,7 @@ const Intro = ({ isActive }) => {
                                     " a UI Engineer."
                                 ]}
                                 wrapper="span"
-                                speed={10}
+                                speed={{type: "keyStrokeDelayInMs", value: 200}}
                                 deletionSpeed={2}
                                 preRenderFirstString={true}
                                 repeat={Infinity}
@@ -28,6 +33,11 @@ const Intro = ({ isActive }) => {
                         </p>
                         <span className={styles.feel}><i>Glad to have you here</i> :)</span>
                         <div className={styles.socialAccounts}>
+                            <Github /> 
+                            <Insta />
+                            <Fb />
+                            <Twitter_X />
+                            <LinkedIn />
                         </div>
 
                     </div>

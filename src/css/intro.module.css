@@ -138,10 +138,11 @@
 }
 
 .socialAccounts {
+    padding-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4px;
+    gap: 16px;
 }
 @media (pointer:none), (pointer:coarse) {
 

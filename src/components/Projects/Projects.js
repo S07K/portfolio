@@ -36,7 +36,7 @@ const ProjectList = [
         id: '4',
         img: healthyfyMeImg,
         name: 'Healthy Me!',
-        url: 'https://s07k.github.io/Royal-Eats/',
+        url: 'https://s07k.github.io/Healthy-Me/',
         description: 'This is a project undertaken for a student-run virtual event (HACK THE SOLUTION) consisting of a 36-hour hackathon with mentorship from experts and fun challenges.',
         techStack: ''
     },
