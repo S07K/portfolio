@@ -1,21 +1,17 @@
 import styles from '../../css/navbar.module.css';
-import cloneDeep from 'lodash/cloneDeep';
 import { useSelector, useDispatch } from 'react-redux';
-import { switchView } from '../store/dataSlice'
 import { Link } from 'react-router-dom';
+import { switchViewHandler } from '../NavigationHandler';
 
 const Navbar = () => {
 
     const navState = useSelector((state) => state.navstate.data)
     const dispatch = useDispatch()
 
-    const switchViewHandler = (key) => {
-        const newData = cloneDeep(navState)
-        let lastActiveView = Object.keys(newData).filter(key => newData[key] === true)
-        newData[lastActiveView] = false
-        newData[key] = true
-        dispatch(switchView(newData))
+    const switchNav = (nav) => {
+        switchViewHandler(nav, navState, dispatch)
     }
+
     // console.log('navState:::', navState)
     return (
         <div className={`${styles.navWrapper} + ${!navState.intro ? styles.slateTheme : ''}`}>
@@ -23,16 +19,16 @@ const Navbar = () => {
                 className={styles.brand}
 
             >
-                <Link to="/portfolio"><span onClick={() => switchViewHandler('intro')}>Shubham</span></Link>
+                <Link to="/portfolio" onClick={() => switchNav('intro')}><span>Shubham</span></Link>
             </div>
             <div>
-                <Link to="/experience"><span onClick={() => switchViewHandler('exp')}>Experience</span></Link>
+                <Link to="/experience" onClick={() => switchNav('exp')}><span>Experience</span></Link>
             </div>
             <div>
-                <Link to="/education"><span onClick={() => switchViewHandler('edu')}>Education</span></Link>
+                <Link to="/education" onClick={() => switchNav('edu')}><span>Education</span></Link>
             </div>
             <div>
-                <Link to="/projects"><span onClick={() => switchViewHandler('projects')}>Projects</span></Link>
+                <Link to="/projects" onClick={() => switchNav('projects')}><span>Projects</span></Link>
             </div>
         </div>
     );

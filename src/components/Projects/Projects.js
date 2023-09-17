@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from '../../css/projects.module.css'
 import Card from "./Card";
 import techroneImg from "../../assets/images/techrone-app.png"
@@ -7,6 +7,8 @@ import healthyfyMeImg from "../../assets/images/Healthy Me.jpeg"
 import chhatramateImg from "../../assets/images/chhatramate.png"
 import oldPorfolio from "../../assets/images/oldPortfolio.png"
 import {ReactComponent as Github} from '../../assets/images/github.svg'
+import { switchViewHandler } from '../NavigationHandler';
+import { useSelector, useDispatch } from 'react-redux';
 
 const ProjectList = [
     {
@@ -60,6 +62,12 @@ const Projects = ({ isActive }) => {
         window.open('https://github.com/S07K?tab=repositories', '_blank')
     }
 
+    const navState = useSelector((state) => state.navstate.data)
+    const dispatch = useDispatch()
+    
+    useEffect(() => {
+        switchViewHandler('projects', navState, dispatch)
+    }, [])
 
     return (isActive ? <div className={styles.projects}>
         <div>

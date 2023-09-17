@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from '../../css/experience.module.css'
 import '../../css/timeline.css'
 import Details from "./Details";
+import { switchViewHandler } from '../NavigationHandler';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Experience = ({ isActive }) => {
     const [year, change] = useState('2023')
@@ -9,6 +11,13 @@ const Experience = ({ isActive }) => {
     const toggleYear = (yr) => {
         change(yr);
     }
+
+    const navState = useSelector((state) => state.navstate.data)
+    const dispatch = useDispatch()
+    
+    useEffect(() => {
+        switchViewHandler('exp', navState, dispatch)
+    }, [])
 
     return (isActive ?
         <div className={styles.experience}>

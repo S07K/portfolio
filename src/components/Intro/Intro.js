@@ -6,6 +6,9 @@ import {ReactComponent as Insta} from '../../assets/images/instagram.svg'
 import {ReactComponent as Fb} from '../../assets/images/facebook.svg'
 import {ReactComponent as Twitter_X} from '../../assets/images/twitter-x.svg'
 import {ReactComponent as LinkedIn} from '../../assets/images/linkedin.svg'
+import { useEffect } from 'react';
+import { switchViewHandler } from '../NavigationHandler';
+import { useSelector, useDispatch } from 'react-redux';
 
 const urls = {
     github: 'https://github.com/S07K',
@@ -20,6 +23,13 @@ const Intro = ({ isActive }) => {
     const openUrl = (url_for) => {
         window.open(urls[url_for], '_blank')
     }
+
+    const navState = useSelector((state) => state.navstate.data)
+    const dispatch = useDispatch()
+    
+    useEffect(() => {
+        switchViewHandler('intro', navState, dispatch)
+    }, [])
 
     return (
         isActive ?
