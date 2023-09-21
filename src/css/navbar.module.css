@@ -17,6 +17,7 @@
     display: flex;
     /* flex-direction: column; */
     /* justify-content: flex-end; */
+    transition: ease-in-out .2s;
 }
 a {
     text-decoration: none;
@@ -38,6 +39,15 @@ a {
 .navWrapper.slateTheme div {
     color: var(--slate-black);
 }
+.navWrapper.whiteTheme div {
+    color: white;
+}
+.navWrapper.whiteTheme .hamburger div {
+    background: white;
+}
+.navWrapper.whiteTheme {
+    background: transparent;
+}
 .brand {
     font-family: 'autography' !important;
     font-size: 40px;
@@ -45,9 +55,64 @@ a {
     padding-top: 24px;
     color: var(--slate-black);
 }
+.navWrapper.whiteTheme div:hover{
+    color: var(--primary-blue);
+}
 .navWrapper div:hover{
     color: var(--secondary-blue);
 }
 .noWrap {
     width: max-content;
+}
+.hamburger {
+    display: none;
+    z-index: 7;
+}
+
+@media screen and (max-width: 770px) and (min-width: 200px) {
+    .navWrapper .brand {
+        padding-left: 20px;
+        padding-top: 20px;
+    }
+    .navWrapper .brand:hover {
+        color: var(--slate-black);
+    }
+    .hamburger
+    {
+        display: block !important;
+        padding: 10px 20px 10px 20px !important;
+    }
+    .line1, .line2, .line3 {
+        width: 25px !important;
+        height: 4px;
+    }
+    .toggle .line1{
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .toggle .line2{
+        opacity: 0;
+    }
+    .toggle .line3{
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: #242a2c;
+        margin: 5px;
+        transition: all 0.3s ease;
+        border-radius: 58em;
+        box-shadow: 0 0 10px rgba(77, 77, 77, 0.7);
+    }
+    .navWrapper {
+        padding: 10px 0 0 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    .navWrapper div {
+        padding: 0;
+    }
+    .navWrapper .nav_links {
+        display: none;
+    }
 }

@@ -14,6 +14,9 @@
 }
 
 @media screen and (max-width: 770px) and (min-width: 200px) {
+    .education {
+        padding: 80px 20px 50px 20px;
+    }
     .education h1 {
         font-size: 3rem;
     }

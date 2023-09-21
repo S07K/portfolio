@@ -161,6 +161,52 @@
 
 }
 @media screen and (max-width: 770px) and (min-width: 200px) {
+    .introWrapper {
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        grid-template-rows: auto auto;
+        grid-template-columns: auto;
+        padding-top: 80px;
+        height: auto;
+        padding-bottom: 20px;
+    }
+    .brief {
+        padding: 10px 20px 50px 20px;
+    }
+    .introLines {
+        padding: 20px 0 0 0;
+        z-index: 2;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .imgWrapper{
+        width: 90%;
+        max-width: 100%;
+        height: auto;
+        bottom: 0;
+        background: #252525;
+        border-radius: 50%;
+        grid-row: 1;
+        justify-self: center;
+    }
+    .greet{
+        font-size: 2rem;
+    }
+    .bigFont {
+        font-size: 3rem;
+    }
+    .feel {
+        font-size: 20px;
+    }
+    .greet, .bigFont {
+        padding-bottom: 8px;
+    }
+    .imgWrapper img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 50%;
+    }
     .brief h1 {
         font-size: 3rem;
     }

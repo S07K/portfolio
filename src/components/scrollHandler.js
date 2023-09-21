@@ -7,7 +7,7 @@ function scrollHandler() {
         const nav = document.querySelector(`.${NavbarStyle.navWrapper}`);
     
         if(nav) {
-            if (window.scrollY > 200) {
+            if (window.scrollY > 50) {
                 nav.classList.add(useVarStyle.bgWhite);
                 nav.classList.add(useVarStyle.colorSlate);
                 nav.style.paddingBottom = '10px'

@@ -46,7 +46,7 @@ function App() {
   scrollHandler();
   return <>
     {
-      isItMobileDevice ? <InDev /> :
+      // isItMobileDevice ? <InDev /> :
         <BrowserRouter>
           <Navbar />
           <Routes>

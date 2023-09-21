@@ -20,3 +20,9 @@
 .expCaption {
     font-size: 11px !important;
 }
+
+@media screen and (max-width: 770px) and (min-width: 200px) {
+    .details {
+        padding: 0;
+    }
+}

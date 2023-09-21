@@ -27,12 +27,15 @@
 }
 
 @media screen and (max-width: 770px) and (min-width: 200px) {
+    .experience {
+        padding: 80px 20px 50px 20px;
+    }
     .experience h1 {
         font-size: 3rem;
     }
     /* work for the experience timeline here */
     .timeline {
-        display: none;
+        /* display: none; */
     }
 }
 

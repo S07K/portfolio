@@ -78,7 +78,7 @@ const Intro = ({ isActive }) => {
                     </div>
                     <div>
                         <p>
-                            A self-taught <b>Frontend Web Developer</b> , curious to learn new web technologies and make interactive UI. I also have <b>interest in UI/UX Designing</b>.
+                            A self-taught <b>Frontend Web Developer</b>, curious to learn new web technologies and make interactive UI. I also have <b>interest in UI/UX Designing</b>.
                         </p>
                         <h2>What am I doing right now ?</h2>
                         <p>

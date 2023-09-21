@@ -75,6 +75,9 @@ const content_2020 = <div>
             <h3 className={style.expCompany}>Started learning Web development</h3>
             <p className={style.expDesignation}></p>
             <p className={style.expDuration}>got certified</p>
+            <p>
+                <b>Skills:</b> HTML <b>·</b> CSS <b>·</b> JavaScript
+            </p>
         </div>
     </div>
 </div>
@@ -83,8 +86,10 @@ const content_2019 = <div>
         {/* <h1 className={style.expTitle}>Got promoted</h1> */}
         <div className={style.details}>
             <h3 className={style.expCompany}>Graduated From High School</h3>
-            <p className={style.expDesignation}></p>
-            <p className={style.expDuration}></p>
+            <p className={style.expDesignation}>Science Student</p>
+            <p>
+                <b>Subjects:</b> Physics <b>·</b> Chemistry <b>·</b> Mathematics <b>·</b> English <b>·</b> Computer Science
+            </p>
         </div>
     </div>
 </div>

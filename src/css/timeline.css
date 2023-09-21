@@ -15,6 +15,9 @@ if you set this width
 A hover sample effect is added as well as an active state*/
 
 .base-timeline {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
     list-style-type: none;
     counter-reset: number;
     /* number 2021*/
@@ -136,24 +139,37 @@ A hover sample effect is added as well as an active state*/
     transform: scale(2);
 }
 
+.last-dot {
+    display: none;
+}
+
 @media screen and (max-width: 770px) and (min-width: 200px) {
     .base-timeline__item:hover::before, 
     .base-timeline__item--active:hover::before, 
     .base-timeline__item.graduate-dot:hover::before {
         transform: scale(1);
     }
-    /* .base-timeline__item--data::before {
+    .base-timeline__item.dot::before {
+        width: 25px;
+        height: 25px;
+    }
+    .base-timeline__item--data::before {
         content: attr(data-year);
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
+        font-size: 12px;
     }
     .base-timeline__item.graduate-dot::before {
         background-color: white;
-        content: url(../assets/images/graduate.svg);
+        background-image: url(../assets/images/graduate.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        /* background-size: 25px 25px; */
+        content: '';
         color: var(--slate-black);
-        width: 30px;
-        height: 30px;
-    } */
+        width: 40px;
+        height: 40px;
+    }
 }
 
 @media screen and (max-width: 1000px) and (min-width: 770px) {

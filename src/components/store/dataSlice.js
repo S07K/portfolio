@@ -8,7 +8,8 @@ export const navSlice = createSlice({
         exp: false,
         edu: false,
         projects: false
-    }
+    },
+    isOpen: false
   },
   reducers: {
     switchView: (state, action) => {
@@ -18,11 +19,14 @@ export const navSlice = createSlice({
       // immutable state based off those changes.
       // Also, no return statement is required from these functions.
       state.data = action.payload
+    },
+    toggleDrawer: (state, action) => {
+      state.isOpen = action.payload
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { switchView } = navSlice.actions
+export const { switchView, toggleDrawer } = navSlice.actions
 
 export default navSlice.reducer
