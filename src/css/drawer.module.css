@@ -44,11 +44,11 @@
     -moz-animation: text-slide-in .6s;
     animation: text-slide-in .6s;
 }
-/* .wrapper_active div:nth-child(4) {
-    -webkit-animation: text-slide-in .5s;
-    -moz-animation: text-slide-in .5s;
+.wrapper_active div:nth-child(4) {
+    -webkit-animation: text-slide-in .7s;
+    -moz-animation: text-slide-in .7s;
     animation: text-slide-in .7s;
-} */
+}
 
 @keyframes text-slide-in {
     0% {
