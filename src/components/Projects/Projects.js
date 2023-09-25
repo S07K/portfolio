@@ -9,6 +9,7 @@ import oldPorfolio from "../../assets/images/oldPortfolio.png"
 import {ReactComponent as Github} from '../../assets/images/github.svg'
 import { switchViewHandler } from '../NavigationHandler';
 import { useSelector, useDispatch } from 'react-redux';
+import Reveal from '../Reveal'
 
 const ProjectList = [
     {
@@ -54,7 +55,7 @@ const ProjectList = [
 ]
 
 const ProjectCards = ProjectList.map((project) => {
-    return <Card key={project.id} data={project}/>
+    return <Reveal><Card key={project.id} data={project}/></Reveal>
 })
 
 const Projects = ({ isActive }) => {
@@ -71,19 +72,23 @@ const Projects = ({ isActive }) => {
 
     return (isActive ? <div className={styles.projects}>
         <div>
-            <h1>
-                Projects
-            </h1>
+            <Reveal type="horizontal">
+                <h1>
+                    Projects
+                </h1>
+            </Reveal>
             <br></br>
             <div className={styles.projectsWrapper}>
                 {ProjectCards}
             </div>
-            <div className={styles.btnWrapper} onClick={() => openAllRepos()}>
-                <div className={styles.githubRepoBtnWrapper}>
-                    <p>See all projects</p> 
-                    <Github />
+            <Reveal>
+                <div className={styles.btnWrapper} onClick={() => openAllRepos()}>
+                    <div className={styles.githubRepoBtnWrapper}>
+                        <p>See all projects</p> 
+                        <Github />
+                    </div>
                 </div>
-            </div>
+            </Reveal>
         </div>
     </div> : '')
 }

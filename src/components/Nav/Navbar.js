@@ -5,6 +5,7 @@ import { switchViewHandler } from '../NavigationHandler';
 import Drawer from './Drawer'
 import { useState } from 'react';
 import { toggleDrawer } from '../store/dataSlice'
+import Reveal from '../Reveal';
 
 const Navbar = () => {
 
@@ -34,9 +35,9 @@ const Navbar = () => {
                 >
                     <Link to="/portfolio" onClick={() => switchNav('intro')}><span>Shubham</span></Link>
                 </div>
-                <div className={styles.nav_links}>
-                    <Link to="/experience" onClick={() => switchNav('exp')}><span>Experience</span></Link>
-                </div>
+                    <div className={styles.nav_links}>
+                        <Link to="/experience" onClick={() => switchNav('exp')}><span>Experience</span></Link>
+                    </div>
                 <div className={styles.nav_links}>
                     <Link to="/education" onClick={() => switchNav('edu')}><span>Education</span></Link>
                 </div>

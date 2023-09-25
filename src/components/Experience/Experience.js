@@ -4,6 +4,7 @@ import '../../css/timeline.css'
 import Details from "./Details";
 import { switchViewHandler } from '../NavigationHandler';
 import { useSelector, useDispatch } from 'react-redux';
+import Reveal from "../Reveal";
 
 const Experience = ({ isActive }) => {
     const [year, change] = useState('2023')
@@ -22,9 +23,11 @@ const Experience = ({ isActive }) => {
     return (isActive ?
         <div className={styles.experience}>
             <div>
-                <h1>
-                    Experience
-                </h1>
+                <Reveal type="horizontal">
+                    <h1>
+                        Experience
+                    </h1>
+                </Reveal>
                 <div className={styles.timeline}>
                     <br /><br />
                     <ul className="base-timeline">

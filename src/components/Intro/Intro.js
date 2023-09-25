@@ -9,6 +9,7 @@ import {ReactComponent as LinkedIn} from '../../assets/images/linkedin.svg'
 import { useEffect } from 'react';
 import { switchViewHandler } from '../NavigationHandler';
 import { useSelector, useDispatch } from 'react-redux';
+import Reveal from '../Reveal'
 
 const urls = {
     github: 'https://github.com/S07K',
@@ -36,25 +37,33 @@ const Intro = ({ isActive }) => {
             <>
                 <div className={styles.introWrapper}>
                     <div className={styles.introLines}>
-                        <p className={styles.greet}>Hola!</p>
-                        <code className={styles.code}>&lt;<span style={{ color: 'var(--primary-blue)' }}>Code</span> + <span style={{ color: 'var(--primary-blue)' }}>Design</span>/&gt;</code>
-                        <p className={styles.bigFont}>I'm
-                            <TypeAnimation
-                                className={styles.name}
-                                sequence={[
-                                    // Same substring at the start will only be typed out once, initially
-                                    " Shubham.",
-                                    1000, // wait 1s before replacing "Mice" with "Hamsters"
-                                    " a UI Engineer."
-                                ]}
-                                wrapper="span"
-                                speed={{type: "keyStrokeDelayInMs", value: 200}}
-                                deletionSpeed={2}
-                                preRenderFirstString={true}
-                                repeat={Infinity}
-                            />
-                        </p>
-                        <span className={styles.feel}><i>Glad to have you here</i> :)</span>
+                        <Reveal>
+                            <p className={styles.greet}>Hola!</p>
+                        </Reveal>
+                        <Reveal>
+                            <code className={styles.code}>&lt;<span style={{ color: 'var(--primary-blue)' }}>Code</span> + <span style={{ color: 'var(--primary-blue)' }}>Design</span>/&gt;</code>
+                        </Reveal>
+                        <Reveal>
+                            <p className={styles.bigFont}>I'm
+                                <TypeAnimation
+                                    className={styles.name}
+                                    sequence={[
+                                        // Same substring at the start will only be typed out once, initially
+                                        " Shubham.",
+                                        1000, // wait 1s before replacing "Mice" with "Hamsters"
+                                        " a UI Engineer."
+                                    ]}
+                                    wrapper="span"
+                                    speed={{type: "keyStrokeDelayInMs", value: 200}}
+                                    deletionSpeed={2}
+                                    preRenderFirstString={true}
+                                    repeat={Infinity}
+                                />
+                            </p>
+                        </Reveal>
+                        <Reveal type="horizontal">
+                            <span className={styles.feel}><i>Glad to have you here</i> :)</span>                        
+                        </Reveal>
                         <div className={styles.socialAccounts}>
                             <Github onClick={() => openUrl('github')}/> 
                             <Insta onClick={() => openUrl('insta')}/>
@@ -71,20 +80,28 @@ const Intro = ({ isActive }) => {
                     </div>
                 </div>
                 <div className={styles.brief}>
+                    <Reveal>
+                        <div>
+                            <h1>
+                                About
+                            </h1>
+                        </div>
+                    </Reveal>
                     <div>
-                        <h1>
-                            About
-                        </h1>
-                    </div>
-                    <div>
-                        <p>
-                            A self-taught <b>Frontend Web Developer</b>, curious to learn new web technologies and make interactive UI. I also have <b>interest in UI/UX Designing</b>.
-                        </p>
-                        <h2>What am I doing right now ?</h2>
-                        <p>
-                            Currently working as a <b>Software Engineer</b> at <b>EnableX</b>.
-                            Within my role, I am proficient in <b>JavaScript</b> for managing the UI in accordance with <b>third party APIs</b> responses. Moreover, I play a key role in the software's development by implementing new features and enhancing its functionality. Additionally, I take full ownership of the integrated features, ensuring their successful integration and optimal performance.
-                        </p>
+                        <Reveal>
+                            <p>
+                                A self-taught <b>Frontend Web Developer</b>, curious to learn new web technologies and make interactive UI. I also have <b>interest in UI/UX Designing</b>.
+                            </p>
+                        </Reveal>
+                        <Reveal>
+                            <h2>What am I doing right now ?</h2>
+                        </Reveal>
+                        <Reveal>
+                            <p>
+                                Currently working as a <b>Software Engineer</b> at <b>EnableX</b>.
+                                Within my role, I am proficient in <b>JavaScript</b> for managing the UI in accordance with <b>third party APIs</b> responses. Moreover, I play a key role in the software's development by implementing new features and enhancing its functionality. Additionally, I take full ownership of the integrated features, ensuring their successful integration and optimal performance.
+                            </p>
+                        </Reveal>
                     </div>
                 </div>
             </>
