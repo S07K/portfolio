@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 const Drawer = ({switchView, isOpen}) => {
     return (
         <div className={`${styles.wrapper} ${isOpen ? `${styles.wrapper_active}` : `${styles.wrapper_inactive}`}`}>
-            {/* <div
+            <div
                 className={styles.brand}
 
             >
-                <Link to="/portfolio" onClick={() => switchView('intro')}><span>Home</span></Link>
-            </div> */}
+                <Link to="/portfolio" onClick={() => switchView('intro')}><span>About</span></Link>
+            </div>
             <div className={styles.nav_switcher}>
                 <Link to="/experience" onClick={() => switchView('exp')}><span>Experience</span></Link>
             </div>
