@@ -1,0 +1,71 @@
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #252525;
+    color: white;
+    backdrop-filter: blur(8px);
+    z-index: 7;
+    font-family: 'poppins';
+}
+
+.slideOut {
+    animation: slideOut .3s ease-in-out;
+    transform: translateX(-100%);
+}
+
+.dotTyping {
+    position: relative;
+    left: -9999px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #7d8a8d;
+    color: #7d8a8d;
+    box-shadow: 9984px 0 0 0 #7d8a8d, 9999px 0 0 0 #7d8a8d, 10014px 0 0 0 #7d8a8d;
+    animation: dot-typing 1.5s infinite linear;
+  }
+  
+  @keyframes dot-typing {
+    0% {
+      box-shadow: 9984px 0 0 0 #7d8a8d, 9999px 0 0 0 #7d8a8d, 10014px 0 0 0 #7d8a8d;
+    }
+    16.667% {
+      box-shadow: 9984px -10px 0 0 #7d8a8d, 9999px 0 0 0 #7d8a8d, 10014px 0 0 0 #7d8a8d;
+    }
+    33.333% {
+      box-shadow: 9984px 0 0 0 #7d8a8d, 9999px 0 0 0 #7d8a8d, 10014px 0 0 0 #7d8a8d;
+    }
+    50% {
+      box-shadow: 9984px 0 0 0 #7d8a8d, 9999px -10px 0 0 #7d8a8d, 10014px 0 0 0 #7d8a8d;
+    }
+    66.667% {
+      box-shadow: 9984px 0 0 0 #7d8a8d, 9999px 0 0 0 #7d8a8d, 10014px 0 0 0 #7d8a8d;
+    }
+    83.333% {
+      box-shadow: 9984px 0 0 0 #7d8a8d, 9999px 0 0 0 #7d8a8d, 10014px -10px 0 0 #7d8a8d;
+    }
+    100% {
+      box-shadow: 9984px 0 0 0 #7d8a8d, 9999px 0 0 0 #7d8a8d, 10014px 0 0 0 #7d8a8d;
+    }
+  }
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0%);
+        visibility: visible;
+        /* opacity: 1; */
+    }
+    100% {
+        transform: translateX(-100%);
+        visibility: hidden;
+        /* opacity: 0; */
+    }
+}

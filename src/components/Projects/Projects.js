@@ -6,6 +6,7 @@ import royalEatsImg from "../../assets/images/royal eats.png"
 import healthyfyMeImg from "../../assets/images/Healthy Me.jpeg"
 import chhatramateImg from "../../assets/images/chhatramate.png"
 import oldPorfolio from "../../assets/images/oldPortfolio.png"
+import biout from "../../assets/images/biout.png"
 import {ReactComponent as Github} from '../../assets/images/github.svg'
 import { switchViewHandler } from '../NavigationHandler';
 import { useSelector, useDispatch } from 'react-redux';
@@ -13,11 +14,19 @@ import Reveal from '../Reveal'
 
 const ProjectList = [
     {
-        id: '1',
+        id: '0',
         img: oldPorfolio,
         name: 'Old Portfolio',
         url: 'https://s07k.github.io/s7k',
         description: 'Old portfolio website which I made in college while learning the web dev skills',
+        techStack: ''
+    },
+    {
+        id: '1',
+        img: biout,
+        name: 'Bhangra It Out',
+        url: 'https://s07k.github.io/Bhangra-it-out/',
+        description: 'This Project was undertaken while working as a frontend web developer at Teach For India',
         techStack: ''
     },
     {

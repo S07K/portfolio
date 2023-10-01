@@ -9,7 +9,8 @@ export const navSlice = createSlice({
         edu: false,
         projects: false
     },
-    isOpen: false
+    isOpen: false,
+    loading: true
   },
   reducers: {
     switchView: (state, action) => {
@@ -22,11 +23,14 @@ export const navSlice = createSlice({
     },
     toggleDrawer: (state, action) => {
       state.isOpen = action.payload
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { switchView, toggleDrawer } = navSlice.actions
+export const { switchView, toggleDrawer, setLoading } = navSlice.actions
 
 export default navSlice.reducer

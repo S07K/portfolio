@@ -6,9 +6,11 @@ import {ReactComponent as Insta} from '../../assets/images/instagram.svg'
 import {ReactComponent as Fb} from '../../assets/images/facebook.svg'
 import {ReactComponent as Twitter_X} from '../../assets/images/twitter-x.svg'
 import {ReactComponent as LinkedIn} from '../../assets/images/linkedin.svg'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { switchViewHandler } from '../NavigationHandler';
+import { setLoading } from '../store/dataSlice'
 import { useSelector, useDispatch } from 'react-redux';
+import Loader from '../Loader';
 import Reveal from '../Reveal'
 
 const urls = {
@@ -25,16 +27,21 @@ const Intro = ({ isActive }) => {
         window.open(urls[url_for], '_blank')
     }
 
+    const loading = useSelector((state) => state.navstate.loading)
     const navState = useSelector((state) => state.navstate.data)
     const dispatch = useDispatch()
     
     useEffect(() => {
         switchViewHandler('intro', navState, dispatch)
+        setTimeout(() => {
+            dispatch(setLoading(false));
+        }, 2000);
     }, [])
 
     return (
         isActive ?
             <>
+                <Loader loading={loading} />
                 <div className={styles.introWrapper}>
                     <div className={styles.introLines}>
                         <Reveal>
