@@ -18,10 +18,9 @@
     margin: 0;
 }
 
-/* .timeline{
-    overflow-x: scroll;
-    overflow-y: hidden;
-} */
+.timeline{
+    font-family: 'Poppins';
+}
 .timeline ul{
     width: 100%;
 }

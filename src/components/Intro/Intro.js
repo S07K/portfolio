@@ -94,7 +94,7 @@ const Intro = ({ isActive }) => {
                             </h1>
                         </div>
                     </Reveal>
-                    <div>
+                    <div style={{fontFamily: 'Poppins'}}>
                         <Reveal>
                             <p>
                                 A self-taught <b>Frontend Web Developer</b>, curious to learn new web technologies and make interactive UI. I also have <b>interest in UI/UX Designing</b>.

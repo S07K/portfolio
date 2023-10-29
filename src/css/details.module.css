@@ -1,8 +1,16 @@
 .expTitle {
     font-size: 30px !important;
 }
+.expWrapper {
+    font-family: 'Poppins';
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-gap: 5%;
+    justify-content: center;
+    padding-top: 40px;
+}
 .details {
-    padding-left: 30px;
+    /* padding-left: 30px; */
 }
 .expCompany {
     font-size: 27px !important;
@@ -17,12 +25,26 @@
     margin: 0;
     color: var(--primary-blue);
 }
-.expCaption {
-    font-size: 11px !important;
+.expBrief {
+    padding-top: 20px;
+}
+.detailsWrapper {
+    max-width: 600px;
+    border: 2px solid #eee;
+    box-shadow: 0 2px 14px #25252505;
+    border-radius: 16px;
+    padding: 20px;
+}
+.detailsWrapper:hover {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 770px) and (min-width: 200px) {
     .details {
         padding: 0;
+    }
+    .expWrapper {
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
     }
 }
