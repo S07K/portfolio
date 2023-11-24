@@ -12,7 +12,7 @@ const Experience = ({ isActive }) => {
     const toggleYear = (yr) => {
         change(yr);
     }
-
+    const darkMode = useSelector((state) => state.navstate.darkMode)
     const navState = useSelector((state) => state.navstate.data)
     const dispatch = useDispatch()
     
@@ -21,7 +21,7 @@ const Experience = ({ isActive }) => {
     }, [])
 
     return (isActive ?
-        <div className={styles.experience}>
+        <div className={`${darkMode ? styles.darkMode : ''} ${styles.experience}`}>
             <div>
                 <Reveal type="horizontal">
                     <h1>
@@ -30,8 +30,8 @@ const Experience = ({ isActive }) => {
                 </Reveal>
                 <div className={styles.timeline}>
                     <br /><br />
-                    <ul className="base-timeline">
-                        <li className="base-timeline__item base-timeline__item--data dot">
+                    <ul className={`${darkMode ? 'darkMode' : ''} base-timeline`}>
+                        <li className={`${darkMode ? 'darkMode' : ''} base-timeline__item base-timeline__item--data dot`}>
                         </li>
                         <li className="base-timeline__item base-timeline__item--data"
                             data-year="2019" onClick={() => toggleYear('2019')}>

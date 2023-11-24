@@ -1,24 +1,36 @@
 .expTitle {
     font-size: 30px !important;
+    font-family: 'poppins';
+    letter-spacing: 0.7px;
 }
 .details {
     padding-left: 30px;
+    font-family: 'poppins';
+    letter-spacing: 0.7px;
 }
 .expCompany {
     font-size: 27px !important;
+    font-family: 'poppins';
+    letter-spacing: 0.7px;
     margin-bottom: 0;
 }
 .expDesignation {
     font-size: 20px !important;
+    font-family: 'poppins';
+    letter-spacing: 0.7px;
     margin: 0;
 }
 .expDuration {
     font-size: 15px !important;
     margin: 0;
     color: var(--primary-blue);
+    font-family: 'poppins';
+    letter-spacing: 0.7px;
 }
 .expCaption {
     font-size: 11px !important;
+    font-family: 'poppins';
+    letter-spacing: 0.7px;
 }
 
 @media screen and (max-width: 770px) and (min-width: 200px) {

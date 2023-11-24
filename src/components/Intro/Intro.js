@@ -27,6 +27,7 @@ const Intro = ({ isActive }) => {
         window.open(urls[url_for], '_blank')
     }
 
+    const darkMode = useSelector((state) => state.navstate.darkMode)
     const loading = useSelector((state) => state.navstate.loading)
     const navState = useSelector((state) => state.navstate.data)
     const dispatch = useDispatch()
@@ -42,7 +43,7 @@ const Intro = ({ isActive }) => {
         isActive ?
             <>
                 <Loader loading={loading} />
-                <div className={styles.introWrapper}>
+                <div className={`${darkMode ? styles.darkMode : ''} ${styles.introWrapper}`}>
                     <div className={styles.introLines}>
                         <Reveal>
                             <p className={styles.greet}>Hola!</p>
@@ -86,7 +87,7 @@ const Intro = ({ isActive }) => {
                         {/* </div> */}
                     </div>
                 </div>
-                <div className={styles.brief}>
+                <div className={`${darkMode ? styles.darkMode : ''} ${styles.brief}`}>
                     <Reveal>
                         <div>
                             <h1>

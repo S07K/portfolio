@@ -45,6 +45,9 @@
     /* padding: 0px 2px 18px 0px; */
     margin: 0;
 }
+.darkMode.timeline ul li .right_content p {
+    color: var(--primary-blue);
+}
 .timeline ul li .right_content p {
     margin: 0;
 }
@@ -167,6 +170,6 @@
 
 }
 
-.timeline a:hover {
+.timeline a {
     text-decoration: underline;
 }
