@@ -1,5 +1,7 @@
 .expTitle {
     font-size: 30px !important;
+    font-family: 'poppins';
+    letter-spacing: 0.7px;
 }
 .expWrapper {
     font-family: 'Poppins';
@@ -11,33 +13,47 @@
 }
 .details {
     /* padding-left: 30px; */
+    padding-left: 30px;
+    font-family: 'poppins';
+    letter-spacing: 0.7px;
 }
 .expCompany {
     font-size: 27px !important;
+    font-family: 'poppins';
+    letter-spacing: 0.7px;
     margin-bottom: 0;
     margin-top: 0;
 }
 .expDesignation {
     font-size: 20px !important;
+    font-family: 'poppins';
+    letter-spacing: 0.7px;
     margin: 0;
 }
 .expDuration {
     font-size: 15px !important;
     margin: 0;
     color: var(--primary-blue);
+    font-family: 'poppins';
+    letter-spacing: 0.7px;
 }
 .expBrief {
     padding-top: 20px;
 }
 .detailsWrapper {
-    background: white;
-    border: 2px solid #eee;
+    /* background: white; */
+    border: 1px solid #eee;
     box-shadow: 0 2px 14px #25252505;
     border-radius: 16px;
     padding: 20px;
 }
 .detailsWrapper:hover {
     cursor: pointer;
+}
+.expCaption {
+    font-size: 11px !important;
+    font-family: 'poppins';
+    letter-spacing: 0.7px;
 }
 
 @media screen and (max-width: 770px) and (min-width: 200px) {

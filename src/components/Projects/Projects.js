@@ -100,6 +100,7 @@ const Projects = ({ isActive }) => {
         window.open('https://github.com/S07K?tab=repositories', '_blank')
     }
 
+    const darkMode = useSelector((state) => state.navstate.darkMode)
     const navState = useSelector((state) => state.navstate.data)
     const dispatch = useDispatch()
     
@@ -107,7 +108,7 @@ const Projects = ({ isActive }) => {
         switchViewHandler('projects', navState, dispatch)
     }, [])
 
-    return (isActive ? <div className={styles.projects}>
+    return (isActive ? <div className={`${darkMode ? styles.darkMode : ''} ${styles.projects}`}>
         <div>
             <Reveal type="horizontal">
                 <h1>

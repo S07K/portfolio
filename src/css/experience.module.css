@@ -2,14 +2,25 @@
     color: white;
     background: var(--slate-black);
 }
+.darkMode ::selection {
+    color: #121212;
+    background: white;
+}
+body:has(.darkMode) {
+    background: #000;
+}
 .experience {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: auto;
+    height: 100vh;
     padding: 80px 70px 50px 70px;
     background: white;
     color: var(--slate-black);
+}
+.darkMode.experience {
+    background: #020202;
+    color: white;
 }
 
 .experience h1 {

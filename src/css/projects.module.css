@@ -6,6 +6,10 @@
     padding: 80px 70px 50px 70px;
     color: var(--slate-black);
 }
+.darkMode.projects {
+    color: white;
+    background: #020202;
+}
 
 .projects h1 {
     left: 70px;

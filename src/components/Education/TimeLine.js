@@ -1,11 +1,13 @@
 import react from 'react'
 import '../../css/educationTimeline.css'
 import Reveal from '../Reveal'
+import { useSelector } from 'react-redux'
 
 const TimeLine = () => {
+    const darkMode = useSelector((state) => state.navstate.darkMode)
     return (
 
-        <div className="timeline">
+        <div className={`${darkMode ? 'darkMode' : ''} timeline`}>
             <ul>
                 <li>
                     <Reveal>
