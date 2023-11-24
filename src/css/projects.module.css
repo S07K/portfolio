@@ -10,6 +10,10 @@
     color: white;
     background: #020202;
 }
+.darkMode.projects {
+    color: white;
+    background: #020202;
+}
 
 .projects h1 {
     left: 70px;
