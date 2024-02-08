@@ -65,7 +65,7 @@ a {
     width: max-content;
 }
 .hamburger {
-    display: none;
+    display: none !important;
     z-index: 7;
 }
 
