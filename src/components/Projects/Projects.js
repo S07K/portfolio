@@ -5,6 +5,8 @@ import techroneImg from "../../assets/images/techrone-app.png"
 import royalEatsImg from "../../assets/images/royal eats.png"
 import healthyfyMeImg from "../../assets/images/Healthy Me.jpeg"
 import chhatramateImg from "../../assets/images/chhatramate.png"
+import pranaAir from "../../assets/images/pranaAir.png"
+import AQIApp from "../../assets/images/AQIApp.png"
 import oldPorfolio from "../../assets/images/oldPortfolio.png"
 import biout from "../../assets/images/biout.png"
 import {ReactComponent as Github} from '../../assets/images/github.svg'
@@ -59,6 +61,22 @@ const ProjectList = [
         name: 'CHHATRAMATE',
         url: 'https://www.figma.com/proto/uMmE2f1Us1kTAS7OGfjKS9/CHHATRAMATE?node-id=15%3A34&starting-point-node-id=15%3A34',
         description: 'Tried to Design UI/UX for a fake solo brainstormed app. This App is a tool to take notes of anything.',
+        techStack: ''
+    },
+    {
+        id: '6',
+        img: pranaAir,
+        name: 'Prana Air',
+        url: 'https://www.figma.com/proto/bIwpFb3uN2vRP7wnk3o8da/Prana-Air?type=design&t=yEMv9RTWfKuOaC7y-1&scaling=contain&page-id=0%3A1&starting-point-node-id=15%3A264&node-id=15-264&mode=design',
+        description: 'A website design for a company while working as a freelancer. This is a landing page for a product based startup.',
+        techStack: ''
+    },
+    {
+        id: '7',
+        img: AQIApp,
+        name: 'AQI monitoring App',
+        url: 'https://www.figma.com/proto/PK0b1v1DUNTflTSoJEAmyC/AQI-2?type=design&node-id=8-164&t=OAtnCQ3pVnE1n7pa-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=8%3A164&show-proto-sidebar=1&mode=design',
+        description: 'A website design for a company while working as a freelancer. This is a landing page for a startup which monitors the AQI through their product being installed in various regions.',
         techStack: ''
     },
 ]

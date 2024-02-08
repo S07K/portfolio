@@ -10,7 +10,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     padding: 80px 70px 50px 70px;
     background: white;
     color: var(--slate-black);
@@ -26,10 +27,9 @@
     margin: 0;
 }
 
-/* .timeline{
-    overflow-x: scroll;
-    overflow-y: hidden;
-} */
+.timeline{
+    font-family: 'Poppins';
+}
 .timeline ul{
     width: 100%;
 }
