@@ -4,7 +4,7 @@
 .expWrapper {
     font-family: 'Poppins';
     display: grid;
-    grid-template-columns: 45% 45%;
+    grid-template-columns: 90%;
     grid-gap: 5%;
     justify-content: center;
     padding-top: 40px;
@@ -15,6 +15,7 @@
 .expCompany {
     font-size: 27px !important;
     margin-bottom: 0;
+    margin-top: 0;
 }
 .expDesignation {
     font-size: 20px !important;
@@ -29,7 +30,7 @@
     padding-top: 20px;
 }
 .detailsWrapper {
-    max-width: 600px;
+    background: white;
     border: 2px solid #eee;
     box-shadow: 0 2px 14px #25252505;
     border-radius: 16px;

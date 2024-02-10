@@ -97,16 +97,37 @@ const Intro = ({ isActive }) => {
                     <div style={{fontFamily: 'Poppins'}}>
                         <Reveal>
                             <p>
-                                A self-taught <b>Frontend Web Developer</b>, curious to learn new web technologies and make interactive UI. I also have <b>interest in UI/UX Designing</b>.
+                                <b>Welcome</b> to my portfolio! 
+                                <br />
+                                <br />
                             </p>
                         </Reveal>
                         <Reveal>
-                            <h2>What am I doing right now ?</h2>
+                            <p>
+                                I am a passionate and <b>versatile Software Engineer</b> based in Noida, India, currently working at <b>ENABLEX</b>. 
+                                With a strong foundation in languages such as <b>C++, Python, JavaScript, TypeScript, Ruby, HTML, and CSS</b>. 
+                                I specialize in frontend development, API integration, and SaaS extension development.
+                            </p>
                         </Reveal>
                         <Reveal>
                             <p>
-                                Currently working as a <b>Software Engineer</b> at <b>EnableX</b>.
-                                Within my role, I am proficient in <b>JavaScript</b> for managing the UI in accordance with <b>third party APIs</b> responses. Moreover, I play a key role in the software's development by implementing new features and enhancing its functionality. Additionally, I take full ownership of the integrated features, ensuring their successful integration and optimal performance.
+                                In my current role at ENABLEX, I have played a pivotal role in integrating third-party APIs into the Chatbot Flow Builder Application, facilitating seamless data transfer to CRM systems like <b>ZOHO, Zendesk, and HubSpot</b>. 
+                                As the Frontend Lead for the <b>Chatbot Builder SaaS Project</b>, I led the development efforts to deliver effective solutions and collaborated closely with design teams to create a user-centric interface.
+                                I have a rich background as an Engineer Trainee at ENABLEX, where I showcased proficiency in JavaScript development, UX enhancement, and API integration. 
+                                My ability to adapt quickly was demonstrated when I built the first Ruby application server within a challenging two-day timeframe.
+                            </p>
+                        </Reveal>
+                        <Reveal>
+                            <p>
+                                In addition to my professional experience, I have contributed to open-source projects during my time as a Contributor in the GIRLSCRIPT WINTER OF CONTRIBUTING 2021 program, highlighting my commitment to community engagement and collaborative software development.
+                                I hold a Bachelor of Science (Honors) in Computer Science from Shaheed Sukhdev College of Business Studies, University of Delhi, where I laid the academic groundwork for my career.
+                            </p>
+                        </Reveal>
+                        <Reveal>
+                            <p>
+                                Beyond coding, I enjoy playing sports, listening to music, and engaging in meaningful conversations. 
+                                In my free time, I love exploring new tech stacks, showcasing my curiosity and enthusiasm for staying at the forefront of technology.
+                                Explore my portfolio to learn more about my skills, projects, and the innovative solutions I bring to the world of software development!
                             </p>
                         </Reveal>
                     </div>

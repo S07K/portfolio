@@ -28,7 +28,7 @@ const Experience = ({ isActive }) => {
                         Experience
                     </h1>
                 </Reveal>
-                <div className={styles.timeline}>
+                <div className={`${styles.timeline} timeline_list`}>
                     <br /><br />
                     <ul className="base-timeline">
                         <li className="base-timeline__item base-timeline__item--data dot">
