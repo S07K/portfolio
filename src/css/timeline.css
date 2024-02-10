@@ -1,8 +1,6 @@
-ul,
-li {
+.timeline_list ul, .timeline_list li {
     margin: 0;
     padding: 0;
-
 }
 
 span::first-letter {
