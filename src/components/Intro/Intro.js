@@ -15,9 +15,9 @@ import Reveal from '../Reveal'
 
 const urls = {
     github: 'https://github.com/S07K',
-    insta: 'https://www.instagram.com/sam_07_00_/',
+    insta: 'https://www.instagram.com/0700shubham/',
     facebook: 'https://www.facebook.com/profile.php?id=100012603552078',
-    twitter_x: 'https://twitter.com/sam_07_00_',
+    twitter_x: 'https://twitter.com/0700shubham',
     linkedin: 'https://www.linkedin.com/in/shubham-kumar-957a33200/',
 }
 
