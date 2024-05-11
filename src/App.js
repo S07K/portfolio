@@ -7,21 +7,11 @@ import Education from './components/Education/Education';
 import Projects from './components/Projects/Projects';
 import { switchViewHandler } from '../src/components/NavigationHandler';
 import { useSelector, useDispatch } from 'react-redux';
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect } from 'react';
 import scrollHandler from './components/scrollHandler';
 import Unauthorized from './components/Unauthorized'
 import InDev from './components/InDev'
-
-function ScrollRestoration() {
-  const location = useLocation();
-
-  useEffect(() => {
-    window.scrollTo({top: 0}); // Restore scroll position on route change
-  }, [location]);
-
-  return null;
-}
 
 function App() {
   window.mobileCheck = function () {
@@ -59,7 +49,6 @@ function App() {
       // isItMobileDevice ? <InDev /> :
         <BrowserRouter>
           <Navbar />
-          <ScrollRestoration />
           <Routes>
             <Route path="portfolio" element={<Intro isActive={navState.intro} />} />
             <Route path="experience" element={<Experience isActive={navState.exp} />} />
