@@ -11,6 +11,7 @@
     left: 70px;
     font-size: 10rem;
     margin: 0;
+    margin-bottom: 40px;
 }
 
 .projectsWrapper {
@@ -73,7 +74,8 @@
 
 @media screen and (max-width: 1000px) and (min-width: 770px) {
     .projectsWrapper {
-        grid-template-columns: auto auto
+        grid-template-columns: auto auto;
+        grid-gap: 24px;
     }
 
     .projects h1 {
