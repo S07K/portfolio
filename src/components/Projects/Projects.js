@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import styles from '../../css/projects.module.css'
 import Card from "./Card";
+import PostProAI from "../../assets/images/PostProAI.png"
 import taskTracker from "../../assets/images/taskTracker.png"
 import techroneImg from "../../assets/images/techrone-app.png"
 // import royalEatsImg from "../../assets/images/royal eats.png"
@@ -18,10 +19,17 @@ import { nanoid } from "nanoid";
 
 const ProjectList = [
     {
+        img: PostProAI,
+        name: 'PostProAI',
+        url: 'https://post-pro-ai.vercel.app/',
+        description: 'A web application that allows users to generate AI-powered images and post them directly to Instagram. Deployed on Vercel with Firebase for file storage, it’s built for efficiency and growth.',
+        techStack: ''
+    },
+    {
         img: taskTracker,
         name: 'Task Tracker',
         url: 'https://task-tracker-frontend-eta.vercel.app/',
-        description: 'Task Tracker: A web app to manage and track daily, weekly, and monthly tasks. Features include email verification, user authentication, and CRUD operations. Deployed on Vercel and MongoDB Atlas.',
+        description: 'A web app to manage and track daily, weekly, and monthly tasks. Features include email verification, user authentication, and CRUD operations. Deployed on Vercel and MongoDB Atlas.',
         techStack: ''
     },
     {
