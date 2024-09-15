@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.dbb3ca2a.css",
-    "main.js": "/portfolio/static/js/main.9f2d9f52.js",
+    "main.js": "/portfolio/static/js/main.9ef2b631.js",
     "static/js/787.1ed0c42c.chunk.js": "/portfolio/static/js/787.1ed0c42c.chunk.js",
     "static/media/biout.png": "/portfolio/static/media/biout.ba06e3cad34a674ca1a3.png",
     "static/media/mewithoutbg.png": "/portfolio/static/media/mewithoutbg.dacd99bdb7475c0eb2a8.png",
@@ -14,6 +14,7 @@
     "static/media/Poppins-Regular.ttf": "/portfolio/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/AQIApp.png": "/portfolio/static/media/AQIApp.cf42b133d699212f91bc.png",
     "static/media/FontsFree-Net-Autography.ttf": "/portfolio/static/media/FontsFree-Net-Autography.55963d19acc499209e6e.ttf",
+    "static/media/PostProAI.png": "/portfolio/static/media/PostProAI.ffd9768ea74375f4474a.png",
     "static/media/InDev.svg": "/portfolio/static/media/InDev.002a50daf7ae3710f0df38203f7f305d.svg",
     "static/media/graduate.svg": "/portfolio/static/media/graduate.42b92fac7a75e9144263.svg",
     "static/media/instagram.svg": "/portfolio/static/media/instagram.4d969dd141d389ed7a2fe7584b56d681.svg",
@@ -23,11 +24,11 @@
     "static/media/facebook.svg": "/portfolio/static/media/facebook.4d4460260f64103d8da4a91d8e856d36.svg",
     "static/media/twitter-x.svg": "/portfolio/static/media/twitter-x.56fcd14c8c7a1388d2964f51ed144519.svg",
     "main.dbb3ca2a.css.map": "/portfolio/static/css/main.dbb3ca2a.css.map",
-    "main.9f2d9f52.js.map": "/portfolio/static/js/main.9f2d9f52.js.map",
+    "main.9ef2b631.js.map": "/portfolio/static/js/main.9ef2b631.js.map",
     "787.1ed0c42c.chunk.js.map": "/portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dbb3ca2a.css",
-    "static/js/main.9f2d9f52.js"
+    "static/js/main.9ef2b631.js"
   ]
 }
