@@ -13,7 +13,6 @@
 }
 .details {
     /* padding-left: 30px; */
-    padding-left: 30px;
     font-family: 'poppins';
     letter-spacing: 0.7px;
 }
@@ -34,6 +33,11 @@
     font-size: 15px !important;
     margin: 0;
     color: var(--primary-blue);
+    font-family: 'poppins';
+    letter-spacing: 0.7px;
+}
+.expCaption {
+    font-size: 11px !important;
     font-family: 'poppins';
     letter-spacing: 0.7px;
 }

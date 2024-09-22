@@ -174,7 +174,7 @@ const content_2020 = <div className={style.expWrapper}>
     <div className={style.detailsWrapper}>
         <div className={style.details}>
             <Reveal><h3 className={style.expCompany}>Started learning Web development</h3></Reveal>
-            <Reveal><p className={style.expDesignation}>Got Certififications</p></Reveal>
+            <Reveal><p className={style.expDesignation}>Got Certifications</p></Reveal>
             <Reveal><p className={style.expDuration}></p></Reveal>
             <div className={style.expBrief}>
                 <Reveal><b>Skills:</b> HTML <b>·</b> CSS <b>·</b> JavaScript</Reveal>
