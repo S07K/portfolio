@@ -48,7 +48,7 @@ const Experience = ({ isActive }) => {
                         <li className="base-timeline__item base-timeline__item--data graduate-dot" title="Graduated" onClick={() => toggleYear('2022')}>
                         </li>
                         <li className="base-timeline__item base-timeline__item--data base-timeline__item--active"
-                            data-year="2023" onClick={() => toggleYear('2023')}>
+                            data-year="Now" onClick={() => toggleYear('2023')}>
                         </li>
                         <li className="base-timeline__item base-timeline__item--data dot last-dot">
                         </li>
