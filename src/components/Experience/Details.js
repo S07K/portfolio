@@ -12,56 +12,45 @@ const content_2023 = <div className={style.expWrapper}>
                 <p className={style.expDesignation}>Software Engineer</p>
             </Reveal>
             <Reveal>
-                <p className={style.expDuration}>July 5<sup>th</sup> - present</p>
+                <p className={style.expDuration}>July 5<sup>th</sup> 2023 - present</p>
             </Reveal>
             <div className={style.expBrief}>
                 <Reveal>
-                    <b>Skills:</b> Zoho <b>·</b> Zoho Extension <b>·</b> UI development <b>·</b> Design <b>·</b> User Experience Design (UED) <b>·</b> User Experience (UX) <b>·</b> User Interface Design <b>·</b> Git <b>·</b> jQuery <b>·</b> React <b>·</b> Redux <b>·</b> TypeScript
+                    <b>Skills:</b> Calendly <b>·</b> Salesforce <b>·</b> Zoho <b>·</b> UI development <b>·</b> Design <b>·</b> User Experience Design (UED) <b>·</b> User Experience (UX) <b>·</b> User Interface Design <b>·</b> Git <b>·</b> jQuery <b>·</b> React <b>·</b> Redux <b>·</b> TypeScript
                 </Reveal>
                 <br></br>
                 <b>Description:</b> 
                 <ul>
-                    <Reveal>
-                        <li>
-                            <b>Integration in the Chatbot Flow builder Application: </b> 
-                            Successfully integrated third party system APIs in the Application, allowing users to seamlessly
-                            push chatbot user data into CRM systems such as ZOHO, Zendesk, and HubSpot. Enhanced the functionality of the Builder by enabling direct data
-                            integration with popular CRM tools which covers 80% of the market, streamlining customer data management processes.
-                        </li>
-                    </Reveal>
-                    <Reveal>
-                        <li>
-                            <b>Frontend Lead (Chatbot Builder SaaS Project): </b> 
-                            Led the front-end development of a Chatbot Builder SaaS Project, playing a pivotal role in ensuring the
-                            delivery of highly effective solutions. Spearheaded the coordination of design and development efforts within the frontend team, fostering collaboration
-                            to create a user-centric interface for the Chatbot Builder application.
-                        </li>
-                    </Reveal>
-                    <Reveal>
-                        <li>
-                            <b>SaaS Extension Development Leader (ZOHO Marketplace): </b> 
-                            Independently conceptualized, designed, and built a bespoke SaaS extension for the
-                            ZOHO Marketplace. Placed special emphasis on SMS API integration, enhancing the extension's functionality and providing a flawless experience for
-                            users. Solely developed both the user interface (UI) and user experience (UX) for the extension, showcasing comprehensive skills in design and
-                            technical proficiency.
-                        </li>
-                    </Reveal>
-                    <Reveal>
-                        <li>
-                            <b>API Integration Leadership (SaaS React Application): </b> 
-                            Demonstrated proficiency in leading API integration efforts within a SaaS React application,
-                            elevating its overall functionality. Collaborated closely with backend teams, ensuring effective communication between components, and contributing
-                            to a streamlined user experience.
-                        </li>
-                    </Reveal>
-                    <Reveal>
-                        <li>
-                            <b>Optimized User Flow for React Project: </b> 
-                            Played a key role in refining the user flow for a React project, ensuring a smooth and intuitive experience for
-                            end-users. Identified specific challenges and pain points, strategically implementing improvements to enhance overall usability and elevate user
-                            satisfaction.
-                        </li>
-                    </Reveal>
+                <Reveal>
+                    <li>
+                        <b>Frontend Lead (Chatbot Builder SaaS Project): </b> 
+                        Led front-end development, ensuring a user-centric interface and effective design for the Chatbot Builder SaaS project, enhancing usability by 40%.
+                    </li>
+                </Reveal>
+                <Reveal>
+                    <li>
+                        <b>Payment Gateway Integration: </b> 
+                        Integrated PayU for Indian customers and Stripe for international transactions into the chatbot platform, enabling seamless in-bot payments. This feature helps businesses scale 40-70% faster.
+                    </li>
+                </Reveal>
+                <Reveal>
+                    <li>
+                        <b>Integration in Chatbot Flow Builder: </b> 
+                        Integrated third-party system APIs, enabling seamless data push to CRM systems like ZOHO, Salesforce, Zendesk, and HubSpot, covering 80% of the market.
+                    </li>
+                </Reveal>
+                <Reveal>
+                    <li>
+                        <b>Calendly Integration: </b> 
+                        Implemented Calendly integration, allowing users to schedule meetings directly through the chatbot, streamlining the booking process and improving user experience.
+                    </li>
+                </Reveal>
+                <Reveal>
+                    <li>
+                        <b>Optimized User Flow for React Project: </b> 
+                        Enhanced user flow by addressing key challenges and implementing strategic improvements, resulting in a 35% increase in overall usability and user satisfaction.
+                    </li>
+                </Reveal>
                 </ul>
             </div>
         </div>
