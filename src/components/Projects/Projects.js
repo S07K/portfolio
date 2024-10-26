@@ -16,6 +16,39 @@ import { switchViewHandler } from '../NavigationHandler';
 import { useSelector, useDispatch } from 'react-redux';
 import Reveal from '../Reveal'
 import { nanoid } from "nanoid";
+import TypeScript from "./Icons/TypeScript";
+import ReactIcon from "./Icons/ReactIcon";
+import ReduxIcon from "./Icons/ReduxIcon";
+import NodeIcon from "./Icons/NodeIcon";
+import Firebase from "./Icons/Firebase";
+import Vercel from "./Icons/Vercel";
+import Express from "./Icons/Express";
+import Figma from "./Icons/Figma";
+import JavaScript from "./Icons/JavaScript";
+import HTML from "./Icons/HTML";
+import CSS from "./Icons/CSS";
+
+const stackIcons = {
+    html: <HTML width={30} height={30} color="var(--slate-black)" />,
+    css: <CSS width={30} height={30} color="var(--slate-black)" />,
+    javascript: <JavaScript width={30} height={30} color="var(--slate-black)" />,
+    typescript: <TypeScript width={30} height={30} color="var(--slate-black)" />,
+    react: <ReactIcon width={30} height={30} color="var(--slate-black)" />,
+    redux: <ReduxIcon width={30} height={30} color="var(--slate-black)" />,
+    node: <NodeIcon width={30} height={30} color="var(--slate-black)" />,
+    firebase: <Firebase width={30} height={30} color="var(--slate-black)" />,
+    vercel: <Vercel width={30} height={30} color="var(--slate-black)" />,
+    express: <Express width={30} height={30} color="var(--slate-black)" />,
+    figma: <Figma width={30} height={30} color="var(--slate-black)" />
+}
+
+const getStack = (techStack) => {
+    const stack = techStack.split(', ')
+    return stack.map((tech) => {
+        const uniqueId = nanoid(10)
+        return <span key={uniqueId} style={{paddingLeft: '2px'}}>{stackIcons[tech]}</span>
+    })
+}
 
 const ProjectList = [
     {
@@ -23,42 +56,42 @@ const ProjectList = [
         name: 'PostProAI',
         url: 'https://post-pro-ai.vercel.app/',
         description: 'A web application that allows users to generate AI-powered images and post them directly to Instagram. Deployed on Vercel with Firebase for file storage, it’s built for efficiency and growth.',
-        techStack: ''
+        techStack: getStack('typescript, react, redux, node, express, firebase, vercel')
     },
     {
         img: taskTracker,
         name: 'Task Tracker',
         url: 'https://task-tracker-frontend-eta.vercel.app/',
         description: 'A web app to manage and track daily, weekly, and monthly tasks. Features include email verification, user authentication, and CRUD operations. Deployed on Vercel and MongoDB Atlas.',
-        techStack: ''
+        techStack: getStack('typescript, react, node, express, vercel')
     },
     {
         img: AQIApp,
         name: 'AQI monitoring App',
         url: 'https://www.figma.com/proto/PK0b1v1DUNTflTSoJEAmyC/AQI-2?type=design&node-id=8-164&t=OAtnCQ3pVnE1n7pa-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=8%3A164&show-proto-sidebar=1&mode=design',
         description: 'A website design for a company while working as a freelancer. This is a landing page for a startup which monitors the AQI through their product being installed in various regions.',
-        techStack: ''
+        techStack: getStack('figma')
     },
     {
         img: techroneImg,
         name: 'Techrone App',
         url: 'https://main--jovial-panini-51602d.netlify.app/',
         description: 'Tried to build a React app. A Drone E-commerce App landing page. Its only a wireframe sign up or login pages are static',
-        techStack: ''
+        techStack: getStack('javascript, react')
     },
     {
         img: oldPorfolio,
         name: 'Old Portfolio',
         url: 'https://s07k.github.io/s7k',
         description: 'Old portfolio website which I made in college while learning the web dev skills',
-        techStack: ''
+        techStack: getStack('html, css, javascript')
     },
     {
         img: biout,
         name: 'Bhangra It Out',
         url: 'https://s07k.github.io/Bhangra-it-out/',
         description: 'This Project was undertaken while working as a frontend web developer at Teach For India',
-        techStack: ''
+        techStack: getStack('html, css')
     },
     // {
     //     img: royalEatsImg,
@@ -79,20 +112,20 @@ const ProjectList = [
         name: 'CHHATRAMATE',
         url: 'https://www.figma.com/proto/uMmE2f1Us1kTAS7OGfjKS9/CHHATRAMATE?node-id=15%3A34&starting-point-node-id=15%3A34',
         description: 'Tried to Design UI/UX for a fake solo brainstormed app. This App is a tool to take notes of anything.',
-        techStack: ''
+        techStack: getStack('figma')
     },
     {
         img: pranaAir,
         name: 'Prana Air',
         url: 'https://www.figma.com/proto/bIwpFb3uN2vRP7wnk3o8da/Prana-Air?type=design&t=yEMv9RTWfKuOaC7y-1&scaling=contain&page-id=0%3A1&starting-point-node-id=15%3A264&node-id=15-264&mode=design',
         description: 'A website design for a company while working as a freelancer. This is a landing page for a product based startup.',
-        techStack: ''
+        techStack: getStack('figma')
     },
 ]
 
 const ProjectCards = ProjectList.map((project) => {
     const uniqueId = nanoid(10)
-    return <Reveal><Card key={uniqueId} data={project}/></Reveal>
+    return <Reveal key={uniqueId}><Card key={uniqueId} data={project}/></Reveal>
 })
 
 const Projects = ({ isActive }) => {

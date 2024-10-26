@@ -6,6 +6,7 @@ import {ReactComponent as Insta} from '../../assets/images/instagram.svg'
 import {ReactComponent as Fb} from '../../assets/images/facebook.svg'
 import {ReactComponent as Twitter_X} from '../../assets/images/twitter-x.svg'
 import {ReactComponent as LinkedIn} from '../../assets/images/linkedin.svg'
+import {ReactComponent as Youtube} from '../../assets/images/youtube.svg'
 import { useEffect, useState } from 'react';
 import { switchViewHandler } from '../NavigationHandler';
 import { setLoading } from '../store/dataSlice'
@@ -19,6 +20,7 @@ const urls = {
     facebook: 'https://www.facebook.com/profile.php?id=100012603552078',
     twitter_x: 'https://twitter.com/0700shubham',
     linkedin: 'https://www.linkedin.com/in/shubham-kumar-957a33200/',
+    youtube: 'https://www.youtube.com/@LetsCodeWithSam'
 }
 
 const Intro = ({ isActive }) => {
@@ -59,7 +61,7 @@ const Intro = ({ isActive }) => {
                                         // Same substring at the start will only be typed out once, initially
                                         " Shubham.",
                                         1000, // wait 1s before replacing "Mice" with "Hamsters"
-                                        " a UI Engineer."
+                                        " a Software Engineer."
                                     ]}
                                     wrapper="span"
                                     speed={{type: "keyStrokeDelayInMs", value: 200}}
@@ -78,6 +80,7 @@ const Intro = ({ isActive }) => {
                             <Fb onClick={() => openUrl('facebook')}/>
                             <Twitter_X onClick={() => openUrl('twitter_x')}/>
                             <LinkedIn onClick={() => openUrl('linkedin')}/>
+                            <Youtube onClick={() => openUrl('youtube')}/>
                         </div>
 
                     </div>
