@@ -19,6 +19,9 @@
     /* justify-content: flex-end; */
     transition: ease-in-out .2s;
 }
+.darkMode.navWrapper {
+    color: var(--primary-blue);
+}
 a {
     text-decoration: none;
     color: inherit;
@@ -36,10 +39,22 @@ a {
 .navWrapper.slateTheme {
     background: white;
 }
+.darkMode.navWrapper.slateTheme {
+    background: transparent;
+}
 .navWrapper.slateTheme div {
     color: var(--slate-black);
 }
+.darkMode.navWrapper.slateTheme div {
+    color: var(--primary-blue);
+}
+.darkMode.navWrapper.slateTheme div:hover{
+    color: var(--secondary-blue) !important;
+}
 .navWrapper.whiteTheme div {
+    color: white;
+}
+.darkMode.navWrapper.whiteTheme div {
     color: white;
 }
 .navWrapper.whiteTheme .hamburger div {
@@ -53,7 +68,10 @@ a {
     font-size: 40px;
     font-weight: bolder;
     padding-top: 24px;
-    color: var(--slate-black);
+    color: #fff;
+}
+.darkMode .brand {
+    color: white !important;
 }
 .navWrapper.whiteTheme div:hover{
     color: var(--primary-blue);
@@ -64,6 +82,7 @@ a {
 .noWrap {
     width: max-content;
 }
+
 .hamburger {
     display: none !important;
     z-index: 7;
@@ -76,6 +95,9 @@ a {
     }
     .navWrapper .brand:hover {
         color: var(--slate-black);
+    }
+    .darkMode.navWrapper .brand:hover {
+        color: white;
     }
     .hamburger
     {
@@ -104,6 +126,9 @@ a {
         border-radius: 58em;
         box-shadow: 0 0 10px rgba(77, 77, 77, 0.7);
     }
+    .darkMode .hamburger div {
+        background-color: white;
+    }
     .navWrapper {
         padding: 10px 0 0 0;
         display: flex;
@@ -113,6 +138,9 @@ a {
         padding: 0;
     }
     .navWrapper .nav_links {
+        display: none;
+    }
+    .nav_links {
         display: none;
     }
 }

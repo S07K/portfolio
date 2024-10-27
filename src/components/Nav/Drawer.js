@@ -1,7 +1,8 @@
 import styles from '../../css/drawer.module.css'
 import { Link } from 'react-router-dom';
+import DarkModeButton from './DarkModeButton';
 
-const Drawer = ({switchView, isOpen}) => {
+const Drawer = ({switchView, isOpen, closeDrawer}) => {
     return (
         <div className={`${styles.wrapper} ${isOpen ? `${styles.wrapper_active}` : `${styles.wrapper_inactive}`}`}>
             <div
@@ -19,6 +20,7 @@ const Drawer = ({switchView, isOpen}) => {
             <div className={styles.nav_switcher}>
                 <Link to="/projects" onClick={() => switchView('projects')}><span>Projects</span></Link>
             </div>
+            <DarkModeButton style={''} onSwitch={closeDrawer} />
         </div>
     )
 }

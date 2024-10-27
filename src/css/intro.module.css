@@ -2,6 +2,7 @@
     --primary-blue: #7d8a8d;
     --secondary-blue: #264d75;
     --slate-black: #252525;
+    --text-dark: #03573f;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
@@ -27,6 +28,10 @@
     color: white;
     background: var(--slate-black);
 }
+.darkMode.introWrapper *::selection {
+    background: white;
+    color: var(--slate-black);
+}
 @font-face {
     font-family: "playfair";
     src: url("../assets/fonts/playfair/PlayfairDisplay-VariableFont_wght.ttf");
@@ -45,9 +50,17 @@
     background: var(--primary-blue);
     color: var(--slate-black);
 }
+.darkMode.introWrapper {
+    color: var(--primary-blue);
+    background: #020202;
+}
 .brief *::selection {
     color: var(--slate-black);
     background: white;
+}
+.darkMode.brief *::selection {
+    background: var(--slate-black);
+    color: white;
 }
 .brief {
     position: relative;
@@ -57,6 +70,9 @@
     padding: 10px 70px 50px 70px;
     background: var(--slate-black);
     color: #fff;
+}
+.darkMode.brief {
+    background: #121212;
 }
 .brief h1 {
     /* position: absolute;
@@ -155,6 +171,14 @@
 .socialAccounts svg:hover {
     color: var(--slate-black);
     cursor: pointer;
+}
+.darkMode.socialAccounts svg:hover {
+    color: var(--primary-blue);
+}
+
+.stack {
+    width: 100%;
+    max-width: 1000px;
 }
 
 @media (pointer:none), (pointer:coarse) {

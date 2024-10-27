@@ -9,13 +9,13 @@ function scrollHandler() {
         if(nav) {
             if (window.scrollY > 50) {
                 nav.classList.add(useVarStyle.bgWhite);
-                nav.classList.add(useVarStyle.colorSlate);
+                // nav.classList.add(useVarStyle.colorSlate);
                 nav.style.paddingBottom = '10px'
                 nav.style.boxShadow = '0px 0px 4px 4px #2525250d';
             }
             else {
                 nav.classList.remove(useVarStyle.bgWhite);
-                nav.classList.remove(useVarStyle.colorSlate);
+                // nav.classList.remove(useVarStyle.colorSlate);
                 nav.style.paddingBottom = '0px'
                 nav.style.boxShadow = 'none';
             }

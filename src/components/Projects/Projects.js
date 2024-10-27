@@ -28,26 +28,31 @@ import JavaScript from "./Icons/JavaScript";
 import HTML from "./Icons/HTML";
 import CSS from "./Icons/CSS";
 
-const stackIcons = {
-    html: <HTML width={30} height={30} color="var(--slate-black)" />,
-    css: <CSS width={30} height={30} color="var(--slate-black)" />,
-    javascript: <JavaScript width={30} height={30} color="var(--slate-black)" />,
-    typescript: <TypeScript width={30} height={30} color="var(--slate-black)" />,
-    react: <ReactIcon width={30} height={30} color="var(--slate-black)" />,
-    redux: <ReduxIcon width={30} height={30} color="var(--slate-black)" />,
-    node: <NodeIcon width={30} height={30} color="var(--slate-black)" />,
-    firebase: <Firebase width={30} height={30} color="var(--slate-black)" />,
-    vercel: <Vercel width={30} height={30} color="var(--slate-black)" />,
-    express: <Express width={30} height={30} color="var(--slate-black)" />,
-    figma: <Figma width={30} height={30} color="var(--slate-black)" />
-}
 
-const getStack = (techStack) => {
+const Stack = ({techStack}) => {
+    const darkMode = useSelector((state) => state.navstate.darkMode)
+    const stackIcons = {
+        html: <HTML width={30} height={30} color={darkMode ? `white` : `var(--slate-black)`} />,
+        css: <CSS width={30} height={30} color={darkMode ? `white` : `var(--slate-black)`} />,
+        javascript: <JavaScript width={30} height={30} color={darkMode ? `white` : `var(--slate-black)`} />,
+        typescript: <TypeScript width={30} height={30} color={darkMode ? `white` : `var(--slate-black)`} />,
+        react: <ReactIcon width={30} height={30} color={darkMode ? `white` : `var(--slate-black)`} />,
+        redux: <ReduxIcon width={30} height={30} color={darkMode ? `white` : `var(--slate-black)`} />,
+        node: <NodeIcon width={30} height={30} color={darkMode ? `white` : `var(--slate-black)`} />,
+        firebase: <Firebase width={30} height={30} color={darkMode ? `white` : `var(--slate-black)`} />,
+        vercel: <Vercel width={30} height={30} color={darkMode ? `white` : `var(--slate-black)`} />,
+        express: <Express width={30} height={30} color={darkMode ? `white` : `var(--slate-black)`} />,
+        figma: <Figma width={30} height={30} color={darkMode ? `white` : `var(--slate-black)`} />
+    }
     const stack = techStack.split(', ')
-    return stack.map((tech) => {
-        const uniqueId = nanoid(10)
-        return <span key={uniqueId} style={{paddingLeft: '2px'}}>{stackIcons[tech]}</span>
-    })
+    return <>
+        {
+            stack.map((tech) => {
+                const uniqueId = nanoid(10)
+                return <span key={uniqueId} style={{paddingLeft: '2px'}}>{stackIcons[tech]}</span>
+            })
+        }
+    </>
 }
 
 const ProjectList = [
@@ -56,42 +61,42 @@ const ProjectList = [
         name: 'PostProAI',
         url: 'https://post-pro-ai.vercel.app/',
         description: 'A web application that allows users to generate AI-powered images and post them directly to Instagram. Deployed on Vercel with Firebase for file storage, it’s built for efficiency and growth.',
-        techStack: getStack('typescript, react, redux, node, express, firebase, vercel')
+        techStack: <Stack techStack='typescript, react, redux, node, express, firebase, vercel' />
     },
     {
         img: taskTracker,
         name: 'Task Tracker',
         url: 'https://task-tracker-frontend-eta.vercel.app/',
         description: 'A web app to manage and track daily, weekly, and monthly tasks. Features include email verification, user authentication, and CRUD operations. Deployed on Vercel and MongoDB Atlas.',
-        techStack: getStack('typescript, react, node, express, vercel')
+        techStack: <Stack techStack='typescript, react, node, express, vercel' />
     },
     {
         img: AQIApp,
         name: 'AQI monitoring App',
         url: 'https://www.figma.com/proto/PK0b1v1DUNTflTSoJEAmyC/AQI-2?type=design&node-id=8-164&t=OAtnCQ3pVnE1n7pa-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=8%3A164&show-proto-sidebar=1&mode=design',
         description: 'A website design for a company while working as a freelancer. This is a landing page for a startup which monitors the AQI through their product being installed in various regions.',
-        techStack: getStack('figma')
+        techStack: <Stack techStack='figma' />
     },
     {
         img: techroneImg,
         name: 'Techrone App',
         url: 'https://main--jovial-panini-51602d.netlify.app/',
         description: 'Tried to build a React app. A Drone E-commerce App landing page. Its only a wireframe sign up or login pages are static',
-        techStack: getStack('javascript, react')
+        techStack: <Stack techStack='javascript, react' />
     },
     {
         img: oldPorfolio,
         name: 'Old Portfolio',
         url: 'https://s07k.github.io/s7k',
         description: 'Old portfolio website which I made in college while learning the web dev skills',
-        techStack: getStack('html, css, javascript')
+        techStack: <Stack techStack='html, css, javascript' />
     },
     {
         img: biout,
         name: 'Bhangra It Out',
         url: 'https://s07k.github.io/Bhangra-it-out/',
         description: 'This Project was undertaken while working as a frontend web developer at Teach For India',
-        techStack: getStack('html, css')
+        techStack: <Stack techStack='html, css' />
     },
     // {
     //     img: royalEatsImg,
@@ -112,14 +117,14 @@ const ProjectList = [
         name: 'CHHATRAMATE',
         url: 'https://www.figma.com/proto/uMmE2f1Us1kTAS7OGfjKS9/CHHATRAMATE?node-id=15%3A34&starting-point-node-id=15%3A34',
         description: 'Tried to Design UI/UX for a fake solo brainstormed app. This App is a tool to take notes of anything.',
-        techStack: getStack('figma')
+        techStack: <Stack techStack='figma' />
     },
     {
         img: pranaAir,
         name: 'Prana Air',
         url: 'https://www.figma.com/proto/bIwpFb3uN2vRP7wnk3o8da/Prana-Air?type=design&t=yEMv9RTWfKuOaC7y-1&scaling=contain&page-id=0%3A1&starting-point-node-id=15%3A264&node-id=15-264&mode=design',
         description: 'A website design for a company while working as a freelancer. This is a landing page for a product based startup.',
-        techStack: getStack('figma')
+        techStack: <Stack techStack='figma' />
     },
 ]
 
@@ -133,6 +138,7 @@ const Projects = ({ isActive }) => {
         window.open('https://github.com/S07K?tab=repositories', '_blank')
     }
 
+    const darkMode = useSelector((state) => state.navstate.darkMode)
     const navState = useSelector((state) => state.navstate.data)
     const dispatch = useDispatch()
     
@@ -140,7 +146,7 @@ const Projects = ({ isActive }) => {
         switchViewHandler('projects', navState, dispatch)
     }, [])
 
-    return (isActive ? <div className={styles.projects}>
+    return (isActive ? <div className={`${darkMode ? styles.darkMode : ''} ${styles.projects}`}>
         <div>
             <Reveal type="horizontal">
                 <h1>

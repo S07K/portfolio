@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Reveal from "../Reveal";
 
 const Education = ({ isActive }) => {
+    const darkMode = useSelector((state) => state.navstate.darkMode)
     const navState = useSelector((state) => state.navstate.data)
     const dispatch = useDispatch()
     
@@ -13,7 +14,7 @@ const Education = ({ isActive }) => {
         switchViewHandler('edu', navState, dispatch)
     }, [])
 
-    return (isActive ? <div className={styles.education}>
+    return (isActive ? <div className={`${darkMode ? styles.darkMode : ''} ${styles.education}`}>
         <div>
             <Reveal type="horizontal">
                 <h1>

@@ -37,6 +37,9 @@ A hover sample effect is added as well as an active state*/
     z-index: -1;
 
 }
+.darkMode.base-timeline::before {
+    border-top: 2px solid var(--primary-blue);
+}
 
 /* set width of time-line this can be px, percentage or other unit
 3 is the number of list items minus 1 when using percentage
@@ -119,6 +122,10 @@ A hover sample effect is added as well as an active state*/
     color: var(--slate-black);
     width: 45px;
     height: 45px;
+}
+.darkMode.base-timeline__item.dot::before {
+    background-color: var(--primary-blue);
+    color: var(--primary-blue);
 }
 .base-timeline__item.dot:hover::before {
     /* background-color: var(--slate-black); */
