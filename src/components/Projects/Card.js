@@ -26,7 +26,7 @@ const Card = ({ id, data }) => {
                 <div className={styles.details}>
                     <div className={styles.heading}>{name}</div>
                     <div className={styles.description}>{description}</div>
-                    <div className={styles.techStack}>{techStack}</div>
+                    <div className={`${darkMode ? styles.darkMode : ''} ${styles.techStack}`}>{techStack}</div>
                 </div>
             </a>
         </div>

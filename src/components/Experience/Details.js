@@ -1,6 +1,7 @@
 import React from "react"
 import style from "../../css/details.module.css"
 import Reveal from "../Reveal"
+import { useSelector } from "react-redux"
 
 const content_2023 = <div className={style.expWrapper}>
     <div className={style.detailsWrapper}>
@@ -16,7 +17,7 @@ const content_2023 = <div className={style.expWrapper}>
             </Reveal>
             <div className={style.expBrief}>
                 <Reveal>
-                    <b>Skills:</b> Calendly <b>·</b> Salesforce <b>·</b> Zoho <b>·</b> UI development <b>·</b> Design <b>·</b> User Experience Design (UED) <b>·</b> User Experience (UX) <b>·</b> User Interface Design <b>·</b> Git <b>·</b> jQuery <b>·</b> React <b>·</b> Redux <b>·</b> TypeScript
+                    <b>Skills:</b> Third-party API Integrations <b>·</b> CRM Integrations <b>·</b> UI development <b>·</b> UI/UX Design <b>·</b> Git <b>·</b> TailwindCSS <b>·</b> Blueprint JS <b>·</b> React <b>·</b> Redux <b>·</b> TypeScript <b>·</b> NodeJs <b>·</b> ExpressJs <b>·</b> NPM
                 </Reveal>
                 <br></br>
                 <b>Description:</b> 
@@ -64,7 +65,7 @@ const content_2022 = <div className={style.expWrapper}>
             <Reveal><p className={style.expDesignation}>Engineer Trainee</p></Reveal>
             <Reveal><p className={style.expDuration}>July 4<sup>th</sup> 2022 - July 4<sup>th</sup> 2023</p></Reveal>
             <div className={style.expBrief}>
-                <Reveal><b>Skills:</b> UI development <b><b>·</b></b> Design <b>·</b> User Experience Design (UED) <b>·</b> User Experience (UX) <b>·</b> User Interface Design <b>·</b> Git <b>·</b> Web Services API <b>·</b> SASS <b>·</b> HTML5 <b>·</b> Cascading Style Sheets (CSS) <b>·</b> Bootstrap <b>·</b> JavaScript <b>·</b> jQuery</Reveal>
+                <Reveal><b>Skills:</b> UI development <b>·</b> UI/UX Design <b>·</b> Git <b>·</b> Web Services API <b>·</b> HTML5 <b>·</b> CSS3 <b>·</b> SASS <b>·</b> Bootstrap <b>·</b> JavaScript <b>·</b> jQuery <b>·</b> Ruby <b>·</b> WebRTC <b>·</b> Video APIs</Reveal>
                 <br></br>
                 <b>Description:</b>
                 <ul>
@@ -110,7 +111,7 @@ const content_2021 = <div className={style.expWrapper}>
             <Reveal><p className={style.expDesignation}>Frontend Web Developer <b>·</b> Internship</p></Reveal>
             <Reveal><p className={style.expDuration}>May 2021 - June 2021</p></Reveal>
             <div className={style.expBrief}>
-                <Reveal><b>Skills:</b> Design <b>·</b> User Experience Design (UED) <b>·</b> User Experience (UX) <b>·</b> User Interface Design <b>·</b> Git <b>·</b> Web Design</Reveal>
+                <Reveal><b>Skills:</b> Design <b>·</b> User Experience Design (UXD) <b>·</b> User Interface Design(UID) <b>·</b> Git <b>·</b> Web Design <b>·</b> HTML5 <b>·</b> CSS3</Reveal>
                 <br></br>
                 <Reveal>
                     <b>Description:</b>
@@ -195,12 +196,13 @@ const content_2019 = <div className={style.expWrapper}>
 </div>
 
 const Details = ({ year }) => {
+    const darkMode = useSelector((state) => state.navstate.darkMode)
     switch (year) {
-        case '2023': return content_2023
-        case '2022': return content_2022
-        case '2021': return content_2021
-        case '2020': return content_2020
-        case '2019': return content_2019
+        case '2023': return <div className={darkMode ? style.darkMode : ''}>{content_2023}</div>
+        case '2022': return <div className={darkMode ? style.darkMode : ''}>{content_2022}</div>
+        case '2021': return <div className={darkMode ? style.darkMode : ''}>{content_2021}</div>
+        case '2020': return <div className={darkMode ? style.darkMode : ''}>{content_2020}</div>
+        case '2019': return <div className={darkMode ? style.darkMode : ''}>{content_2019}</div>
         default: return content_2023
     }
 }

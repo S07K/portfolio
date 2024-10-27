@@ -1,3 +1,7 @@
+.darkMode.projects *::selection {
+    color: #121212;
+    background: white;
+}
 .projects {
     position: relative;
     display: flex;

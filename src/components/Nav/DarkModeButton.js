@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import '../../css/darkModeButton.css'
 import { switchMode } from '../store/dataSlice'
-import { useEffect, useState } from 'react'
 
 const DarkModeButton = ({style, onSwitch}) => {
     const dispatch = useDispatch()
@@ -17,8 +16,8 @@ const DarkModeButton = ({style, onSwitch}) => {
     }
 
     return (
-        <div className={`${style} darkModeBtn`}>
-                <input type="checkbox" onChange={(e) => bgSwitch(e)} checked={darkMode} />
+        <div className={style}>
+                <input name='darkModeBtn' className={darkMode ? 'lightModeBtn' : 'darkModeBtn'} type="checkbox" onChange={(e) => bgSwitch(e)} checked={darkMode} />
         </div>
     )
 }

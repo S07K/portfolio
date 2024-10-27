@@ -9,10 +9,14 @@
     font-family: 'poppins';
 }
 .darkMode.cardWrapper {
-    background: var(--slate-black);
+    background: #000000;
+    /* box-shadow: 0 0 5px 0px #d9d9d9; */
 }
 .cardWrapper:hover {
     box-shadow: 0 0 10px 1px #d9d9d9;
+}
+.darkMode.cardWrapper:hover {
+    box-shadow: 0 0 1px 0px #dcdcdc;
 }
 .imgWrapper img{
     max-width: 100%;
@@ -34,4 +38,7 @@
 }
 .techStack {
     padding-top: 16px;
+}
+.darkMode.techStack {
+    color: white;
 }

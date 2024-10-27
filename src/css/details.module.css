@@ -44,6 +44,9 @@
 .expBrief {
     padding-top: 20px;
 }
+.darkMode .detailsWrapper {
+    border: 1px solid #323232;
+}
 .detailsWrapper {
     /* background: white; */
     border: 1px solid #eee;

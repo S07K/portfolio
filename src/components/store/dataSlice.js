@@ -11,7 +11,7 @@ export const navSlice = createSlice({
     },
     isOpen: false,
     loading: true,
-    darkMode: true
+    darkMode: false
   },
   reducers: {
     switchView: (state, action) => {

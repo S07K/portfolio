@@ -172,6 +172,14 @@
     color: var(--slate-black);
     cursor: pointer;
 }
+.darkMode.socialAccounts svg:hover {
+    color: var(--primary-blue);
+}
+
+.stack {
+    width: 100%;
+    max-width: 1000px;
+}
 
 @media (pointer:none), (pointer:coarse) {
 

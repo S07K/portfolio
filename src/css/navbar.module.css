@@ -48,6 +48,9 @@ a {
 .darkMode.navWrapper.slateTheme div {
     color: var(--primary-blue);
 }
+.darkMode.navWrapper.slateTheme div:hover{
+    color: var(--secondary-blue) !important;
+}
 .navWrapper.whiteTheme div {
     color: white;
 }
@@ -65,7 +68,7 @@ a {
     font-size: 40px;
     font-weight: bolder;
     padding-top: 24px;
-    color: var(--slate-black);
+    color: #fff;
 }
 .darkMode .brand {
     color: white !important;
@@ -78,10 +81,6 @@ a {
 }
 .noWrap {
     width: max-content;
-}
-.darkmodeBtn {
-    background: white;
-    border-radius: 16px;
 }
 
 .hamburger {
