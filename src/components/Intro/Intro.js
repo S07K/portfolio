@@ -109,16 +109,16 @@ const Intro = ({ isActive }) => {
                             </Reveal>
                             <Reveal>
                                 <p>
-                                    I am a passionate and <b>versatile Software Engineer</b> based in Noida, India, currently working at <b>ENABLEX</b>. 
+                                    I am a passionate and <b>versatile Software Engineer</b> based in Noida, India, currently working at <b>EnableX</b>. 
                                     With a strong foundation in languages such as <b>C++, Python, JavaScript, TypeScript, Ruby, HTML, and CSS</b>. 
                                     I specialize in frontend development, API integration, and SaaS extension development.
                                 </p>
                             </Reveal>
                             <Reveal>
                                 <p>
-                                    In my current role at ENABLEX, I have played a pivotal role in integrating third-party APIs into the Chatbot Flow Builder Application, facilitating seamless data transfer to CRM systems like <b>ZOHO, Zendesk, and HubSpot</b>. 
+                                    In my current role at EnableX, I have played a pivotal role in integrating third-party APIs into the Chatbot Flow Builder Application, facilitating seamless data transfer to CRM systems like <b>ZOHO, Zendesk, and HubSpot</b>. 
                                     As the Frontend Lead for the <b>Chatbot Builder SaaS Project</b>, I led the development efforts to deliver effective solutions and collaborated closely with design teams to create a user-centric interface.
-                                    I have a rich background as an Engineer Trainee at ENABLEX, where I showcased proficiency in JavaScript development, UX enhancement, and API integration. 
+                                    I have a rich background as an Engineer Trainee at EnableX, where I showcased proficiency in JavaScript development, UX enhancement, and API integration. 
                                     My ability to adapt quickly was demonstrated when I built the first Ruby application server within a challenging two-day timeframe.
                                 </p>
                             </Reveal>
@@ -139,6 +139,11 @@ const Intro = ({ isActive }) => {
                                 <div style={{paddingTop: '20px'}}>
                                     <h3>Technologies I have worked on</h3>
                                     <img className={styles.stack} src={`https://skillicons.dev/icons?i=mongodb,expressjs,react,nodejs,python,js,ts,redux,html,css,ruby,sass,bootstrap,tailwind,nextjs,jquery,git,github,vscode,vim,windows,sublime,figma,npm,yarn,vercel,vite,vue,webpack,postman,linux,windows,stackoverflow&perline=15&theme=${darkMode ? 'dark' : 'light'}`} />
+                                </div>
+                            </Reveal>
+                            <Reveal>
+                                <div style={{paddingTop: '40px'}}>
+                                    <a style={{padding: '10px', background: 'var(--primary-blue)', borderRadius: '4px'}} href='https://drive.google.com/file/d/1PN5DmOKR9m2TmDqzhtcxRE5IFuQwWKsY/view?usp=sharing' target='_blank'>View Resume</a>
                                 </div>
                             </Reveal>
                         </div>
