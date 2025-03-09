@@ -143,7 +143,7 @@ const Intro = ({ isActive }) => {
                             </Reveal>
                             <Reveal>
                                 <div style={{paddingTop: '40px'}}>
-                                    <a style={{padding: '10px', background: 'var(--primary-blue)', borderRadius: '4px'}} href='https://drive.google.com/file/d/1PN5DmOKR9m2TmDqzhtcxRE5IFuQwWKsY/view?usp=sharing' target='_blank'>View Resume</a>
+                                    <a style={{padding: '10px', background: 'var(--primary-blue)', borderRadius: '4px'}} href='https://drive.google.com/file/d/14UXcOGjk5Rf2sXlfKNtHu4_Rsli7-1gI/view?usp=sharing' target='_blank'>View Resume</a>
                                 </div>
                             </Reveal>
                         </div>
