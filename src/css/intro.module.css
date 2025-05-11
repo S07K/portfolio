@@ -249,6 +249,7 @@
     }
     .imgWrapper {
         grid-column: 1/3;
+        max-width: none;
     }
     .feel {
         color: white;

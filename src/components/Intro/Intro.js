@@ -1,5 +1,5 @@
 import styles from '../../css/intro.module.css';
-import img from '../../assets/images/mewithoutbg.png';
+import img from '../../assets/images/new4.png';
 import { TypeAnimation } from 'react-type-animation';
 import {ReactComponent as Github} from '../../assets/images/github.svg'
 import {ReactComponent as Insta} from '../../assets/images/instagram.svg'
@@ -143,7 +143,7 @@ const Intro = ({ isActive }) => {
                             </Reveal>
                             <Reveal>
                                 <div style={{paddingTop: '40px'}}>
-                                    <a style={{padding: '10px', background: 'var(--primary-blue)', borderRadius: '4px'}} href='https://drive.google.com/file/d/14UXcOGjk5Rf2sXlfKNtHu4_Rsli7-1gI/view?usp=sharing' target='_blank'>View Resume</a>
+                                    <a style={{padding: '10px', background: 'var(--primary-blue)', borderRadius: '4px'}} href='https://drive.google.com/file/d/13UnpundvtE-vR1WMGOtwCIW_mJ8vLW1N/view?usp=sharing' target='_blank'>View Resume</a>
                                 </div>
                             </Reveal>
                         </div>
