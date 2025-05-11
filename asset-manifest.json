@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.03610d16.css",
-    "main.js": "/portfolio/static/js/main.a5519257.js",
+    "main.css": "/portfolio/static/css/main.76ad1d5b.css",
+    "main.js": "/portfolio/static/js/main.35aec2d3.js",
     "static/js/787.1ed0c42c.chunk.js": "/portfolio/static/js/787.1ed0c42c.chunk.js",
+    "static/media/new4.png": "/portfolio/static/media/new4.738a7d51e0147dd84bff.png",
     "static/media/biout.png": "/portfolio/static/media/biout.ba06e3cad34a674ca1a3.png",
-    "static/media/mewithoutbg.png": "/portfolio/static/media/mewithoutbg.dacd99bdb7475c0eb2a8.png",
     "static/media/techrone-app.png": "/portfolio/static/media/techrone-app.bb83cbf6ece238f2a59b.png",
     "static/media/chhatramate.png": "/portfolio/static/media/chhatramate.f0c5f8273cbf2cfe20ef.png",
     "static/media/oldPortfolio.png": "/portfolio/static/media/oldPortfolio.5425103bc388ccbc14eb.png",
@@ -26,12 +26,12 @@
     "static/media/facebook.svg": "/portfolio/static/media/facebook.4d4460260f64103d8da4a91d8e856d36.svg",
     "static/media/twitter-x.svg": "/portfolio/static/media/twitter-x.56fcd14c8c7a1388d2964f51ed144519.svg",
     "static/media/Light.svg": "/portfolio/static/media/Light.f993557e57f78f401d42.svg",
-    "main.03610d16.css.map": "/portfolio/static/css/main.03610d16.css.map",
-    "main.a5519257.js.map": "/portfolio/static/js/main.a5519257.js.map",
+    "main.76ad1d5b.css.map": "/portfolio/static/css/main.76ad1d5b.css.map",
+    "main.35aec2d3.js.map": "/portfolio/static/js/main.35aec2d3.js.map",
     "787.1ed0c42c.chunk.js.map": "/portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.03610d16.css",
-    "static/js/main.a5519257.js"
+    "static/css/main.76ad1d5b.css",
+    "static/js/main.35aec2d3.js"
   ]
 }
