@@ -7,13 +7,41 @@ const content_2023 = <div className={style.expWrapper}>
     <div className={style.detailsWrapper}>
         <div className={style.details}>
             <Reveal>
+                <h3 className={style.expCompany}>Paytm</h3>
+            </Reveal>
+            <Reveal>
+                <p className={style.expDesignation}>Sr. Software Engineer</p>
+            </Reveal>
+            <Reveal>
+                <p className={style.expDuration}>Sept 1<sup>st</sup> 2025 - present</p>
+            </Reveal>
+            <div className={style.expBrief}>
+                <Reveal>
+                    <b>Skills:</b> Vue <b>·</b> UI development
+                </Reveal>
+                <br></br>
+                <b>Description:</b> 
+                <ul>
+                <Reveal>
+                    <li>
+                        <b>Frontend Engineering: </b> 
+                        working in the frontend team of PIBPL.
+                    </li>
+                </Reveal>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div className={style.detailsWrapper}>
+        <div className={style.details}>
+            <Reveal>
                 <h3 className={style.expCompany}>EnableX</h3>
             </Reveal>
             <Reveal>
-                <p className={style.expDesignation}>Software Engineer</p>
+                <p className={style.expDesignation}>Sr. Software Engineer</p>
             </Reveal>
             <Reveal>
-                <p className={style.expDuration}>July 5<sup>th</sup> 2023 - present</p>
+                <p className={style.expDuration}>July 5<sup>th</sup> 2023 - Aug 29<sup>th</sup> 2025</p>
             </Reveal>
             <div className={style.expBrief}>
                 <Reveal>

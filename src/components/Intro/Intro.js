@@ -16,7 +16,7 @@ import Reveal from '../Reveal'
 
 const urls = {
     github: 'https://github.com/S07K',
-    insta: 'https://www.instagram.com/0700shubham/',
+    insta: 'https://www.instagram.com/function.shubham/',
     facebook: 'https://www.facebook.com/profile.php?id=100012603552078',
     twitter_x: 'https://twitter.com/0700shubham',
     linkedin: 'https://www.linkedin.com/in/shubham-kumar-957a33200/',
@@ -109,17 +109,9 @@ const Intro = ({ isActive }) => {
                             </Reveal>
                             <Reveal>
                                 <p>
-                                    I am a passionate and <b>versatile Software Engineer</b> based in Noida, India, currently working at <b>EnableX</b>. 
+                                    I am a passionate and <b>versatile Software Engineer</b> based in India, currently working at <b>Paytm</b>. 
                                     With a strong foundation in languages such as <b>C++, Python, JavaScript, TypeScript, Ruby, HTML, and CSS</b>. 
                                     I specialize in frontend development, API integration, and SaaS extension development.
-                                </p>
-                            </Reveal>
-                            <Reveal>
-                                <p>
-                                    In my current role at EnableX, I have played a pivotal role in integrating third-party APIs into the Chatbot Flow Builder Application, facilitating seamless data transfer to CRM systems like <b>ZOHO, Zendesk, and HubSpot</b>. 
-                                    As the Frontend Lead for the <b>Chatbot Builder SaaS Project</b>, I led the development efforts to deliver effective solutions and collaborated closely with design teams to create a user-centric interface.
-                                    I have a rich background as an Engineer Trainee at EnableX, where I showcased proficiency in JavaScript development, UX enhancement, and API integration. 
-                                    My ability to adapt quickly was demonstrated when I built the first Ruby application server within a challenging two-day timeframe.
                                 </p>
                             </Reveal>
                             <Reveal>
@@ -143,7 +135,7 @@ const Intro = ({ isActive }) => {
                             </Reveal>
                             <Reveal>
                                 <div style={{paddingTop: '40px'}}>
-                                    <a style={{padding: '10px', background: 'var(--primary-blue)', borderRadius: '4px'}} href='https://drive.google.com/file/d/13UnpundvtE-vR1WMGOtwCIW_mJ8vLW1N/view?usp=sharing' target='_blank'>View Resume</a>
+                                    <a style={{padding: '10px', background: 'var(--primary-blue)', borderRadius: '4px'}} href='https://drive.google.com/file/d/1ahUVkN2IhroDbCRon6qqV_rmIgUDvgKL/view?usp=sharing' target='_blank'>View Resume</a>
                                 </div>
                             </Reveal>
                         </div>
