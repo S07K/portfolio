@@ -7,50 +7,38 @@ span::first-letter {
     text-transform: capitalize;
 }
 
-/* START TIMELINE 
- the width of the list parent is optional 
-if you set this width 
-A hover sample effect is added as well as an active state*/
-
 .base-timeline {
     display: flex !important;
     justify-content: center;
     align-items: center;
     list-style-type: none;
     counter-reset: number;
-    /* number 2021*/
     position: relative;
-    display: block;
     z-index: 2;
-    width: 75%;
-    /* change or remove*/
-
+    width: 85%;
+    margin: 0 auto;
 }
 
 .base-timeline::before {
     content: '';
     width: 100%;
-    border-top: 2px solid var(--slate-black);
+    border-top: 2.5px dashed var(--ink-color-light);
     display: inline-block;
     position: absolute;
     top: 50%;
     z-index: -1;
-
-}
-.darkMode.base-timeline::before {
-    border-top: 2px solid var(--primary-blue);
+    opacity: 0.5;
 }
 
-/* set width of time-line this can be px, percentage or other unit
-3 is the number of list items minus 1 when using percentage
-*/
+.dark-mode .base-timeline::before {
+    border-top: 2.5px dashed var(--ink-color-dark);
+}
+
 .base-timeline__item {
     position: relative;
     display: inline-block;
     width: calc(100% / 6);
-    /* change width */
-    transition: cubic-bezier(0, 0, 0.2, 1);;
-
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .base-timeline__item::before {
@@ -58,129 +46,124 @@ A hover sample effect is added as well as an active state*/
     justify-content: center;
     align-items: center;
     counter-increment: number;
-    /* number -1*/
     content: counter(number) '';
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    background-color: white;
-    color: var(--slate-black);
-    border: 1px solid var(--slate-black);
+    width: 38px;
+    height: 38px;
+    background-color: var(--paper-bg-light);
+    color: var(--ink-color-light);
+    border: 2px dashed var(--ink-color-light);
+    font-family: var(--note-font);
     font-weight: bold;
-    transition: all 0.6s ease-in-out;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-sizing: border-box;
-
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* modifier with use of the data-year attribute */
+.dark-mode .base-timeline__item::before {
+    background-color: var(--paper-bg-dark);
+    color: var(--ink-color-dark);
+    border: 2px dashed var(--ink-color-dark);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Year circles styling */
 .base-timeline__item--data::before {
     content: attr(data-year);
-    width: 60px;
-    height: 60px;
+    width: 54px;
+    height: 54px;
+    font-size: 0.9rem;
 }
 
-/* hover element */
+/* Hover and Active states */
 .base-timeline__item:hover::before {
-    content: attr(data-year);
-    background-color: var(--primary-blue);
-    color: white;
-    border: 1px solid var(--primary-blue);
-    transform: scale(2);
+    background-color: #f1c40f;
+    color: #2c3e50;
+    border: 2px dashed #d35400;
+    transform: scale(1.15) rotate(5deg);
     cursor: pointer;
 }
+
+.dark-mode .base-timeline__item:hover::before {
+    background-color: #f39c12;
+    color: #2c3e50;
+    border: 2px dashed #e67e22;
+}
+
 .base-timeline__item--active::before {
-    background-color: var(--secondary-blue);
-    color: white;
-    border: 2px solid;
-    border-color: var(--secondary-blue);
-
-
-}
-.base-timeline__item--active:hover::before {
-    content: attr(data-year);
-    background-color: var(--secondary-blue);
-    color: white;
-    border: 1px solid var(--secondary-blue);
-    transform: scale(2);
+    background-color: var(--primary-blue) !important;
+    color: white !important;
+    border: 2px solid var(--primary-blue) !important;
+    transform: scale(1.15) rotate(-3deg);
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.18) !important;
 }
 
-
-.base-timeline__item:last-child {
-    width: 0;
+.dark-mode .base-timeline__item--active::before {
+    background-color: #f1c40f !important;
+    color: #2c3e50 !important;
+    border: 2px solid #f1c40f !important;
 }
 
-/* summary text is optional and can be anything */
-
-.base-timeline__summary-text {
-    position: absolute;
-    bottom: -3em;
-    left: 15px;
-}
 .base-timeline__item.dot::before {
-    background-color: var(--slate-black);
-    content: '1';
-    color: var(--slate-black);
-    width: 45px;
-    height: 45px;
-}
-.darkMode.base-timeline__item.dot::before {
-    background-color: var(--primary-blue);
-    color: var(--primary-blue);
-}
-.base-timeline__item.dot:hover::before {
-    /* background-color: var(--slate-black); */
-    transform: scale(1);
-    cursor: none;
-}
-.base-timeline__item.graduate-dot::before {
-    background-color: white;
-    content: url(../assets/images/graduate.svg);
-    color: var(--slate-black);
-    width: 60px;
-    height: 60px;
-}
-.base-timeline__item.graduate-dot:hover::before {
-    /* background-color: var(--slate-black); */
-    transform: scale(2);
+    background-color: var(--ink-color-light);
+    content: '';
+    width: 14px;
+    height: 14px;
+    border: none;
 }
 
-.last-dot {
-    display: none;
+.dark-mode .base-timeline__item.dot::before {
+    background-color: var(--ink-color-dark);
+}
+
+.base-timeline__item.dot:hover::before {
+    transform: none;
+    cursor: default;
+    background-color: var(--ink-color-light);
+}
+
+.dark-mode .base-timeline__item.dot:hover::before {
+    background-color: var(--ink-color-dark);
+}
+
+.base-timeline__item.graduate-dot::before {
+    background-color: var(--paper-bg-light);
+    content: '🎓';
+    color: var(--ink-color-light);
+    width: 54px;
+    height: 54px;
+    font-size: 1.5rem;
+    border-style: solid;
+}
+
+.dark-mode .base-timeline__item.graduate-dot::before {
+    background-color: var(--paper-bg-dark);
+    color: var(--ink-color-dark);
+}
+
+.base-timeline__item.graduate-dot:hover::before {
+    transform: scale(1.2) rotate(-8deg);
 }
 
 @media screen and (max-width: 770px) and (min-width: 200px) {
-    .base-timeline__item:hover::before, 
-    .base-timeline__item--active:hover::before, 
-    .base-timeline__item.graduate-dot:hover::before {
-        transform: scale(1);
-    }
-    .base-timeline__item.dot::before {
-        width: 25px;
-        height: 25px;
+    .base-timeline {
+        width: 100%;
     }
     .base-timeline__item--data::before {
-        content: attr(data-year);
-        width: 40px;
-        height: 40px;
-        font-size: 12px;
+        width: 44px;
+        height: 44px;
+        font-size: 0.75rem;
     }
     .base-timeline__item.graduate-dot::before {
-        background-color: white;
-        background-image: url(../assets/images/graduate.svg);
-        background-position: center;
-        background-repeat: no-repeat;
-        /* background-size: 25px 25px; */
-        content: '';
-        color: var(--slate-black);
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
     }
-}
-
-@media screen and (max-width: 1000px) and (min-width: 770px) {
-    .base-timeline__item:hover::before, 
-    .base-timeline__item--active:hover::before, 
-    .base-timeline__item.graduate-dot:hover::before {
-        transform: scale(1.5);
+    .base-timeline__item.dot::before {
+        width: 10px;
+        height: 10px;
+    }
+    .base-timeline__item--active::before {
+        transform: scale(1.08) rotate(-2deg);
     }
 }

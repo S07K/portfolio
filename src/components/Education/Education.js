@@ -1,29 +1,34 @@
 import React, { useEffect } from "react";
-import styles from "../../css/education.module.css"
 import TimeLine from "./TimeLine";
 import { switchViewHandler } from '../NavigationHandler';
 import { useSelector, useDispatch } from 'react-redux';
 import Reveal from "../Reveal";
+import MarkerHighlight from "../MarkerHighlight";
 
-const Education = ({ isActive }) => {
-    const darkMode = useSelector((state) => state.navstate.darkMode)
-    const navState = useSelector((state) => state.navstate.data)
-    const dispatch = useDispatch()
+const Education = () => {
+    const navState = useSelector((state) => state.navstate.data);
+    const dispatch = useDispatch();
     
     useEffect(() => {
-        switchViewHandler('edu', navState, dispatch)
-    }, [])
+        switchViewHandler('edu', navState, dispatch);
+    }, []);
 
-    return (isActive ? <div className={`${darkMode ? styles.darkMode : ''} ${styles.education}`}>
-        <div>
-            <Reveal type="horizontal">
-                <h1>
-                    Education
-                </h1>
-            </Reveal>
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+            <div>
+                <Reveal type="horizontal">
+                    <MarkerHighlight color="rgba(6, 214, 160, 0.45)">
+                        <h1 className="pageTitle" style={{ display: 'inline' }}>
+                            Education
+                        </h1>
+                    </MarkerHighlight>
+                </Reveal>
+            </div>
+            <div style={{ flex: 1, marginTop: '20px' }}>
+                <TimeLine />
+            </div>
         </div>
-        <TimeLine />
-    </div> : '')
-}
+    );
+};
 
-export default Education
+export default Education;

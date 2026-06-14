@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import scrollHandler from './components/scrollHandler';
 import Unauthorized from './components/Unauthorized'
 import InDev from './components/InDev'
+import DeveloperLayout from './components/DeveloperLayout';
 
 function ScrollRestoration() {
   const location = useLocation();
@@ -41,7 +42,9 @@ function App() {
   useEffect(() => {
     let route = window.location.pathname;
     switch (route) {
-      case '/': switchNav('intro')
+      case '/':
+      case '/portfolio': 
+        switchNav('intro')
         break;
       case '/experience': switchNav('exp')
         break;
@@ -54,23 +57,23 @@ function App() {
     }
   }, [])
   scrollHandler();
-  return <>
-    {
-      // isItMobileDevice ? <InDev /> :
-        <BrowserRouter>
-          <Navbar />
-          <ScrollRestoration />
-          <Routes>
-            <Route path="portfolio" element={<Intro isActive={navState.intro} />} />
-            <Route path="experience" element={<Experience isActive={navState.exp} />} />
-            <Route path="education" element={<Education isActive={navState.edu} />} />
-            <Route path="projects" element={<Projects isActive={navState.projects} />} />
-            <Route path="*" element={<Unauthorized />} />
-          </Routes>
-        </BrowserRouter>
-    }
-  </>
-    ;
+  
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <ScrollRestoration />
+      <DeveloperLayout>
+        <Routes>
+          <Route path="/" element={<Intro isActive={navState.intro} />} />
+          <Route path="portfolio" element={<Intro isActive={navState.intro} />} />
+          <Route path="experience" element={<Experience isActive={navState.exp} />} />
+          <Route path="education" element={<Education isActive={navState.edu} />} />
+          <Route path="projects" element={<Projects isActive={navState.projects} />} />
+          <Route path="*" element={<Unauthorized />} />
+        </Routes>
+      </DeveloperLayout>
+    </BrowserRouter>
+  );
 }
 
 export default App;

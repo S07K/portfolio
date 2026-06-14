@@ -1,56 +1,29 @@
-.darkMode.projects *::selection {
-    color: #121212;
-    background: white;
-}
 .projects {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: auto;
-    padding: 80px 70px 50px 70px;
-    color: var(--slate-black);
+    height: 100%;
 }
-.darkMode.projects {
-    color: white;
-    background: #020202;
-}
-.darkMode.projects {
-    color: white;
-    background: #020202;
-}
-
-.projects h1 {
-    left: 70px;
-    font-size: 10rem;
-    margin: 0;
-    margin-bottom: 40px;
-}
-
 .projectsWrapper {
     display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: auto auto auto;
-    grid-gap: 44px;
-    font-family: 'poppins';
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    font-family: var(--body-font);
+    overflow-y: auto;
+    max-height: 510px;
+    padding: 15px 5px;
+    margin-top: 10px;
 }
-
 .btnWrapper {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 40px;
+    padding-top: 15px;
 }
-
-.githubRepoBtnWrapper:hover {
-    cursor: pointer;
-    background: var(--secondary-blue);
-    font-family: 'poppins';
-}
-
 .githubRepoBtnWrapper {
-    width: 150px;
-    background: var(--slate-black);
+    width: 175px;
+    background: #2c3e50;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,40 +31,38 @@
     gap: 8px;
     border-radius: 20px;
     padding: 8px 16px;
-    transition: ease-in-out .3s;
+    transition: all 0.2s ease;
+    font-family: var(--note-font);
+    font-weight: bold;
+    box-shadow: 2px 3px 6px rgba(0,0,0,0.15);
+    border: 2px dashed rgba(255,255,255,0.3);
 }
-
+.darkMode .githubRepoBtnWrapper {
+    background: #e67e22;
+    border-color: rgba(255,255,255,0.4);
+}
+.githubRepoBtnWrapper:hover {
+    cursor: pointer;
+    background: #1a252f;
+    transform: scale(1.04) rotate(-1deg);
+}
+.darkMode .githubRepoBtnWrapper:hover {
+    background: #d35400;
+}
 .githubRepoBtnWrapper p {
-    margin: 0
+    margin: 0;
+    font-size: 0.9rem;
 }
-
 .githubRepoBtnWrapper svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
+    fill: white;
 }
 
 @media screen and (max-width: 770px) and (min-width: 200px) {
-    .projects {
-        padding: 80px 20px 50px 20px;
-    }
     .projectsWrapper {
-        grid-template-columns: auto
-    }
-
-    .projects h1 {
-        left: 70px;
-        font-size: 3rem;
-    }
-}
-
-@media screen and (max-width: 1000px) and (min-width: 770px) {
-    .projectsWrapper {
-        grid-template-columns: auto auto;
-        grid-gap: 24px;
-    }
-
-    .projects h1 {
-        left: 70px;
-        font-size: 8rem;
+        grid-template-columns: 1fr;
+        max-height: none;
+        overflow-y: visible;
     }
 }

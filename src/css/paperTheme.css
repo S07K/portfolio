@@ -1,0 +1,397 @@
+/* Outer Desk container */
+.deskContainer {
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px 20px 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  transition: background 0.4s ease;
+}
+
+/* Page canvas representing high-grade paper cardstock */
+.paperCanvas {
+  width: 100%;
+  max-width: 920px;
+  background: var(--paper-bg-light);
+  border-radius: 4px;
+  padding: 50px 60px;
+  position: relative;
+  box-shadow: var(--paper-shadow-light);
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.1s ease-out;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  z-index: 5;
+}
+
+.dark-mode .paperCanvas {
+  background: var(--paper-bg-dark);
+  box-shadow: var(--paper-shadow-dark);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Stacked sheets illusion */
+.paperCanvas::before, .paperCanvas::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--paper-bg-light);
+  border-radius: 4px;
+  z-index: -1;
+  transition: background 0.4s ease;
+  pointer-events: none;
+}
+
+.dark-mode .paperCanvas::before, .dark-mode .paperCanvas::after {
+  background: var(--paper-bg-dark);
+}
+
+/* Layer 2 (slight rotation & offset) */
+.paperCanvas::before {
+  transform: rotate(-0.8deg) translate(2px, 3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+  opacity: 0.9;
+}
+
+/* Layer 3 (slight opposite rotation & offset) */
+.paperCanvas::after {
+  transform: rotate(0.6deg) translate(-1px, 4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.015);
+  opacity: 0.8;
+}
+
+/* Frosted Tape overlay */
+.frostedTape {
+  position: absolute;
+  width: 80px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(0.5px);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+  z-index: 10;
+  transform-origin: center;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0.85;
+}
+
+.frostedTape:hover {
+  opacity: 1;
+}
+
+/* Paperclip */
+.paperclip {
+  position: absolute;
+  z-index: 15;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.paperclip:hover {
+  transform: scale(1.08) rotate(4deg) !important;
+}
+
+.paperclip svg {
+  filter: drop-shadow(1px 2px 2.5px rgba(0,0,0,0.15));
+}
+
+/* Staple */
+.staplePin {
+  position: absolute;
+  width: 14px;
+  height: 3px;
+  background: #bdc3c7;
+  border-top: 1px solid #7f8c8d;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  border-radius: 1.5px;
+  z-index: 10;
+}
+
+/* Mute Toggle / Dark Mode stickers on the desk */
+.deskStickers {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 100;
+}
+
+.deskSticker {
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-family: var(--accent-font);
+  font-weight: bold;
+  font-size: 0.82rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1.5px dashed rgba(0,0,0,0.15);
+  background: #fafafa;
+  color: #2c3e50;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+}
+
+.deskSticker:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+
+.dark-mode .deskSticker {
+  background: #25262b;
+  color: #eaeff1;
+  border-color: rgba(255,255,255,0.15);
+}
+
+/* Social Icon links inside the paper sheet */
+.socialLink {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.socialLink:hover {
+  transform: translateY(-2px);
+}
+
+/* Media Feed Showcases */
+.mediaSection {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1.5px dashed rgba(127,140,141,0.2);
+}
+
+/* YouTube Grid */
+.youtubeFeedGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.youtubeCard {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1.5px dashed rgba(127,140,141,0.22);
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.dark-mode .youtubeCard {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255,255,255,0.08);
+}
+
+.youtubeCard:hover {
+  transform: translateY(-3px);
+  border-color: #e74c3c;
+  box-shadow: 0 6px 15px rgba(231, 76, 60, 0.08);
+}
+
+.ytThumbnailWrapper {
+  width: 100%;
+  height: 125px;
+  background: #2c3e50;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ytThumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+.ytPlayBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(231, 76, 60, 0.95);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.youtubeCard:hover .ytPlayBtn {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: #c0392b;
+}
+
+.ytTitle {
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin: 10px 0 4px 0;
+  line-height: 1.3;
+}
+
+.ytDesc {
+  font-size: 0.78rem;
+  color: var(--muted-text-light);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.dark-mode .ytDesc {
+  color: var(--muted-text-dark);
+}
+
+/* Instagram Grid */
+.instagramFeedGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+  margin-top: 15px;
+}
+
+.instagramCard {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 8px 8px 18px 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  transform: rotate(var(--rotate-angle, -1deg));
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+.dark-mode .instagramCard {
+  background: #fafafa;
+  color: #2c3e50;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.instagramCard:hover {
+  transform: scale(1.05) rotate(0deg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  z-index: 10;
+}
+
+.instaImg {
+  width: 100%;
+  height: 135px;
+  object-fit: cover;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.instaDetails {
+  padding-top: 8px;
+}
+
+.instaCaption {
+  font-family: var(--handwriting-font);
+  font-size: 0.95rem;
+  font-weight: bold;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.instaMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--accent-font);
+  font-size: 0.68rem;
+  margin-top: 5px;
+  color: #7f8c8d;
+}
+
+/* Highlighter lines */
+.highlighterMark {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.highlighterMark::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: 0px;
+  height: 48%;
+  background: var(--highlighter-color, rgba(241, 196, 15, 0.38));
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  border-radius: 2px;
+}
+
+.highlighterMark.active::after {
+  transform: scaleX(1);
+}
+
+/* Page titles */
+.pageTitle {
+  font-family: var(--title-font);
+  font-size: 2.2rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--primary-blue);
+  line-height: 1.1;
+}
+
+.dark-mode .pageTitle {
+  color: #f1c40f;
+}
+
+/* Responsiveness overrides */
+@media (max-width: 900px) {
+  .paperCanvas {
+    padding: 45px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .deskContainer {
+    padding: 80px 10px 40px 10px;
+  }
+  
+  .paperCanvas {
+    padding: 30px 20px;
+  }
+  
+  .paperCanvas::before, .paperCanvas::after {
+    display: none;
+  }
+  
+  .youtubeFeedGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .instagramFeedGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .instagramFeedGrid {
+    grid-template-columns: 1fr;
+  }
+}

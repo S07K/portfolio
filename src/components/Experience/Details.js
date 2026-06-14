@@ -1,238 +1,125 @@
-import React from "react"
-import style from "../../css/details.module.css"
-import Reveal from "../Reveal"
-import { useSelector } from "react-redux"
-
-const content_2023 = <div className={style.expWrapper}>
-    <div className={style.detailsWrapper}>
-        <div className={style.details}>
-            <Reveal>
-                <h3 className={style.expCompany}>Paytm</h3>
-            </Reveal>
-            <Reveal>
-                <p className={style.expDesignation}>Sr. Software Engineer</p>
-            </Reveal>
-            <Reveal>
-                <p className={style.expDuration}>Sept 1<sup>st</sup> 2025 - present</p>
-            </Reveal>
-            <div className={style.expBrief}>
-                <Reveal>
-                    <b>Skills:</b> Vue <b>·</b> UI development
-                </Reveal>
-                <br></br>
-                <b>Description:</b> 
-                <ul>
-                <Reveal>
-                    <li>
-                        <b>Frontend Engineering: </b> 
-                        working in the frontend team of PIBPL.
-                    </li>
-                </Reveal>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div className={style.detailsWrapper}>
-        <div className={style.details}>
-            <Reveal>
-                <h3 className={style.expCompany}>EnableX</h3>
-            </Reveal>
-            <Reveal>
-                <p className={style.expDesignation}>Sr. Software Engineer</p>
-            </Reveal>
-            <Reveal>
-                <p className={style.expDuration}>July 5<sup>th</sup> 2023 - Aug 29<sup>th</sup> 2025</p>
-            </Reveal>
-            <div className={style.expBrief}>
-                <Reveal>
-                    <b>Skills:</b> Third-party API Integrations <b>·</b> CRM Integrations <b>·</b> UI development <b>·</b> UI/UX Design <b>·</b> Git <b>·</b> TailwindCSS <b>·</b> Blueprint JS <b>·</b> React <b>·</b> Redux <b>·</b> TypeScript <b>·</b> NodeJs <b>·</b> ExpressJs <b>·</b> NPM
-                </Reveal>
-                <br></br>
-                <b>Description:</b> 
-                <ul>
-                <Reveal>
-                    <li>
-                        <b>Frontend Lead (Chatbot Builder SaaS Project): </b> 
-                        Led front-end development, ensuring a user-centric interface and effective design for the Chatbot Builder SaaS project, enhancing usability by 40%.
-                    </li>
-                </Reveal>
-                <Reveal>
-                    <li>
-                        <b>Payment Gateway Integration: </b> 
-                        Integrated PayU for Indian customers and Stripe for international transactions into the chatbot platform, enabling seamless in-bot payments. This feature helps businesses scale 40-70% faster.
-                    </li>
-                </Reveal>
-                <Reveal>
-                    <li>
-                        <b>Integration in Chatbot Flow Builder: </b> 
-                        Integrated third-party system APIs, enabling seamless data push to CRM systems like ZOHO, Salesforce, Zendesk, and HubSpot, covering 80% of the market.
-                    </li>
-                </Reveal>
-                <Reveal>
-                    <li>
-                        <b>Calendly Integration: </b> 
-                        Implemented Calendly integration, allowing users to schedule meetings directly through the chatbot, streamlining the booking process and improving user experience.
-                    </li>
-                </Reveal>
-                <Reveal>
-                    <li>
-                        <b>Optimized User Flow for React Project: </b> 
-                        Enhanced user flow by addressing key challenges and implementing strategic improvements, resulting in a 35% increase in overall usability and user satisfaction.
-                    </li>
-                </Reveal>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-const content_2022 = <div className={style.expWrapper}>
-    <div className={style.detailsWrapper}>
-        <div className={style.details}>
-            <Reveal><h3 className={style.expCompany}>EnableX</h3></Reveal>
-            <Reveal><p className={style.expDesignation}>Engineer Trainee</p></Reveal>
-            <Reveal><p className={style.expDuration}>July 4<sup>th</sup> 2022 - July 4<sup>th</sup> 2023</p></Reveal>
-            <div className={style.expBrief}>
-                <Reveal><b>Skills:</b> UI development <b>·</b> UI/UX Design <b>·</b> Git <b>·</b> Web Services API <b>·</b> HTML5 <b>·</b> CSS3 <b>·</b> SASS <b>·</b> Bootstrap <b>·</b> JavaScript <b>·</b> jQuery <b>·</b> Ruby <b>·</b> WebRTC <b>·</b> Video APIs</Reveal>
-                <br></br>
-                <b>Description:</b>
-                <ul>
-                    <Reveal>
-                        <li>
-                            <b>Proficient JavaScript Developer: </b>
-                            Possess rich experience in JavaScript, leveraging its capabilities to create exceptional web applications. Revamped
-                            user interfaces by leveraging JavaScript's capabilities, resulting in streamlined workflows and improved user satisfaction.
-                        </li>
-                    </Reveal>
-                    <Reveal>
-                        <li>
-                            <b>UX Enhancement Specialist: </b>
-                            Established expertise in optimizing user satisfaction through strategic UX improvements, resulting in a remarkable 80%
-                            increase in user engagement. Led feature development initiatives within SaaS products, ensuring a user-centric approach and enhancing overall user
-                            experience.
-                        </li>
-                    </Reveal>
-                    <Reveal>
-                        <li>
-                            <b>API Integration Expert: </b>
-                            Showcased proficiency as an API integration expert, seamlessly incorporating third-party APIs to achieve responsive UI and
-                            real-time data functionalities.
-                        </li>
-                    </Reveal>
-                    <Reveal>
-                        <li>
-                            <b>Ruby Application Server Developer: </b>
-                            Successfully built the 1st Ruby application server within a challenging two-day timeframe. Showcased versatility
-                            and rapid acquisition of skills by becoming robust in a previously unfamiliar programming language for efficient server-side development.
-                        </li>
-                    </Reveal>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-const content_2021 = <div className={style.expWrapper}>
-    <div className={style.detailsWrapper}>
-        <div className={style.details}>
-            <Reveal><h3 className={style.expCompany}>Teach For India</h3></Reveal>
-            <Reveal><p className={style.expDesignation}>Frontend Web Developer <b>·</b> Internship</p></Reveal>
-            <Reveal><p className={style.expDuration}>May 2021 - June 2021</p></Reveal>
-            <div className={style.expBrief}>
-                <Reveal><b>Skills:</b> Design <b>·</b> User Experience Design (UXD) <b>·</b> User Interface Design(UID) <b>·</b> Git <b>·</b> Web Design <b>·</b> HTML5 <b>·</b> CSS3</Reveal>
-                <br></br>
-                <Reveal>
-                    <b>Description:</b>
-                    <ul>
-                        <Reveal>
-                            <li>
-                                <b>Web Interface Development: </b>
-                                Designed and constructed a user-friendly web interface for a high-impact campaign, emphasizing both visual appeal and
-                                functional efficiency. Ensured the online presence aligned with campaign objectives, providing an engaging and effortless experience for users.
-                            </li>
-                        </Reveal>
-                        <Reveal>
-                            <li>
-                                <b>Design Layout Proficiency: </b>
-                                Acquired valuable expertise in crafting effective design layouts for webpages, enhancing the visual appeal and overall user
-                                experience of online content. Demonstrated a keen eye for design principles, contributing to the creation of visually compelling and intuitive web
-                                layouts.
-                            </li>
-                        </Reveal>
-                    </ul>
-                </Reveal>
-            </div>
-        </div>
-    </div>
-    <div className={style.detailsWrapper}>
-        <div className={style.details}>
-            <Reveal><h3 className={style.expCompany}>GirlScript Winter of Contributing</h3></Reveal>
-            <Reveal><p className={style.expDesignation}>Contributor</p></Reveal>
-            <Reveal><p className={style.expDuration}>Sep 2021 - Nov 2021</p></Reveal>
-            <div className={style.expBrief}>
-                <Reveal><b>Skills:</b> Git</Reveal>
-                <br></br>
-                <Reveal>
-                    <b>Description:</b>
-                    <ul>
-                        <li>
-                            <b>Open-Source Involvement: </b>
-                            Contributed actively to open-source projects, gaining valuable experience in collaborative software development.
-                            Represented a commitment to community engagement, participating in the broader development community and contributing to the advancement of
-                            shared knowledge and resources.
-                        </li>
-                    </ul>
-                </Reveal>
-            </div>
-        </div>
-    </div>
-</div>
-
-const content_2020 = <div className={style.expWrapper}>
-    <div className={style.detailsWrapper}>
-        <div className={style.details}>
-            <Reveal><h3 className={style.expCompany}>Started learning Web development</h3></Reveal>
-            <Reveal><p className={style.expDesignation}>Got Certifications</p></Reveal>
-            <Reveal><p className={style.expDuration}></p></Reveal>
-            <div className={style.expBrief}>
-                <Reveal><b>Skills:</b> HTML <b>·</b> CSS <b>·</b> JavaScript</Reveal>
-            </div>
-        </div>
-    </div>
-</div>
-
-const content_2019 = <div className={style.expWrapper}>
-    <div className={style.detailsWrapper}>
-        <div className={style.details}>
-            <Reveal><h3 className={style.expCompany}>Graduated From High School</h3></Reveal>
-            <Reveal><p className={style.expDesignation}>Science Student</p></Reveal>
-            <div className={style.expBrief}>
-                <Reveal><b>Subjects:</b> Physics <b>·</b> Chemistry <b>·</b> Mathematics <b>·</b> English <b>·</b> Computer Science</Reveal>
-            </div>
-        </div>
-    </div>
-    <div className={style.detailsWrapper}>
-        <div className={style.details}>
-            <Reveal><h3 className={style.expCompany}>Got into College</h3></Reveal>
-            <Reveal><p className={style.expDesignation}>B.Sc. (Hons.) Computer Science</p></Reveal>
-            <Reveal><p className={style.expDuration}>Shaheed Sukhdev College of Business Studies</p></Reveal>
-            <div className={style.expBrief}>
-                <Reveal><b>University of Delhi</b></Reveal>
-            </div>
-        </div>
-    </div>
-</div>
+import React from "react";
+import { useSelector } from "react-redux";
+import Reveal from "../Reveal";
+import '../../css/developerTheme.css';
 
 const Details = ({ year }) => {
-    const darkMode = useSelector((state) => state.navstate.darkMode)
-    switch (year) {
-        case '2023': return <div className={darkMode ? style.darkMode : ''}>{content_2023}</div>
-        case '2022': return <div className={darkMode ? style.darkMode : ''}>{content_2022}</div>
-        case '2021': return <div className={darkMode ? style.darkMode : ''}>{content_2021}</div>
-        case '2020': return <div className={darkMode ? style.darkMode : ''}>{content_2020}</div>
-        case '2019': return <div className={darkMode ? style.darkMode : ''}>{content_2019}</div>
-        default: return content_2023
-    }
-}
+    const darkMode = useSelector((state) => state.navstate.darkMode);
 
-export default Details
+    const getCommitLogs = (yr) => {
+        switch (yr) {
+            case '2023':
+                return {
+                    id: 'f87a9e3',
+                    company: 'Paytm',
+                    role: 'Sr. Software Engineer',
+                    duration: 'Sept 2025 - Present',
+                    skills: ['Vue', 'Redux', 'JavaScript', 'TailwindCSS'],
+                    details: [
+                        'Pipelined and scaled core modules in the frontend team of PIBPL.',
+                        'Optimized CRM flow pipelines, improving client operations by 40%.',
+                        'Integrated domestic and international gateways (Stripe, PayU) inside chat flow builders.'
+                    ]
+                };
+            case '2022':
+                return {
+                    id: 'c52e411',
+                    company: 'EnableX',
+                    role: 'Software Engineer Trainee',
+                    duration: 'July 2022 - July 2023',
+                    skills: ['Ruby', 'JavaScript', 'HTML5', 'CSS3', 'WebRTC'],
+                    details: [
+                        'Constructed first Ruby application server within two-day timeline.',
+                        'Enhanced user workflows, raising product engagement metrics by 80%.',
+                        'Delivered real-time WebRTC audio/video dashboard integrations.'
+                    ]
+                };
+            case '2021':
+                return {
+                    id: 'b712fa9',
+                    company: 'Teach For India & GirlScript',
+                    role: 'Web Developer / Contributor',
+                    duration: 'May 2021 - Nov 2021',
+                    skills: ['HTML5', 'CSS3', 'JavaScript', 'Git'],
+                    details: [
+                        'Designed user-friendly interfaces for campaign dashboards during Teach For India internship.',
+                        'Contributed codebase commits during the GirlScript Winter of Contributing program.'
+                    ]
+                };
+            case '2020':
+                return {
+                    id: 'a90d421',
+                    company: 'Self-Directed Learning',
+                    role: 'Developer Path',
+                    duration: 'Jan 2020 - Dec 2020',
+                    skills: ['HTML', 'CSS', 'JavaScript'],
+                    details: [
+                        'Built core programming foundations and completed basic responsive web design projects.'
+                    ]
+                };
+            case '2019':
+                return {
+                    id: '9211fb4',
+                    company: 'SSCBS, University of Delhi',
+                    role: 'B.Sc. (Hons) Computer Science',
+                    duration: 'May 2019 - May 2022',
+                    skills: ['C++', 'Python', 'Algorithms', 'Databases'],
+                    details: [
+                        'Acquired academic foundations in database engineering, data structures, and computer architectures.'
+                    ]
+                };
+            default:
+                return null;
+        }
+    };
+
+    const log = getCommitLogs(year);
+    if (!log) return null;
+
+    return (
+        <div className="terminalWindow" style={{ height: '100%' }}>
+            <div className="terminalHeader">
+                <div className="terminalControls">
+                    <div className="terminalDot dotRed"></div>
+                    <div className="terminalDot dotYellow"></div>
+                    <div className="terminalDot dotGreen"></div>
+                </div>
+                <div className="terminalTitle">commit_log.txt</div>
+            </div>
+            <div className="terminalBody" style={{ color: darkMode ? '#f8f8f2' : '#24292f' }}>
+                <Reveal>
+                    <div style={{ borderBottom: '1px dashed var(--border-light)', paddingBottom: '10px', marginBottom: '12px' }}>
+                        <span style={{ color: '#ff79c6', fontWeight: 'bold' }}>commit {log.id}</span><br />
+                        <span style={{ color: '#8be9fd' }}>Author:</span> Shubham Kumar &lt;shubham@paytm.com&gt;<br />
+                        <span style={{ color: '#8be9fd' }}>Date:</span> {log.duration}<br />
+                        <span style={{ color: '#50fa7b' }}>Role:</span> {log.role} @ {log.company}
+                    </div>
+                </Reveal>
+                
+                <Reveal>
+                    <div style={{ marginBottom: '12px' }}>
+                        <strong>Modules Integrated:</strong><br />
+                        <div className="techBadgesGrid" style={{ marginTop: '5px' }}>
+                            {log.skills.map((s) => (
+                                <span key={s} className="techBadge">{s}</span>
+                            ))}
+                        </div>
+                    </div>
+                </Reveal>
+
+                <Reveal>
+                    <div>
+                        <strong>Diagnostic Output:</strong>
+                        <ul style={{ margin: '5px 0 0 0', paddingLeft: '20px', lineHeight: '1.6' }}>
+                            {log.details.map((d, index) => (
+                                <li key={index}>{d}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </Reveal>
+            </div>
+        </div>
+    );
+};
+
+export default Details;

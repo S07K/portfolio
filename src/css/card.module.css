@@ -1,43 +1,72 @@
 .cardWrapper {
     position: relative;
-    min-width: 100px;
-    /* max-width: 300px; */
-    background: white;
-    box-shadow: 0 0 4px -1px #8f8f8f;
+    width: 100%;
+    background: rgba(253, 250, 242, 0.5);
+    border: 2px dashed rgba(127, 140, 141, 0.35);
     border-radius: 8px;
-    transition: box-shadow .15s,-webkit-box-shadow .15s;
-    font-family: 'poppins';
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: var(--body-font);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.03);
+    margin-top: 10px;
 }
 .darkMode.cardWrapper {
-    background: #000000;
-    /* box-shadow: 0 0 5px 0px #d9d9d9; */
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
 }
 .cardWrapper:hover {
-    box-shadow: 0 0 10px 1px #d9d9d9;
+    transform: translateY(-4px) rotate(-0.5deg);
+    box-shadow: 4px 8px 15px rgba(0,0,0,0.06);
+    border-color: var(--primary-blue);
 }
 .darkMode.cardWrapper:hover {
-    box-shadow: 0 0 1px 0px #dcdcdc;
+    border-color: #f1c40f;
+    box-shadow: 4px 8px 18px rgba(0, 0, 0, 0.3);
 }
-.imgWrapper img{
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px 8px 0 0;
+.imgWrapper {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 6px 6px 0 0;
+    border-bottom: 1px dashed rgba(127,140,141,0.25);
+}
+.imgWrapper img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.cardWrapper:hover .imgWrapper img {
+    transform: scale(1.03);
 }
 .details {
-    min-height: 100px;
-    padding: 16px;
+    padding: 12px 14px;
 }
 .heading {
-    padding-top: 10px;
-    font-weight: bolder;
+    font-family: var(--title-font);
+    font-size: 1.25rem;
+    color: var(--primary-blue);
+    font-weight: bold;
+    padding-top: 2px;
+}
+.darkMode .heading {
+    color: #f1c40f;
 }
 .description {
-    padding-top: 4px;
-    font-size: 14px;
-    color: var(--primary-blue);
+    padding-top: 6px;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: var(--ink-color-light);
+}
+.darkMode .description {
+    color: var(--ink-color-dark);
 }
 .techStack {
-    padding-top: 16px;
+    padding-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
 }
 .darkMode.techStack {
     color: white;

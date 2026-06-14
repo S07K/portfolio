@@ -1,0 +1,523 @@
+/* Workspace Layout Grid */
+.workspaceContainer {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background: var(--bg-light);
+  color: var(--text-light);
+  transition: background 0.3s ease, color 0.3s ease;
+  position: relative;
+}
+
+.dark-mode .workspaceContainer {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+/* Left Sidebar - Terminal Profile */
+.sidebarPanel {
+  width: 300px;
+  border-right: 1px solid var(--border-light);
+  padding: 85px 20px 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--panel-bg-light);
+  transition: all 0.3s ease;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 10;
+}
+
+.dark-mode .sidebarPanel {
+  background: #0d1117;
+  border-color: var(--border-dark);
+}
+
+/* Main Content Workspace Panel */
+.contentPanel {
+  flex: 1;
+  padding: 95px 40px 60px 40px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+/* Terminal Code Window Block */
+.terminalWindow {
+  background: #f6f8fa;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dark-mode .terminalWindow {
+  background: #0d1117;
+  border-color: var(--border-dark);
+  box-shadow: var(--shadow-dark);
+}
+
+.terminalHeader {
+  background: #eaeef2;
+  border-bottom: 1px solid var(--border-light);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dark-mode .terminalHeader {
+  background: #161b22;
+  border-color: var(--border-dark);
+}
+
+.terminalControls {
+  display: flex;
+  gap: 6px;
+}
+
+.terminalDot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.dotRed { background: #ff5f56; }
+.dotYellow { background: #ffbd2e; }
+.dotGreen { background: #27c93f; }
+
+.terminalTitle {
+  margin: 0 auto;
+  font-family: var(--code-font);
+  font-size: 0.75rem;
+  color: var(--muted-light);
+  transform: translateX(-18px); /* center accounting for dots */
+}
+
+.dark-mode .terminalTitle {
+  color: var(--muted-dark);
+}
+
+.terminalBody {
+  padding: 15px;
+  font-family: var(--code-font);
+  font-size: 0.82rem;
+  overflow-x: auto;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Keyboard Shortcut Guide */
+.keyboardGuide {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-family: var(--code-font);
+  font-size: 0.78rem;
+  box-shadow: var(--shadow-light);
+}
+
+.dark-mode .keyboardGuide {
+  background: #161b22;
+  border-color: var(--border-dark);
+  box-shadow: var(--shadow-dark);
+}
+
+.keyboardGuideTitle {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--muted-light);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dark-mode .keyboardGuideTitle {
+  color: var(--muted-dark);
+}
+
+.keyboardGuideItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.keyboardGuideItem:last-child {
+  margin-bottom: 0;
+}
+
+kbd {
+  background: #eaeef2;
+  border: 1px solid var(--border-light);
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.1);
+  color: var(--text-light);
+  display: inline-block;
+  font-family: var(--code-font);
+  font-size: 0.7rem;
+  line-height: 1.3;
+  padding: 2px 5px;
+  font-weight: bold;
+}
+
+.dark-mode kbd {
+  background: #21262d;
+  border-color: var(--border-dark);
+  color: var(--text-dark);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.4);
+}
+
+/* Sidebar profile photo frame */
+.profileFrame {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--border-light);
+  align-self: center;
+  box-shadow: var(--shadow-light);
+  transition: all 0.3s ease;
+}
+
+.dark-mode .profileFrame {
+  border-color: var(--border-dark);
+  box-shadow: var(--shadow-dark);
+}
+
+.profileFrame:hover {
+  transform: scale(1.05);
+}
+
+.profileFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Git Commit timeline */
+.gitCommitTree {
+  display: flex;
+  gap: 30px;
+  margin-top: 15px;
+}
+
+.gitBranchColumn {
+  width: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gitBranchLine {
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  width: 3px;
+  background: var(--border-light);
+  z-index: 1;
+}
+
+.dark-mode .gitBranchLine {
+  background: var(--border-dark);
+}
+
+.gitCommitNodes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  z-index: 2;
+  gap: 45px;
+}
+
+.gitCommitNode {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--panel-bg-light);
+  border: 3.5px solid var(--border-light);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dark-mode .gitCommitNode {
+  background: var(--panel-bg-dark);
+  border-color: var(--border-dark);
+}
+
+.gitCommitNode:hover {
+  transform: scale(1.25);
+  border-color: var(--primary-blue);
+}
+
+.gitCommitNodeActive {
+  background: var(--success-green) !important;
+  border-color: var(--success-green) !important;
+  box-shadow: 0 0 0 4px rgba(45, 164, 78, 0.25);
+  transform: scale(1.25);
+}
+
+.gitCommitNodeActive::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
+
+.gitCommitNodeLabel {
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--code-font);
+  font-size: 0.78rem;
+  font-weight: bold;
+  color: var(--muted-light);
+  white-space: nowrap;
+}
+
+.dark-mode .gitCommitNodeLabel {
+  color: var(--muted-dark);
+}
+
+.gitCommitNodeActive .gitCommitNodeLabel {
+  color: var(--success-green);
+}
+
+/* GitHub style repository cards */
+.repoCard {
+  background: var(--panel-bg-light);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-light);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.dark-mode .repoCard {
+  background: var(--panel-bg-dark);
+  border-color: var(--border-dark);
+  box-shadow: var(--shadow-dark);
+}
+
+.repoCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary-blue);
+  box-shadow: 0 4px 12px rgba(9, 105, 218, 0.1);
+}
+
+.dark-mode .repoCard:hover {
+  border-color: #f1c40f;
+  box-shadow: 0 4px 12px rgba(241, 196, 15, 0.08);
+}
+
+.repoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.repoName {
+  font-family: var(--code-font);
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dark-mode .repoName {
+  color: #f1c40f;
+}
+
+.repoBadge {
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  font-size: 0.68rem;
+  padding: 2px 8px;
+  font-family: var(--code-font);
+  color: var(--muted-light);
+}
+
+.dark-mode .repoBadge {
+  border-color: var(--border-dark);
+  color: var(--muted-dark);
+}
+
+.repoDesc {
+  font-size: 0.82rem;
+  color: var(--muted-light);
+  line-height: 1.4;
+  margin: 0 0 14px 0;
+  flex-grow: 1;
+}
+
+.dark-mode .repoDesc {
+  color: var(--muted-dark);
+}
+
+.repoFooter {
+  display: flex;
+  gap: 15px;
+  font-family: var(--code-font);
+  font-size: 0.72rem;
+  color: var(--muted-light);
+  align-items: center;
+}
+
+.dark-mode .repoFooter {
+  color: var(--muted-dark);
+}
+
+.langDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+/* Media integrations blocks */
+.ytIntegrationCard {
+  background: var(--panel-bg-light);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 15px;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-light);
+  transition: all 0.25s ease;
+}
+
+.dark-mode .ytIntegrationCard {
+  background: var(--panel-bg-dark);
+  border-color: var(--border-dark);
+  box-shadow: var(--shadow-dark);
+}
+
+.ytIntegrationCard:hover {
+  transform: translateY(-2px);
+  border-color: #ff0000;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.08);
+}
+
+.ytLogoBox {
+  width: 80px;
+  height: 60px;
+  background: #ff0000;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.instaTelemetryCard {
+  background: var(--panel-bg-light);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: var(--shadow-light);
+  transition: all 0.25s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.dark-mode .instaTelemetryCard {
+  background: var(--panel-bg-dark);
+  border-color: var(--border-dark);
+  box-shadow: var(--shadow-dark);
+}
+
+.instaTelemetryCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary-blue);
+  box-shadow: 0 4px 12px rgba(9, 105, 218, 0.08);
+}
+
+/* Tech Badges Grid */
+.techBadgesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.techBadge {
+  background: #eaeef2;
+  border: 1px solid var(--border-light);
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-family: var(--code-font);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted-light);
+}
+
+.dark-mode .techBadge {
+  background: #21262d;
+  border-color: var(--border-dark);
+  color: var(--text-dark);
+}
+
+/* Page headers */
+.pageTitle {
+  font-family: var(--body-font);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 15px;
+}
+
+.dark-mode .pageTitle {
+  color: var(--text-dark);
+}
+
+/* Responsive folding rules */
+@media (max-width: 960px) {
+  .workspaceContainer {
+    flex-direction: column;
+  }
+  .sidebarPanel {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
+    padding: 75px 20px 20px 20px;
+    position: relative;
+  }
+  .dark-mode .sidebarPanel {
+    border-bottom-color: var(--border-dark);
+  }
+  .contentPanel {
+    padding: 30px 20px 60px 20px;
+  }
+}
