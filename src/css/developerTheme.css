@@ -463,6 +463,41 @@ kbd {
   box-shadow: 0 4px 12px rgba(9, 105, 218, 0.08);
 }
 
+.youtubeFeedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.instagramFeedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.instaImg {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.instaMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--code-font);
+  font-size: 0.72rem;
+  margin-top: 5px;
+  color: var(--muted-light);
+}
+
+.dark-mode .instaMeta {
+  color: var(--muted-dark);
+}
+
 /* Tech Badges Grid */
 .techBadgesGrid {
   display: flex;
