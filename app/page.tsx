@@ -3,6 +3,7 @@ import Hero from '@/components/Hero'
 import CurrentlyBuilding from '@/components/CurrentlyBuilding'
 import Chapters from '@/components/Chapters'
 import MediaGallery from '@/components/MediaGallery'
+import Canvas from '@/components/Canvas'
 import Journey from '@/components/Journey'
 import Contact from '@/components/Contact'
 
@@ -14,6 +15,7 @@ export default function Home() {
       <CurrentlyBuilding />
       <Chapters />
       <MediaGallery />
+      <Canvas />
       <Journey />
       <Contact />
     </main>

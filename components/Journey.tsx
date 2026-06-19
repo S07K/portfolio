@@ -15,12 +15,12 @@ interface Milestone {
 const milestones: Milestone[] = [
   {
     period: 'June 2026 — Present',
-    role: 'Founder & Builder',
-    company: 'Albumio',
+    role: 'Independent — Building & Creating',
+    company: 'Albumio + more',
     status: 'active',
-    tags: ['Entrepreneurship', 'Product', 'Full-stack'],
+    tags: ['Entrepreneurship', 'Product', 'Full-stack', 'Content'],
     description:
-      'Left full-time employment to build something entirely mine. Albumio is the bet — full time, no safety net, no co-founder. Just the problem and the work.',
+      'Left full-time employment to find out what I actually want to build. Exploring product, content, and ideas on my own terms. Albumio is one of those bets — not the only one.',
   },
   {
     period: 'Sept 2025 — June 2026',
@@ -29,7 +29,7 @@ const milestones: Milestone[] = [
     status: 'closed',
     tags: ['Vue', 'Frontend Engineering'],
     description:
-      'Frontend engineering in the PIBPL (Paytm Insurance Broking) team. A short chapter that confirmed what I already suspected — I needed to build for myself.',
+      'Frontend engineering in the PIBPL (Paytm Insurance Broking) team. A short chapter that confirmed what I already suspected — I needed space to figure out what I actually wanted.',
   },
   {
     period: 'July 2023 — Aug 2025',
@@ -121,7 +121,7 @@ export default function Journey() {
                     )}
                   </div>
 
-                  <div className={`${m.status === 'milestone' ? 'py-4' : 'bg-card border border-line p-7 hover:border-text-lo transition-colors duration-300'}`}>
+                  <div className={`${m.status === 'milestone' ? 'py-4' : 'glass-card p-7 hover:border-accent/20 transition-colors duration-300'}`}>
 
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
                       <div>

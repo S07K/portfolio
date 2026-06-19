@@ -2,45 +2,91 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Dark theme (default) ───────────────────────────────────────────────────
+   Warm-tinted blacks for depth. text-lo is now actually visible.
+   Accent is richer, saturated gold.                                          */
+:root {
+  --canvas:   9 8 7;            /* #090807 — warm deep black        */
+  --surface:  15 14 12;         /* #0F0E0C                           */
+  --card:     23 21 18;         /* #171512 — distinct from surface   */
+  --line:     44 41 35;         /* #2C2923 — warm visible border     */
+  --text-hi:  250 245 237;      /* #FAF5ED — rich warm cream         */
+  --text-md:  152 143 130;      /* #988F82 — warm readable mid-tone  */
+  --text-lo:  75 69 60;         /* #4B453C — visible warm dark       */
+  --accent:   213 173 79;       /* #D5AD4F — vibrant gold            */
+}
+
+/* ─── Light theme ────────────────────────────────────────────────────────────
+   True warm parchment. Deep warm ink for text. Same rich gold accent.       */
+html.light {
+  --canvas:   252 249 243;      /* #FCF9F3 — warm parchment          */
+  --surface:  244 240 232;      /* #F4F0E8                           */
+  --card:     234 228 217;      /* #EAE4D9 — distinct card           */
+  --line:     196 188 174;      /* #C4BCAE — warm visible border     */
+  --text-hi:  18 14 8;          /* #120E08 — deep warm black         */
+  --text-md:  72 65 55;         /* #484137 — warm readable           */
+  --text-lo:  140 131 118;      /* #8C8376 — warm muted, legible     */
+  --accent:   190 148 55;       /* #BE9437 — gold, deeper on light   */
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #0A0A0A;
-  color: #6B6B6B;
+  background-color: rgb(var(--canvas));
+  color: rgb(var(--text-md));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Subtle ambient warm glow in dark mode — makes the canvas feel alive */
+:root body {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgb(var(--accent) / 0.06) 0%, transparent 70%);
+}
+
+html.light body {
+  background-image: none;
 }
 
 ::selection {
-  background: rgba(201, 169, 110, 0.15);
-  color: #F0EDE8;
+  background: rgb(var(--accent) / 0.2);
+  color: rgb(var(--text-hi));
 }
 
-::-webkit-scrollbar {
-  width: 1px;
-}
-::-webkit-scrollbar-track {
-  background: #0A0A0A;
-}
-::-webkit-scrollbar-thumb {
-  background: #2A2A2A;
-}
+::-webkit-scrollbar { width: 1px; }
+::-webkit-scrollbar-track { background: rgb(var(--canvas)); }
+::-webkit-scrollbar-thumb { background: rgb(var(--accent) / 0.4); }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-balance { text-wrap: balance; }
+
+  /* Glass — for nav, subtle overlays */
+  .glass {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background-color: rgb(var(--canvas) / 0.72);
+    border: 1px solid rgb(var(--line) / 0.7);
   }
-  .grain {
-    position: relative;
+
+  /* Glass card — for content cards with depth */
+  .glass-card {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background-color: rgb(var(--card) / 0.7);
+    border: 1px solid rgb(var(--line) / 0.6);
+    box-shadow: 0 4px 24px rgb(0 0 0 / 0.15), inset 0 1px 0 rgb(var(--text-hi) / 0.04);
   }
+
+  /* Grain texture overlay */
   .grain::after {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
     pointer-events: none;
     border-radius: inherit;
   }

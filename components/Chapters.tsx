@@ -170,15 +170,15 @@ function ProjectCard({ project, isLast }: { project: Project; isLast: boolean })
         </div>
 
         {/* Image */}
-        <div className="relative aspect-video lg:aspect-[4/3] overflow-hidden border border-line">
+        <div className="relative aspect-video lg:aspect-[4/3] overflow-hidden border border-line bg-surface">
           <Image
             src={project.image}
             alt={project.name}
             fill
-            className="object-cover object-top grayscale-[20%] group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-700"
+            className="object-contain grayscale-[20%] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700"
             sizes="(max-width: 1024px) 100vw, 340px"
           />
-          <div className="absolute inset-0 bg-canvas/30 group-hover:bg-transparent transition-colors duration-500" />
+          <div className="absolute inset-0 bg-canvas/20 group-hover:bg-transparent transition-colors duration-500" />
         </div>
 
       </div>

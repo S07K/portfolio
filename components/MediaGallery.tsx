@@ -1,61 +1,83 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import SectionReveal from './SectionReveal'
+import { useState } from "react";
+import SectionReveal from "./SectionReveal";
 
 // ── YouTube ──────────────────────────────────────────────────────────────────
 // Add your video IDs here. Thumbnail auto-fetched from YouTube.
 // Example: videoId: 'dQw4w9WgXcQ' → https://youtu.be/dQw4w9WgXcQ
 const youtubeVideos = [
   {
-    id: 'yt-1',
-    videoId: '', // TODO: add video ID
-    title: 'Video coming soon',
-    description: 'Drop a video ID in MediaGallery.tsx to display thumbnails.',
+    id: "yt-1",
+    videoId: "zj9wsLHwsfg", // TODO: add video ID
+    title: "System Design - SynchroAI - AI Powered Chat App",
+    description: `Welcome to the behind-the-scenes breakdown of my latest project—a unique AI-powered chat app! In this video, I explain the High-Level Design (HLD) and Low-Level Design (LLD) of the app, focusing on how I’m integrating real-time messaging with AI assistance. Users can mention @AI within the chat, and the AI will provide real-time responses to help streamline conversations.`,
   },
   {
-    id: 'yt-2',
-    videoId: '', // TODO: add video ID
-    title: 'Video coming soon',
-    description: '',
+    id: "yt-2",
+    videoId: "aSEhOXQZ824", // TODO: add video ID
+    title: "Corporate sucks tbh.",
+    description: "#corporate #corporatelife #mystory #storytelling",
   },
-  {
-    id: 'yt-3',
-    videoId: '', // TODO: add video ID
-    title: 'Video coming soon',
-    description: '',
-  },
-]
+];
 
 // ── Instagram ────────────────────────────────────────────────────────────────
 // Add post image paths + URLs here. Place images in public/instagram/
 // Example: image: '/instagram/post-1.jpg', postUrl: 'https://www.instagram.com/p/XXXXX/'
 const instagramPosts = [
-  { id: 'ig-1', image: '', postUrl: 'https://www.instagram.com/function.shubham/' },
-  { id: 'ig-2', image: '', postUrl: 'https://www.instagram.com/function.shubham/' },
-  { id: 'ig-3', image: '', postUrl: 'https://www.instagram.com/function.shubham/' },
-  { id: 'ig-4', image: '', postUrl: 'https://www.instagram.com/function.shubham/' },
-  { id: 'ig-5', image: '', postUrl: 'https://www.instagram.com/function.shubham/' },
-  { id: 'ig-6', image: '', postUrl: 'https://www.instagram.com/function.shubham/' },
-]
+  {
+    id: "ig-1",
+    image: "/instagram/post-1.jpg",
+    postUrl: "https://www.instagram.com/function.shubham/reel/DZSdx11zUPX/",
+  },
+  {
+    id: "ig-2",
+    image: "/instagram/post-2.jpg",
+    postUrl: "https://www.instagram.com/function.shubham/reel/DYkQwbPT1td/",
+  },
+  {
+    id: "ig-3",
+    image: "/instagram/post-3.jpg",
+    postUrl: "https://www.instagram.com/function.shubham/reel/DZsZU1CzeAU/",
+  },
+  {
+    id: "ig-4",
+    image: "/instagram/post-4.jpg",
+    postUrl: "https://www.instagram.com/function.shubham/reel/DQFE2MXE6KB/",
+  },
+  {
+    id: "ig-5",
+    image: "/instagram/post-5.jpg",
+    postUrl: "https://www.instagram.com/function.shubham/reel/DZDM3Qjz2hC/",
+  },
+  {
+    id: "ig-6",
+    image: "/instagram/post-6.jpg",
+    postUrl: "https://www.instagram.com/function.shubham/reel/DZuzWKnTgKn/",
+  },
+];
 
 function YouTubeCard({
   videoId,
   title,
   description,
 }: {
-  videoId: string
-  title: string
-  description: string
+  videoId: string;
+  title: string;
+  description: string;
 }) {
-  const [hovered, setHovered] = useState(false)
+  const [hovered, setHovered] = useState(false);
   const thumbnailUrl = videoId
     ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
-    : null
+    : null;
 
   return (
     <a
-      href={videoId ? `https://www.youtube.com/watch?v=${videoId}` : 'https://www.youtube.com/@function.shubham'}
+      href={
+        videoId
+          ? `https://www.youtube.com/watch?v=${videoId}`
+          : "https://www.youtube.com/@function.shubham"
+      }
       target="_blank"
       rel="noopener noreferrer"
       className="group block border border-line hover:border-text-lo transition-colors duration-300"
@@ -88,10 +110,16 @@ function YouTubeCard({
         {/* Play overlay on hover */}
         {thumbnailUrl && (
           <div
-            className={`absolute inset-0 bg-canvas/50 flex items-center justify-center transition-opacity duration-300 ${hovered ? 'opacity-100' : 'opacity-0'}`}
+            className={`absolute inset-0 bg-canvas/50 flex items-center justify-center transition-opacity duration-300 ${hovered ? "opacity-100" : "opacity-0"}`}
           >
             <div className="w-12 h-12 rounded-full border border-text-hi/30 flex items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" className="text-text-hi ml-1">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                className="text-text-hi ml-1"
+              >
                 <path d="M3 2l10 6-10 6V2z" />
               </svg>
             </div>
@@ -101,15 +129,15 @@ function YouTubeCard({
 
       {/* Meta */}
       <div className="p-5">
-        <p className="text-text-md text-sm font-sans leading-snug group-hover:text-text-hi transition-colors duration-300">
+        <p className="text-text-md text-sm font-sans leading-snug group-hover:text-text-hi transition-colors duration-300 line-clamp-2">
           {title}
         </p>
         {description && (
-          <p className="text-text-lo text-xs font-sans mt-1">{description}</p>
+          <p className="text-text-lo text-xs font-sans mt-1 line-clamp-2">{description}</p>
         )}
       </div>
     </a>
-  )
+  );
 }
 
 function InstagramTile({ image, postUrl }: { image: string; postUrl: string }) {
@@ -118,20 +146,21 @@ function InstagramTile({ image, postUrl }: { image: string; postUrl: string }) {
       href={postUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block aspect-square border border-line hover:border-text-lo transition-colors duration-300 overflow-hidden bg-surface relative"
+      className="group block aspect-[9/16] overflow-hidden bg-surface relative"
     >
       {image ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={image}
-          alt="Instagram post"
+          alt="Instagram reel"
           className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-[1.04] transition-all duration-500"
         />
       ) : (
         <div className="w-full h-full flex items-center justify-center">
+          {/* Instagram Reels icon */}
           <svg
-            width="20"
-            height="20"
+            width="22"
+            height="22"
             viewBox="0 0 24 24"
             fill="currentColor"
             className="text-text-lo group-hover:text-accent transition-colors duration-300"
@@ -140,36 +169,50 @@ function InstagramTile({ image, postUrl }: { image: string; postUrl: string }) {
           </svg>
         </div>
       )}
-      <div className="absolute inset-0 bg-canvas/0 group-hover:bg-canvas/20 transition-colors duration-300" />
+
+      {/* Reels play badge — top right */}
+      <div className="absolute top-2 right-2">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="white"
+          opacity="0.8"
+        >
+          <path d="M5 3l14 9-14 9V3z" />
+        </svg>
+      </div>
+
+      {/* Hover overlay */}
+      <div className="absolute inset-0 bg-canvas/0 group-hover:bg-canvas/30 transition-colors duration-300" />
     </a>
-  )
+  );
 }
 
 export default function MediaGallery() {
   return (
     <section className="py-24 md:py-32 border-t border-line">
       <div className="max-w-7xl mx-auto px-8 md:px-16">
-
         <SectionReveal className="mb-20">
           <p className="text-text-lo text-xs tracking-widest uppercase font-sans mb-6">
             — 004 &nbsp; Beyond the Code
           </p>
           <h2
             className="font-serif text-text-hi leading-tight"
-            style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
+            style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
           >
             The Channel
           </h2>
           <p className="text-text-md text-sm leading-loose font-sans mt-4 max-w-xl">
-            I document the process — the building, the escaping, the figuring out.
-            Motivation, life updates, hustle, and everything in between.
+            I document the process — the building, the escaping, the figuring
+            out. Motivation, life updates, hustle, and everything in between.
           </p>
         </SectionReveal>
 
         {/* ── YouTube ── */}
         <div className="mb-20">
           <SectionReveal>
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8">
               <div className="flex items-center gap-6">
                 <span className="text-text-lo text-xs tracking-widest uppercase font-sans">
                   YouTube
@@ -191,7 +234,14 @@ export default function MediaGallery() {
                 className="inline-flex items-center gap-2 text-text-lo text-xs tracking-widest uppercase font-sans hover:text-text-hi transition-colors duration-300"
               >
                 Visit Channel
-                <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
                   <path d="M2 10L10 2M10 2H4M10 2v6" />
                 </svg>
               </a>
@@ -214,7 +264,7 @@ export default function MediaGallery() {
         {/* ── Instagram ── */}
         <div>
           <SectionReveal>
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8">
               <div className="flex items-center gap-6">
                 <span className="text-text-lo text-xs tracking-widest uppercase font-sans">
                   Instagram
@@ -236,14 +286,21 @@ export default function MediaGallery() {
                 className="inline-flex items-center gap-2 text-text-lo text-xs tracking-widest uppercase font-sans hover:text-text-hi transition-colors duration-300"
               >
                 Follow
-                <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
                   <path d="M2 10L10 2M10 2H4M10 2v6" />
                 </svg>
               </a>
             </div>
           </SectionReveal>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
             {instagramPosts.map((p, i) => (
               <SectionReveal key={p.id} delay={i * 0.07}>
                 <InstagramTile image={p.image} postUrl={p.postUrl} />
@@ -251,8 +308,7 @@ export default function MediaGallery() {
             ))}
           </div>
         </div>
-
       </div>
     </section>
-  )
+  );
 }

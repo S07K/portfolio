@@ -26,20 +26,19 @@ export default function CurrentlyBuilding() {
           <SectionReveal delay={0.1}>
             <p className="font-serif italic text-text-md leading-relaxed mb-8 max-w-lg"
               style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)' }}>
-              "I left a stable engineering career to find out what I&apos;m actually
-              capable of building. Albumio is the bet."
+              "I left a stable engineering career to find out who I actually am outside of it. Albumio is one of the things I&apos;m building."
             </p>
             <p className="text-text-md text-sm leading-loose font-sans max-w-lg">
               After three years shipping features for companies — EnableX, Paytm —
-              I realized I was better at building products than building someone
-              else&apos;s product. So I stopped. Albumio is my first full-time solo
-              venture. It&apos;s early, it&apos;s real, and it&apos;s mine.
+              I stepped away to explore on my own terms. Building products,
+              making content, figuring out what sticks. Albumio is the first real
+              product bet in that chapter. Early, and entirely mine.
             </p>
           </SectionReveal>
 
           {/* Right — Albumio card */}
           <SectionReveal delay={0.2}>
-            <div className="border border-line bg-card p-8 md:p-10 relative overflow-hidden group hover:border-accent/30 transition-colors duration-500">
+            <div className="glass-card p-8 md:p-10 relative overflow-hidden group hover:border-accent/30 transition-colors duration-500">
 
               {/* Status badge */}
               <div className="absolute top-6 right-6 flex items-center gap-2">

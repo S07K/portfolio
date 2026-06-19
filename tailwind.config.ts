@@ -8,14 +8,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        canvas: '#0A0A0A',
-        surface: '#111111',
-        card: '#141414',
-        line: '#1E1E1E',
-        'text-hi': '#F0EDE8',
-        'text-md': '#6B6B6B',
-        'text-lo': '#2A2A2A',
-        accent: '#C9A96E',
+        canvas:    'rgb(var(--canvas) / <alpha-value>)',
+        surface:   'rgb(var(--surface) / <alpha-value>)',
+        card:      'rgb(var(--card) / <alpha-value>)',
+        line:      'rgb(var(--line) / <alpha-value>)',
+        'text-hi': 'rgb(var(--text-hi) / <alpha-value>)',
+        'text-md': 'rgb(var(--text-md) / <alpha-value>)',
+        'text-lo': 'rgb(var(--text-lo) / <alpha-value>)',
+        accent:    'rgb(var(--accent) / <alpha-value>)',
       },
       fontFamily: {
         serif: ['var(--font-playfair)', 'Georgia', 'serif'],
