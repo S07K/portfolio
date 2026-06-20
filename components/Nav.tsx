@@ -52,7 +52,7 @@ export default function Nav() {
             href={link.href}
             target={link.external ? '_blank' : undefined}
             rel={link.external ? 'noopener noreferrer' : undefined}
-            className="text-text-lo text-xs tracking-widest uppercase font-sans px-4 py-1.5 rounded-full hover:bg-surface/60 hover:text-text-hi transition-all duration-300 hidden sm:block"
+            className="text-text-md text-xs tracking-widest uppercase font-sans px-4 py-1.5 rounded-full hover:bg-surface/60 hover:text-text-hi transition-all duration-300 hidden sm:block"
           >
             {link.label}
           </a>
@@ -65,7 +65,7 @@ export default function Nav() {
         <button
           onClick={toggle}
           aria-label="Toggle theme"
-          className="text-text-lo hover:text-text-hi hover:bg-surface/60 transition-all duration-300 w-8 h-8 rounded-full flex items-center justify-center"
+          className="text-text-md hover:text-text-hi hover:bg-surface/60 transition-all duration-300 w-8 h-8 rounded-full flex items-center justify-center"
         >
           {theme === 'dark' ? (
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

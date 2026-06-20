@@ -191,7 +191,7 @@ export default function Chapters() {
   const design = projects.filter((p) => p.type === 'design')
 
   return (
-    <section className="py-24 md:py-32 border-t border-line">
+    <section id="chapters" className="py-24 md:py-32 border-t border-line">
       <div className="max-w-7xl mx-auto px-8 md:px-16">
 
         <SectionReveal className="mb-20">
