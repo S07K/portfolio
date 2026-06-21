@@ -26,20 +26,24 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://portfolio-indol-three-50.vercel.app'),
-  title: 'Shubham Kumar — Builder',
-  description: 'Engineer, creator, and entrepreneur building things that matter.',
+  title: 'Shubham Kumar — Engineer, Creator & Builder',
+  description:
+    'Portfolio of Shubham Kumar — a generalist engineer, content creator, and entrepreneur based in India. Building Albumio and exploring ideas at the intersection of code and creativity.',
   openGraph: {
-    title: 'Shubham Kumar — Builder',
-    description: 'Engineer, creator, and entrepreneur building things that matter.',
+    siteName: 'Shubham Kumar',
+    title: 'Shubham Kumar — Engineer, Creator & Builder',
+    description:
+      'Portfolio of Shubham Kumar — a generalist engineer, content creator, and entrepreneur based in India. Building Albumio and exploring ideas at the intersection of code and creativity.',
     type: 'website',
     url: 'https://portfolio-indol-three-50.vercel.app',
-    images: [{ url: '/shubham-profile.png', width: 800, height: 800, alt: 'Shubham Kumar' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Shubham Kumar — Engineer, Creator & Builder' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shubham Kumar — Builder',
-    description: 'Engineer, creator, and entrepreneur building things that matter.',
-    images: ['/shubham-profile.png'],
+    title: 'Shubham Kumar — Engineer, Creator & Builder',
+    description:
+      'Portfolio of Shubham Kumar — a generalist engineer, content creator, and entrepreneur based in India.',
+    images: ['/og-image.png'],
   },
 }
 
