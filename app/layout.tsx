@@ -26,7 +26,7 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://portfolio-indol-three-50.vercel.app'),
-  title: 'Shubham Kumar — Engineer, Creator & Builder',
+  title: `Shubham's Tech Space 🚀`,
   description:
     'Engineer, creator & entrepreneur based in India. Building products, making content, and figuring out what sticks.',
   openGraph: {
