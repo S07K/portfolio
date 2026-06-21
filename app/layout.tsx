@@ -25,14 +25,21 @@ const caveat = Caveat({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://portfolio-indol-three-50.vercel.app'),
   title: 'Shubham Kumar — Builder',
-  description:
-    'Engineer, creator, and entrepreneur building things that matter. Currently working full-time on Albumio.',
+  description: 'Engineer, creator, and entrepreneur building things that matter.',
   openGraph: {
     title: 'Shubham Kumar — Builder',
-    description:
-      'Engineer, creator, and entrepreneur building things that matter.',
+    description: 'Engineer, creator, and entrepreneur building things that matter.',
     type: 'website',
+    url: 'https://portfolio-indol-three-50.vercel.app',
+    images: [{ url: '/shubham-profile.png', width: 800, height: 800, alt: 'Shubham Kumar' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Shubham Kumar — Builder',
+    description: 'Engineer, creator, and entrepreneur building things that matter.',
+    images: ['/shubham-profile.png'],
   },
 }
 
