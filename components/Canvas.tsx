@@ -44,7 +44,7 @@ const memories: Memory[] = [
     id: 4,
     type: 'note',
     content: 'Camera taught me that composition is everything. The frame decides what matters. So does the code.',
-    date: '2023',
+    date: '2025',
     rotation: 2.5,
     accent: false,
   },

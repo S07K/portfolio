@@ -93,6 +93,40 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col lg:flex-row overflow-hidden bg-canvas">
 
+      {/* Grid background — mobile only (desktop grid lives in the right panel) */}
+      <div className="lg:hidden absolute inset-0 pointer-events-none" style={{
+        backgroundImage: `
+          linear-gradient(rgb(var(--text-hi) / 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgb(var(--text-hi) / 0.04) 1px, transparent 1px)
+        `,
+        backgroundSize: '36px 36px',
+      }} />
+
+      {/* Mobile profile polaroid — top right corner */}
+      <div className="lg:hidden absolute top-20 right-6 z-10">
+        <motion.div
+          className="relative pt-3"
+          style={{ rotate: 3 }}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
+        >
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10">
+            <div className="w-3.5 h-3.5 rounded-full shadow-md"
+              style={{ background: 'radial-gradient(circle at 35% 30%, rgb(var(--accent)), #7a5010)' }} />
+          </div>
+          <div className="w-28 bg-white pt-1.5 px-1.5 pb-5 shadow-[0_8px_24px_rgba(0,0,0,0.25)]">
+            <div className="relative overflow-hidden" style={{ aspectRatio: '1 / 1' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={PROFILE.src} alt="Shubham Kumar"
+                className="absolute inset-0 w-full h-full object-cover object-top" />
+            </div>
+            <p className="text-center mt-1 text-[5px] tracking-[0.18em] uppercase text-neutral-400"
+              style={{ fontFamily: 'monospace' }}>shubham kumar</p>
+          </div>
+        </motion.div>
+      </div>
+
       {/* ── LEFT — text ─────────────────────────────────────── */}
       <div className="relative flex items-end lg:w-[38%] shrink-0 px-8 md:px-14 pt-36 pb-20 md:pb-24 z-10 overflow-hidden">
         {/* Subtle accent glow */}
@@ -153,21 +187,56 @@ export default function Hero() {
         </motion.div>
       </div>
 
+      {/* ── MOBILE storyboard — horizontal scroll strip ─────── */}
+      <div className="lg:hidden px-8 pb-16 pt-2">
+        <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-none">
+          {BRANCHES.map((b, i) => (
+            <motion.div
+              key={b.id}
+              className="shrink-0 w-36 relative pt-3"
+              style={{ rotate: `${b.rotation}deg`, transformOrigin: 'top center' }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 + i * 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
+            >
+              {/* Pin — absolutely placed on top of card */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10">
+                <div className="w-3.5 h-3.5 rounded-full shadow-md"
+                  style={{ background: 'radial-gradient(circle at 35% 30%, #ff9a9a, #c0392b 55%, #7b0000)' }} />
+              </div>
+              <div className="bg-white pt-1.5 px-1.5 pb-5 shadow-[0_6px_20px_rgba(0,0,0,0.3)]">
+                <div className="relative overflow-hidden" style={{ aspectRatio: '1 / 1' }}>
+                  {b.type === 'video' ? (
+                    <video src={b.src} autoPlay muted loop playsInline
+                      className="absolute inset-0 w-full h-full object-cover" />
+                  ) : (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={b.src} alt={b.caption}
+                      className="absolute inset-0 w-full h-full object-cover" />
+                  )}
+                </div>
+                <p className="text-center mt-1.5 text-[6px] tracking-[0.18em] uppercase text-neutral-400"
+                  style={{ fontFamily: 'monospace' }}>
+                  {b.caption}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
       {/* ── RIGHT — story board ─────────────────────────────── */}
       <div className="hidden lg:block flex-1 relative min-h-screen">
 
 
         {/* Grid background */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgb(var(--text-hi) / 0.04) 1px, transparent 1px),
-              linear-gradient(90deg, rgb(var(--text-hi) / 0.04) 1px, transparent 1px)
-            `,
-            backgroundSize: '36px 36px',
-          }}
-        />
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: `
+            linear-gradient(rgb(var(--text-hi) / 0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(var(--text-hi) / 0.04) 1px, transparent 1px)
+          `,
+          backgroundSize: '36px 36px',
+        }} />
 
         {/* Radial fade — grid fades out toward edges */}
         <div

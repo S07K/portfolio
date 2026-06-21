@@ -24,20 +24,8 @@ export async function POST(req: NextRequest) {
       subject: `Portfolio message from ${name}`,
       text: `From: ${name} <${email}>\n\n${message}`,
       html: `
-        <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; padding: 40px; background: #0A0A0A; color: #6B6B6B;">
-          <p style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #2E2E2E; margin-bottom: 32px;">
-            New message from your portfolio
-          </p>
-          <h2 style="font-size: 24px; color: #F0EDE8; margin-bottom: 8px; font-weight: 400;">
-            ${name}
-          </h2>
-          <p style="font-size: 13px; color: #6B6B6B; margin-bottom: 32px;">
-            <a href="mailto:${email}" style="color: #C9A96E;">${email}</a>
-          </p>
-          <div style="border-top: 1px solid #1E1E1E; padding-top: 24px;">
-            <p style="font-size: 14px; line-height: 1.8; color: #6B6B6B; white-space: pre-wrap;">${message}</p>
-          </div>
-        </div>
+        <p><strong>${name}</strong> &lt;<a href="mailto:${email}">${email}</a>&gt;</p>
+        <p style="white-space: pre-wrap;">${message}</p>
       `,
     })
 
