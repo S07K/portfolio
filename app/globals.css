@@ -2,23 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Dark theme (default) ───────────────────────────────────────────────────
-   Warm-tinted blacks for depth. text-lo is now actually visible.
-   Accent is richer, saturated gold.                                          */
-:root {
-  --canvas:   9 8 7;            /* #090807 — warm deep black        */
-  --surface:  15 14 12;         /* #0F0E0C                           */
-  --card:     23 21 18;         /* #171512 — distinct from surface   */
-  --line:     44 41 35;         /* #2C2923 — warm visible border     */
-  --text-hi:  250 245 237;      /* #FAF5ED — rich warm cream         */
-  --text-md:  152 143 130;      /* #988F82 — warm readable mid-tone  */
-  --text-lo:  75 69 60;         /* #4B453C — visible warm dark       */
-  --accent:   213 173 79;       /* #D5AD4F — vibrant gold            */
-}
-
-/* ─── Light theme ────────────────────────────────────────────────────────────
+/* ─── Light theme (default) ─────────────────────────────────────────────────
    True warm parchment. Deep warm ink for text. Same rich gold accent.       */
-html.light {
+:root {
   --canvas:   252 249 243;      /* #FCF9F3 — warm parchment          */
   --surface:  244 240 232;      /* #F4F0E8                           */
   --card:     234 228 217;      /* #EAE4D9 — distinct card           */
@@ -27,6 +13,20 @@ html.light {
   --text-md:  72 65 55;         /* #484137 — warm readable           */
   --text-lo:  140 131 118;      /* #8C8376 — warm muted, legible     */
   --accent:   190 148 55;       /* #BE9437 — gold, deeper on light   */
+}
+
+/* ─── Dark theme ─────────────────────────────────────────────────────────────
+   Warm-tinted blacks for depth. text-lo is now actually visible.
+   Accent is richer, saturated gold.                                          */
+html.dark {
+  --canvas:   9 8 7;            /* #090807 — warm deep black        */
+  --surface:  15 14 12;         /* #0F0E0C                           */
+  --card:     23 21 18;         /* #171512 — distinct from surface   */
+  --line:     44 41 35;         /* #2C2923 — warm visible border     */
+  --text-hi:  250 245 237;      /* #FAF5ED — rich warm cream         */
+  --text-md:  152 143 130;      /* #988F82 — warm readable mid-tone  */
+  --text-lo:  75 69 60;         /* #4B453C — visible warm dark       */
+  --accent:   213 173 79;       /* #D5AD4F — vibrant gold            */
 }
 
 html {
@@ -43,13 +43,9 @@ body {
 }
 
 /* Subtle ambient warm glow in dark mode — makes the canvas feel alive */
-:root body {
+html.dark body {
   background-image:
     radial-gradient(ellipse 80% 50% at 50% -10%, rgb(var(--accent) / 0.06) 0%, transparent 70%);
-}
-
-html.light body {
-  background-image: none;
 }
 
 ::selection {
