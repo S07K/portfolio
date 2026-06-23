@@ -29,7 +29,7 @@ export default function CurrentlyBuilding() {
               "I left a stable engineering career to find out who I actually am outside of it. Albumio is one of the things I&apos;m building."
             </p>
             <p className="text-text-md text-sm leading-loose font-sans max-w-lg">
-              After three years shipping features for companies — EnableX, Paytm —
+              After four years shipping features for companies — EnableX, Paytm —
               I stepped away to explore on my own terms. Building products,
               making content, figuring out what sticks. Albumio is the first real
               product bet in that chapter. Early, and entirely mine.
