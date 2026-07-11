@@ -92,6 +92,20 @@ export default function CurrentlyBuilding() {
                     </span>
                   ))}
                 </div>
+
+                <div className="w-full h-px bg-line" />
+
+                <a
+                  href="https://onealbum.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/link inline-flex items-center gap-2 text-accent text-sm font-sans tracking-wide hover:opacity-80 transition-opacity"
+                >
+                  Visit onealbum.app
+                  <span className="transition-transform duration-300 group-hover/link:translate-x-1">
+                    ↗
+                  </span>
+                </a>
               </div>
 
               {/* Hover accent line */}
