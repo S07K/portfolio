@@ -1,7 +1,7 @@
 'use client'
 
-import Image from 'next/image'
 import SectionReveal from './SectionReveal'
+import OneAlbumLogo from './OneAlbumLogo'
 
 export default function CurrentlyBuilding() {
   return (
@@ -26,17 +26,17 @@ export default function CurrentlyBuilding() {
           <SectionReveal delay={0.1}>
             <p className="font-serif italic text-text-md leading-relaxed mb-8 max-w-lg"
               style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)' }}>
-              "I left a stable engineering career to find out who I actually am outside of it. Albumio is one of the things I&apos;m building."
+              "I left a stable engineering career to find out who I actually am outside of it. OneAlbum is one of the things I&apos;m building."
             </p>
             <p className="text-text-md text-sm leading-loose font-sans max-w-lg">
               After four years shipping features for companies — EnableX, Paytm —
               I stepped away to explore on my own terms. Building products,
-              making content, figuring out what sticks. Albumio is the first real
+              making content, figuring out what sticks. OneAlbum is the first real
               product bet in that chapter. Early, and entirely mine.
             </p>
           </SectionReveal>
 
-          {/* Right — Albumio card */}
+          {/* Right — OneAlbum card */}
           <SectionReveal delay={0.2}>
             <div className="glass-card p-8 md:p-10 relative overflow-hidden group hover:border-accent/30 transition-colors duration-500">
 
@@ -49,13 +49,11 @@ export default function CurrentlyBuilding() {
               </div>
 
               {/* Logo */}
-              <div className="w-36 h-20 relative mb-8">
-                <Image
-                  src="/albumio-logo.png"
-                  alt="Albumio"
-                  fill
-                  className="object-contain object-left"
-                />
+              <div className="mb-8">
+                <OneAlbumLogo markClassName="w-10 h-10" wordClassName="text-3xl" />
+                <p className="text-text-lo text-sm font-serif italic mt-3">
+                  One album for every moment.
+                </p>
               </div>
 
               <div className="space-y-5">

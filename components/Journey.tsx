@@ -16,11 +16,11 @@ const milestones: Milestone[] = [
   {
     period: 'June 2026 — Present',
     role: 'Independent — Building & Creating',
-    company: 'Albumio + more',
+    company: 'OneAlbum + more',
     status: 'active',
     tags: ['Entrepreneurship', 'Product', 'Full-stack', 'Content'],
     description:
-      'Left full-time employment to find out what I actually want to build. Exploring product, content, and ideas on my own terms. Albumio is one of those bets — not the only one.',
+      'Left full-time employment to find out what I actually want to build. Exploring product, content, and ideas on my own terms. OneAlbum is one of those bets — not the only one.',
   },
   {
     period: 'Sept 2025 — June 2026',

@@ -67,7 +67,7 @@ const memories: Memory[] = [
   {
     id: 7,
     type: 'moment',
-    content: 'Albumio started as a random conversation with a friend. No whiteboard, no plan — just an idea that refused to go away. He\'s not full-time but he\'s been in it, helped with deployment and more. Some things begin in a room, not alone.',
+    content: 'OneAlbum started as a random conversation with a friend. No whiteboard, no plan — just an idea that refused to go away. He\'s not full-time but he\'s been in it, helped with deployment and more. Some things begin in a room, not alone.',
     label: 'Day Zero',
     rotation: -0.8,
     accent: true,
