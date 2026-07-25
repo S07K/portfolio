@@ -1,7 +1,98 @@
 'use client'
 
+import { ReactNode } from 'react'
 import SectionReveal from './SectionReveal'
 import OneAlbumLogo from './OneAlbumLogo'
+
+interface ProductCardProps {
+  wordmark: ReactNode
+  tagline: string
+  spark: string
+  role: string
+  tags: string[]
+  link?: { label: string; href: string }
+  delay?: number
+}
+
+function ProductCard({ wordmark, tagline, spark, role, tags, link, delay = 0 }: ProductCardProps) {
+  return (
+    <SectionReveal delay={delay}>
+      <div className="glass-card h-full p-8 md:p-10 relative overflow-hidden group hover:border-accent/30 transition-colors duration-500">
+
+        {/* Status badge */}
+        <div className="absolute top-6 right-6 flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-dot" />
+          <span className="text-text-lo text-xs tracking-widest uppercase font-sans">
+            In Progress
+          </span>
+        </div>
+
+        {/* Wordmark */}
+        <div className="mb-8">
+          {wordmark}
+          <p className="text-text-lo text-sm font-serif italic mt-3">
+            {tagline}
+          </p>
+        </div>
+
+        <div className="space-y-5">
+          <div>
+            <p className="text-text-lo text-xs tracking-widest uppercase font-sans mb-2">
+              The Spark
+            </p>
+            <p className="text-text-md text-sm leading-loose font-sans">
+              {spark}
+            </p>
+          </div>
+
+          <div className="w-full h-px bg-line" />
+
+          <div>
+            <p className="text-text-lo text-xs tracking-widest uppercase font-sans mb-2">
+              The Role
+            </p>
+            <p className="text-text-md text-sm leading-loose font-sans">
+              {role}
+            </p>
+          </div>
+
+          <div className="w-full h-px bg-line" />
+
+          <div className="flex flex-wrap gap-2 pt-1">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="text-text-lo text-xs tracking-widest uppercase font-sans border border-line px-3 py-1"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {link && (
+            <>
+              <div className="w-full h-px bg-line" />
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/link inline-flex items-center gap-2 text-accent text-sm font-sans tracking-wide hover:opacity-80 transition-opacity"
+              >
+                {link.label}
+                <span className="transition-transform duration-300 group-hover/link:translate-x-1">
+                  ↗
+                </span>
+              </a>
+            </>
+          )}
+        </div>
+
+        {/* Hover accent line */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+      </div>
+    </SectionReveal>
+  )
+}
 
 export default function CurrentlyBuilding() {
   return (
@@ -20,98 +111,45 @@ export default function CurrentlyBuilding() {
           </div>
         </SectionReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+        {/* Lead — context */}
+        <SectionReveal delay={0.1} className="mb-14 max-w-2xl">
+          <p className="font-serif italic text-text-md leading-relaxed mb-8"
+            style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)' }}>
+            "I left a stable engineering career to find out who I actually am outside of it. OneAlbum and Kitevo are two of the things I&apos;m building."
+          </p>
+          <p className="text-text-md text-sm leading-loose font-sans">
+            After four years shipping features for companies — EnableX, Paytm —
+            I stepped away to explore on my own terms. Building products,
+            making content, figuring out what sticks. Two product bets so far —
+            OneAlbum and Kitevo. Early, and entirely mine.
+          </p>
+        </SectionReveal>
 
-          {/* Left — context */}
-          <SectionReveal delay={0.1}>
-            <p className="font-serif italic text-text-md leading-relaxed mb-8 max-w-lg"
-              style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)' }}>
-              "I left a stable engineering career to find out who I actually am outside of it. OneAlbum is one of the things I&apos;m building."
-            </p>
-            <p className="text-text-md text-sm leading-loose font-sans max-w-lg">
-              After four years shipping features for companies — EnableX, Paytm —
-              I stepped away to explore on my own terms. Building products,
-              making content, figuring out what sticks. OneAlbum is the first real
-              product bet in that chapter. Early, and entirely mine.
-            </p>
-          </SectionReveal>
+        {/* Products */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
 
-          {/* Right — OneAlbum card */}
-          <SectionReveal delay={0.2}>
-            <div className="glass-card p-8 md:p-10 relative overflow-hidden group hover:border-accent/30 transition-colors duration-500">
+          <ProductCard
+            delay={0.15}
+            wordmark={<OneAlbumLogo markClassName="w-10 h-10" wordClassName="text-3xl" />}
+            tagline="One album for every moment."
+            spark="A gap in how people organize and share their visual memories. Something between a private journal and a curated gallery — built for depth, not engagement metrics."
+            role="Founder, product designer, engineer. Every decision is mine. Every mistake is mine. That's the point."
+            tags={['Next.js', 'TypeScript', 'Founder Mode']}
+            link={{ label: 'Visit onealbum.app', href: 'https://onealbum.app' }}
+          />
 
-              {/* Status badge */}
-              <div className="absolute top-6 right-6 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-dot" />
-                <span className="text-text-lo text-xs tracking-widest uppercase font-sans">
-                  In Progress
-                </span>
-              </div>
-
-              {/* Logo */}
-              <div className="mb-8">
-                <OneAlbumLogo markClassName="w-10 h-10" wordClassName="text-3xl" />
-                <p className="text-text-lo text-sm font-serif italic mt-3">
-                  One album for every moment.
-                </p>
-              </div>
-
-              <div className="space-y-5">
-                <div>
-                  <p className="text-text-lo text-xs tracking-widest uppercase font-sans mb-2">
-                    The Spark
-                  </p>
-                  <p className="text-text-md text-sm leading-loose font-sans">
-                    A gap in how people organize and share their visual memories.
-                    Something between a private journal and a curated gallery —
-                    built for depth, not engagement metrics.
-                  </p>
-                </div>
-
-                <div className="w-full h-px bg-line" />
-
-                <div>
-                  <p className="text-text-lo text-xs tracking-widest uppercase font-sans mb-2">
-                    The Role
-                  </p>
-                  <p className="text-text-md text-sm leading-loose font-sans">
-                    Founder, product designer, engineer. Every decision is mine.
-                    Every mistake is mine. That&apos;s the point.
-                  </p>
-                </div>
-
-                <div className="w-full h-px bg-line" />
-
-                <div className="flex flex-wrap gap-2 pt-1">
-                  {['Next.js', 'TypeScript', 'Founder Mode'].map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-text-lo text-xs tracking-widest uppercase font-sans border border-line px-3 py-1"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="w-full h-px bg-line" />
-
-                <a
-                  href="https://onealbum.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group/link inline-flex items-center gap-2 text-accent text-sm font-sans tracking-wide hover:opacity-80 transition-opacity"
-                >
-                  Visit onealbum.app
-                  <span className="transition-transform duration-300 group-hover/link:translate-x-1">
-                    ↗
-                  </span>
-                </a>
-              </div>
-
-              {/* Hover accent line */}
-              <div className="absolute bottom-0 left-0 right-0 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-            </div>
-          </SectionReveal>
+          <ProductCard
+            delay={0.25}
+            wordmark={
+              <span className="font-serif text-text-hi leading-none block" style={{ fontSize: '2rem' }}>
+                Kitevo
+              </span>
+            }
+            tagline="The media kit that keeps itself current."
+            spark="Every creator pitching a brand hits the same wall — the media kit is a PDF, and a PDF is out of date the moment it's exported. Kitevo replaces it with a live link that pulls real numbers straight from Instagram and YouTube — followers, engagement, audience, growth — so a brand can trust what it's looking at."
+            role="Founder and builder, in public. Sharing the progress, the design decisions, and the occasional thing that went wrong."
+            tags={['Creator Economy', 'Live Data', 'Building in Public']}
+          />
 
         </div>
       </div>

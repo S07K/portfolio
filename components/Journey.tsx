@@ -16,11 +16,11 @@ const milestones: Milestone[] = [
   {
     period: 'June 2026 — Present',
     role: 'Independent — Building & Creating',
-    company: 'OneAlbum + more',
+    company: 'OneAlbum · Kitevo',
     status: 'active',
     tags: ['Entrepreneurship', 'Product', 'Full-stack', 'Content'],
     description:
-      'Left full-time employment to find out what I actually want to build. Exploring product, content, and ideas on my own terms. OneAlbum is one of those bets — not the only one.',
+      'Left full-time employment to find out what I actually want to build. Exploring product, content, and ideas on my own terms. OneAlbum and Kitevo are two of those bets — early, and entirely mine.',
   },
   {
     period: 'Sept 2025 — June 2026',
