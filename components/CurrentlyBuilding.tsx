@@ -115,13 +115,13 @@ export default function CurrentlyBuilding() {
         <SectionReveal delay={0.1} className="mb-14 max-w-2xl">
           <p className="font-serif italic text-text-md leading-relaxed mb-8"
             style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)' }}>
-            "I left a stable engineering career to find out who I actually am outside of it. OneAlbum and Kitevo are two of the things I&apos;m building."
+            "I left a stable engineering career to find out who I actually am outside of it. Building my own startups is one of the ways I&apos;m finding out."
           </p>
           <p className="text-text-md text-sm leading-loose font-sans">
             After four years shipping features for companies — EnableX, Paytm —
             I stepped away to explore on my own terms. Building products,
-            making content, figuring out what sticks. Two product bets so far —
-            OneAlbum and Kitevo. Early, and entirely mine.
+            making content, figuring out what sticks. A couple of early product
+            bets so far — entirely mine.
           </p>
         </SectionReveal>
 
