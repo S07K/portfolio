@@ -10,11 +10,12 @@ interface ProductCardProps {
   spark: string
   role: string
   tags: string[]
-  link?: { label: string; href: string }
+  status?: string
+  links?: { label: string; href: string }[]
   delay?: number
 }
 
-function ProductCard({ wordmark, tagline, spark, role, tags, link, delay = 0 }: ProductCardProps) {
+function ProductCard({ wordmark, tagline, spark, role, tags, status = 'In Progress', links, delay = 0 }: ProductCardProps) {
   return (
     <SectionReveal delay={delay}>
       <div className="glass-card h-full p-8 md:p-10 relative overflow-hidden group hover:border-accent/30 transition-colors duration-500">
@@ -23,7 +24,7 @@ function ProductCard({ wordmark, tagline, spark, role, tags, link, delay = 0 }: 
         <div className="absolute top-6 right-6 flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-dot" />
           <span className="text-text-lo text-xs tracking-widest uppercase font-sans">
-            In Progress
+            {status}
           </span>
         </div>
 
@@ -69,20 +70,25 @@ function ProductCard({ wordmark, tagline, spark, role, tags, link, delay = 0 }: 
             ))}
           </div>
 
-          {link && (
+          {links && links.length > 0 && (
             <>
               <div className="w-full h-px bg-line" />
-              <a
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/link inline-flex items-center gap-2 text-accent text-sm font-sans tracking-wide hover:opacity-80 transition-opacity"
-              >
-                {link.label}
-                <span className="transition-transform duration-300 group-hover/link:translate-x-1">
-                  ↗
-                </span>
-              </a>
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                {links.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/link inline-flex items-center gap-2 text-accent text-sm font-sans tracking-wide hover:opacity-80 transition-opacity"
+                  >
+                    {l.label}
+                    <span className="transition-transform duration-300 group-hover/link:translate-x-1">
+                      ↗
+                    </span>
+                  </a>
+                ))}
+              </div>
             </>
           )}
         </div>
@@ -130,12 +136,16 @@ export default function CurrentlyBuilding() {
 
           <ProductCard
             delay={0.15}
+            status="Live"
             wordmark={<OneAlbumLogo markClassName="w-10 h-10" wordClassName="text-3xl" />}
             tagline="One album for every moment."
             spark="A gap in how people organize and share their visual memories. Something between a private journal and a curated gallery — built for depth, not engagement metrics."
             role="Founder, product designer, engineer. Every decision is mine. Every mistake is mine. That's the point."
             tags={['Next.js', 'TypeScript', 'Founder Mode']}
-            link={{ label: 'Visit onealbum.app', href: 'https://onealbum.app' }}
+            links={[
+              { label: 'Get it on Google Play', href: 'https://play.google.com/store/apps/details?id=com.joinonealbum.app' },
+              { label: 'onealbum.app', href: 'https://onealbum.app' },
+            ]}
           />
 
           <ProductCard
