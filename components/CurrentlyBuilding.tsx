@@ -1,8 +1,15 @@
 'use client'
 
 import { ReactNode } from 'react'
+import Image from 'next/image'
 import SectionReveal from './SectionReveal'
 import OneAlbumLogo from './OneAlbumLogo'
+
+interface ProductLink {
+  label: string
+  href: string
+  image?: { src: string; width: number; height: number }
+}
 
 interface ProductCardProps {
   wordmark: ReactNode
@@ -11,7 +18,7 @@ interface ProductCardProps {
   role: string
   tags: string[]
   status?: string
-  links?: { label: string; href: string }[]
+  links?: ProductLink[]
   delay?: number
 }
 
@@ -74,20 +81,40 @@ function ProductCard({ wordmark, tagline, spark, role, tags, status = 'In Progre
             <>
               <div className="w-full h-px bg-line" />
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-                {links.map((l) => (
-                  <a
-                    key={l.href}
-                    href={l.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/link inline-flex items-center gap-2 text-accent text-sm font-sans tracking-wide hover:opacity-80 transition-opacity"
-                  >
-                    {l.label}
-                    <span className="transition-transform duration-300 group-hover/link:translate-x-1">
-                      ↗
-                    </span>
-                  </a>
-                ))}
+                {links.map((l) =>
+                  l.image ? (
+                    <a
+                      key={l.href}
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={l.label}
+                      className="inline-block hover:opacity-80 transition-opacity"
+                    >
+                      <Image
+                        src={l.image.src}
+                        alt={l.label}
+                        width={l.image.width}
+                        height={l.image.height}
+                        loading="eager"
+                        className="h-14 w-auto"
+                      />
+                    </a>
+                  ) : (
+                    <a
+                      key={l.href}
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/link inline-flex items-center gap-2 text-accent text-sm font-sans tracking-wide hover:opacity-80 transition-opacity"
+                    >
+                      {l.label}
+                      <span className="transition-transform duration-300 group-hover/link:translate-x-1">
+                        ↗
+                      </span>
+                    </a>
+                  )
+                )}
               </div>
             </>
           )}
@@ -143,7 +170,11 @@ export default function CurrentlyBuilding() {
             role="Founder, product designer, engineer. Every decision is mine. Every mistake is mine. That's the point."
             tags={['Next.js', 'TypeScript', 'Founder Mode']}
             links={[
-              { label: 'Get it on Google Play', href: 'https://play.google.com/store/apps/details?id=com.joinonealbum.app' },
+              {
+                label: 'Get it on Google Play',
+                href: 'https://play.google.com/store/apps/details?id=com.joinonealbum.app',
+                image: { src: '/google-play-badge.png', width: 646, height: 250 },
+              },
               { label: 'onealbum.app', href: 'https://onealbum.app' },
             ]}
           />
