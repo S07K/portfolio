@@ -186,8 +186,10 @@ export default function CurrentlyBuilding() {
           <ProductCard
             delay={0.25}
             wordmark={
-              <span className="font-serif text-text-hi leading-none block" style={{ fontSize: '2rem' }}>
-                Kitevo
+              <span className="inline-flex items-center gap-3 text-text-hi">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/kitevo-icon.svg" alt="Kitevo" width={40} height={40} className="w-10 h-10" />
+                <span className="font-serif leading-none text-3xl">Kitevo</span>
               </span>
             }
             tagline="The media kit that keeps itself current."
