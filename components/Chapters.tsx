@@ -26,7 +26,7 @@ const projects: Project[] = [
     build:
       'Full-stack web app. AI image generation pipeline wired directly to the Instagram Graph API. TypeScript, React, Redux, Node, Express, Firebase for storage, deployed on Vercel.',
     impact:
-      'Zero-friction creation-to-publish flow. Live and functional at post-pro-ai.vercel.app.',
+      'Zero-friction creation-to-publish flow — generate an image and post straight to Instagram, no app-switching. Live and functional.',
     techStack: ['TypeScript', 'React', 'Node.js', 'Express', 'Firebase'],
     url: 'https://post-pro-ai.vercel.app/',
     image: '/projects/PostProAI.png',
