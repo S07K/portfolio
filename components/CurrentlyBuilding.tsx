@@ -1,14 +1,13 @@
 'use client'
 
 import { ReactNode } from 'react'
-import Image from 'next/image'
 import SectionReveal from './SectionReveal'
 import OneAlbumLogo from './OneAlbumLogo'
 
 interface ProductLink {
   label: string
   href: string
-  image?: { src: string; width: number; height: number }
+  image?: { src: string; width: number; height: number; className?: string }
 }
 
 interface ProductCardProps {
@@ -91,13 +90,13 @@ function ProductCard({ wordmark, tagline, spark, role, tags, status = 'In Progre
                       aria-label={l.label}
                       className="inline-block hover:opacity-80 transition-opacity"
                     >
-                      <Image
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
                         src={l.image.src}
                         alt={l.label}
                         width={l.image.width}
                         height={l.image.height}
-                        loading="eager"
-                        className="h-14 w-auto"
+                        className={l.image.className ?? 'h-14 w-auto'}
                       />
                     </a>
                   ) : (
@@ -171,9 +170,14 @@ export default function CurrentlyBuilding() {
             tags={['Next.js', 'TypeScript', 'Founder Mode']}
             links={[
               {
+                label: 'Download on the App Store',
+                href: 'https://apps.apple.com/app/id6797670766',
+                image: { src: '/app-store-badge.svg', width: 120, height: 40, className: 'h-[38px] w-auto' },
+              },
+              {
                 label: 'Get it on Google Play',
                 href: 'https://play.google.com/store/apps/details?id=com.joinonealbum.app',
-                image: { src: '/google-play-badge.png', width: 646, height: 250 },
+                image: { src: '/google-play-badge.png', width: 646, height: 250, className: 'h-14 w-auto' },
               },
               { label: 'onealbum.app', href: 'https://onealbum.app' },
             ]}
