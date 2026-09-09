@@ -185,6 +185,7 @@ export default function CurrentlyBuilding() {
 
           <ProductCard
             delay={0.25}
+            status="Live"
             wordmark={
               <span className="inline-flex items-center gap-3 text-text-hi">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -196,6 +197,7 @@ export default function CurrentlyBuilding() {
             spark="Every creator pitching a brand hits the same wall — the media kit is a PDF, and a PDF is out of date the moment it's exported. Kitevo replaces it with a live link that pulls real numbers straight from Instagram and YouTube — followers, engagement, audience, growth — so a brand can trust what it's looking at."
             role="Founder and builder, in public. Sharing the progress, the design decisions, and the occasional thing that went wrong."
             tags={['Creator Economy', 'Live Data', 'Building in Public']}
+            links={[{ label: 'getkitevo.com', href: 'https://getkitevo.com' }]}
           />
 
         </div>
