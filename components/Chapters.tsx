@@ -12,14 +12,33 @@ interface Project {
   impact: string
   techStack: string[]
   url: string
-  image: string
+  image?: string
   type: 'fullstack' | 'design'
+  label?: string
+  repoUrl?: string
+  note?: string
 }
 
 const projects: Project[] = [
   // ── Fullstack ──────────────────────────────────────────────
   {
     index: '01',
+    name: 'RAG Chat',
+    label: 'Fullstack · AI',
+    spark:
+      'Chatbots answer confidently about documents they\'ve never seen. Asking about your own files meant pasting chunks in by hand and hoping the answer wasn\'t made up.',
+    build:
+      'Full-stack RAG app. Uploads are chunked, embedded, and stored in Postgres with pgvector; each question retrieves the closest passages and streams a grounded answer over SSE. TypeScript, React, Express, Bun, with a background ingestion queue, deployed on Render and Neon.',
+    impact:
+      'Answers cite the exact passages they came from — and say so plainly when your documents don\'t cover the question. Uploads return in ~20ms instead of ~7s. Runs entirely on free tiers. Live and functional.',
+    techStack: ['TypeScript', 'React', 'Express', 'Postgres', 'pgvector'],
+    url: 'https://rag-chat-qqme.onrender.com',
+    repoUrl: 'https://github.com/S07K/rag-app',
+    note: 'Hosted on a free tier — the app may take ~30s to wake on first load.',
+    type: 'fullstack',
+  },
+  {
+    index: '02',
     name: 'PostProAI',
     spark:
       'Social media creation is broken — AI generates the image, but publishing it still meant downloading, uploading, and clicking through three apps manually.',
@@ -33,7 +52,7 @@ const projects: Project[] = [
     type: 'fullstack',
   },
   {
-    index: '02',
+    index: '03',
     name: 'Task Tracker',
     spark:
       'Every productivity app tries to do everything. I wanted one that just tracks — daily, weekly, monthly — with real auth and real persistence.',
@@ -48,7 +67,7 @@ const projects: Project[] = [
   },
   // ── Design ─────────────────────────────────────────────────
   {
-    index: '03',
+    index: '04',
     name: 'Chhatramate',
     spark:
       'Students scatter notes across ten different surfaces. I wanted to design a tool that treats note-taking as a first-class experience, not an afterthought.',
@@ -62,7 +81,7 @@ const projects: Project[] = [
     type: 'design',
   },
   {
-    index: '04',
+    index: '05',
     name: 'AQI Monitor',
     spark:
       'A startup needed a landing page that made an invisible product — air quality data — feel urgent, credible, and real.',
@@ -76,7 +95,7 @@ const projects: Project[] = [
     type: 'design',
   },
   {
-    index: '05',
+    index: '06',
     name: 'Prana Air',
     spark:
       'Another AQI startup — this one needed a premium, wellness-adjacent feel. Not a data dashboard. A brand experience.',
@@ -94,7 +113,7 @@ const projects: Project[] = [
 function ProjectCard({ project, isLast }: { project: Project; isLast: boolean }) {
   return (
     <SectionReveal>
-      <div className={`grid grid-cols-1 lg:grid-cols-[120px_1fr_340px] gap-8 lg:gap-12 py-14 ${!isLast ? 'border-b border-line' : ''} group`}>
+      <div className={`grid grid-cols-1 ${project.image ? 'lg:grid-cols-[120px_1fr_340px]' : 'lg:grid-cols-[120px_1fr]'} gap-8 lg:gap-12 py-14 ${!isLast ? 'border-b border-line' : ''} group`}>
 
         {/* Index */}
         <div className="flex lg:flex-col items-start gap-4 lg:gap-2">
@@ -105,7 +124,7 @@ function ProjectCard({ project, isLast }: { project: Project; isLast: boolean })
             {project.index}
           </span>
           <span className="text-text-lo text-xs tracking-widest uppercase font-sans mt-1 lg:mt-2 hidden lg:block">
-            {project.type === 'fullstack' ? 'Fullstack' : 'Design'}
+            {project.label ?? (project.type === 'fullstack' ? 'Fullstack' : 'Design')}
           </span>
         </div>
 
@@ -156,30 +175,54 @@ function ProjectCard({ project, isLast }: { project: Project; isLast: boolean })
             ))}
           </div>
 
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 text-text-md text-xs tracking-widest uppercase font-sans hover:text-accent transition-colors duration-300"
-          >
-            View Project
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M2 10L10 2M10 2H4M10 2v6" />
-            </svg>
-          </a>
+          <div className="space-y-3">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 text-text-md text-xs tracking-widest uppercase font-sans hover:text-accent transition-colors duration-300"
+              >
+                View Project
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M2 10L10 2M10 2H4M10 2v6" />
+                </svg>
+              </a>
+              {project.repoUrl && (
+                <a
+                  href={project.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 text-text-md text-xs tracking-widest uppercase font-sans hover:text-accent transition-colors duration-300"
+                >
+                  View Code
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M2 10L10 2M10 2H4M10 2v6" />
+                  </svg>
+                </a>
+              )}
+            </div>
+            {project.note && (
+              <p className="text-text-lo text-xs leading-relaxed font-sans">
+                {project.note}
+              </p>
+            )}
+          </div>
         </div>
 
         {/* Image */}
-        <div className="relative aspect-video lg:aspect-[4/3] overflow-hidden border border-line bg-surface">
-          <Image
-            src={project.image}
-            alt={project.name}
-            fill
-            className="object-contain grayscale-[20%] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700"
-            sizes="(max-width: 1024px) 100vw, 340px"
-          />
-          <div className="absolute inset-0 bg-canvas/20 group-hover:bg-transparent transition-colors duration-500" />
-        </div>
+        {project.image && (
+          <div className="relative aspect-video lg:aspect-[4/3] overflow-hidden border border-line bg-surface">
+            <Image
+              src={project.image}
+              alt={project.name}
+              fill
+              className="object-contain grayscale-[20%] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700"
+              sizes="(max-width: 1024px) 100vw, 340px"
+            />
+            <div className="absolute inset-0 bg-canvas/20 group-hover:bg-transparent transition-colors duration-500" />
+          </div>
+        )}
 
       </div>
     </SectionReveal>
