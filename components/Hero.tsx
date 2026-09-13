@@ -169,7 +169,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <a href="https://drive.google.com/file/d/1ahUVkN2IhroDbCRon6qqV_rmIgUDvgKL/view?usp=sharing"
+            <a href="https://drive.google.com/file/d/1fLvMWTyhIKCOE5xZuYDcoN1CSqxuvwYr/view?usp=sharing"
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-3 text-text-md text-xs tracking-widest uppercase font-sans border border-line px-5 py-3 hover:border-accent hover:text-accent transition-all duration-300">
               View Resume
