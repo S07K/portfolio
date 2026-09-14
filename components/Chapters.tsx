@@ -43,10 +43,10 @@ const projects: Project[] = [
     spark:
       'Every productivity app tries to do everything. I wanted one that just tracks — daily, weekly, monthly — with real auth and real persistence.',
     build:
-      'TypeScript React frontend with Node/Express backend. Email verification, JWT auth, MongoDB Atlas, deployed on Vercel. Clean API, clean state.',
+      'Calendar-based task scheduler — month, week, and day views with drag-and-drop rescheduling (FullCalendar), plus an AI assistant that finds, creates, reschedules, and deletes tasks through LLM tool calling (Groq in production, a local Ollama model in development). Deletes ask for confirmation, and off-topic questions are filtered out before they ever reach the model. React, TypeScript, Chakra UI on the front end; Node/Express and MongoDB behind it, with JWT + bcrypt auth and email verification, on Vercel.',
     impact:
-      'Live, functional, and a foundation I keep building on. Handles multi-period task tracking with full user sessions.',
-    techStack: ['TypeScript', 'React', 'Node.js', 'Express', 'MongoDB'],
+      'Live and functional — real accounts, a full scheduling calendar, and an AI layer that acts on your tasks, not just chats about them.',
+    techStack: ['TypeScript', 'React', 'FullCalendar', 'Node.js', 'MongoDB', 'LLM Tool Calling'],
     url: 'https://task-tracker-frontend-eta.vercel.app/',
     image: '/projects/taskTracker.png',
     type: 'fullstack',
