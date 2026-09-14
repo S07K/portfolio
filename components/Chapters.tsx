@@ -39,20 +39,6 @@ const projects: Project[] = [
   },
   {
     index: '02',
-    name: 'PostProAI',
-    spark:
-      'Social media creation is broken — AI generates the image, but publishing it still meant downloading, uploading, and clicking through three apps manually.',
-    build:
-      'Full-stack web app. AI image generation pipeline wired directly to the Instagram Graph API. TypeScript, React, Redux, Node, Express, Firebase for storage, deployed on Vercel.',
-    impact:
-      'Zero-friction creation-to-publish flow — generate an image and post straight to Instagram, no app-switching. Live and functional.',
-    techStack: ['TypeScript', 'React', 'Node.js', 'Express', 'Firebase'],
-    url: 'https://post-pro-ai.vercel.app/',
-    image: '/projects/PostProAI.png',
-    type: 'fullstack',
-  },
-  {
-    index: '03',
     name: 'Task Tracker',
     spark:
       'Every productivity app tries to do everything. I wanted one that just tracks — daily, weekly, monthly — with real auth and real persistence.',
@@ -63,6 +49,20 @@ const projects: Project[] = [
     techStack: ['TypeScript', 'React', 'Node.js', 'Express', 'MongoDB'],
     url: 'https://task-tracker-frontend-eta.vercel.app/',
     image: '/projects/taskTracker.png',
+    type: 'fullstack',
+  },
+  {
+    index: '03',
+    name: 'PostProAI',
+    spark:
+      'Social media creation is broken — AI generates the image, but publishing it still meant downloading, uploading, and clicking through three apps manually.',
+    build:
+      'Full-stack web app. AI image generation pipeline wired directly to the Instagram Graph API. TypeScript, React, Redux, Node, Express, Firebase for storage, deployed on Vercel.',
+    impact:
+      'Zero-friction creation-to-publish flow — generate an image and post straight to Instagram, no app-switching. Live and functional.',
+    techStack: ['TypeScript', 'React', 'Node.js', 'Express', 'Firebase'],
+    url: 'https://post-pro-ai.vercel.app/',
+    image: '/projects/PostProAI.png',
     type: 'fullstack',
   },
   // ── Design ─────────────────────────────────────────────────
