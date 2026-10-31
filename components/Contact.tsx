@@ -207,16 +207,6 @@ export default function Contact() {
 
         </div>
 
-        {/* Footer */}
-        <SectionReveal className="mt-24 pt-8 border-t border-line flex flex-col sm:flex-row justify-between items-start gap-4">
-          <span className="font-serif text-text-lo text-sm">
-            Shubham Kumar
-          </span>
-          <span className="text-text-lo text-xs tracking-widest uppercase font-sans">
-            Designed &amp; built with intention. © {new Date().getFullYear()}
-          </span>
-        </SectionReveal>
-
       </div>
     </section>
   )
