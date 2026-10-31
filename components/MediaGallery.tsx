@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import SectionReveal from "./SectionReveal";
 
@@ -194,19 +195,33 @@ export default function MediaGallery() {
     <section className="py-24 md:py-32 border-t border-line">
       <div className="max-w-7xl mx-auto px-8 md:px-16">
         <SectionReveal className="mb-20">
-          <p className="text-text-lo text-xs tracking-widest uppercase font-sans mb-6">
-            — 004 &nbsp; Beyond the Code
-          </p>
-          <h2
-            className="font-serif text-text-hi leading-tight"
-            style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
-          >
-            The Channel
-          </h2>
-          <p className="text-text-md text-sm leading-loose font-sans mt-4 max-w-xl">
-            I document the process — the building, the escaping, the figuring
-            out. Motivation, life updates, hustle, and everything in between.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-10 lg:gap-16 items-center">
+            <div>
+              <p className="text-text-lo text-xs tracking-widest uppercase font-sans mb-6">
+                — 004 &nbsp; Beyond the Code
+              </p>
+              <h2
+                className="font-serif text-text-hi leading-tight"
+                style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
+              >
+                The Channel
+              </h2>
+              <p className="text-text-md text-sm leading-loose font-sans mt-4 max-w-xl">
+                I document the process — the building, the escaping, the figuring
+                out. Motivation, life updates, hustle, and everything in between.
+              </p>
+            </div>
+
+            <div className="flex justify-center lg:justify-end">
+              <Image
+                src="/creative-camera-cutout.png"
+                alt=""
+                width={1536}
+                height={1024}
+                className="w-56 sm:w-72 lg:w-full h-auto -rotate-2 select-none"
+              />
+            </div>
+          </div>
         </SectionReveal>
 
         {/* ── YouTube ── */}
