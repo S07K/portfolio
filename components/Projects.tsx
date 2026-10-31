@@ -6,6 +6,7 @@ interface Project {
   name: string
   brief: string
   url: string
+  image: string
 }
 
 const projects: Project[] = [
@@ -14,36 +15,42 @@ const projects: Project[] = [
     brief:
       'Ask questions about your own documents and get answers grounded in the exact passages, with citations.',
     url: 'https://rag-chat-qqme.onrender.com',
+    image: '/projects/ragChat.png',
   },
   {
     name: 'Task Tracker',
     brief:
       'A calendar-based task manager with an AI assistant that can find, create, reschedule, and delete tasks.',
     url: 'https://task-tracker-frontend-eta.vercel.app/',
+    image: '/projects/taskTracker.png',
   },
   {
     name: 'PostProAI',
     brief:
       'Generate an AI image and publish it straight to Instagram without switching between apps.',
     url: 'https://post-pro-ai.vercel.app/',
+    image: '/projects/PostProAI.png',
   },
   {
     name: 'Chhatramate',
     brief:
       'A student note-taking app designed end-to-end, from information architecture to a clickable prototype.',
     url: 'https://www.figma.com/proto/uMmE2f1Us1kTAS7OGfjKS9/CHHATRAMATE?node-id=15%3A34&starting-point-node-id=15%3A34',
+    image: '/projects/chhatramate.png',
   },
   {
     name: 'AQI Monitor',
     brief:
       'A landing page that makes live air-quality data feel urgent, credible, and easy to understand.',
     url: 'https://www.figma.com/proto/PK0b1v1DUNTflTSoJEAmyC/AQI-2?type=design&node-id=8-164&t=OAtnCQ3pVnE1n7pa-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=8%3A164&show-proto-sidebar=1&mode=design',
+    image: '/projects/AQIApp.png',
   },
   {
     name: 'Prana Air',
     brief:
       'A wellness-led landing page for an air-quality product, designed around breathing room.',
     url: 'https://www.figma.com/proto/bIwpFb3uN2vRP7wnk3o8da/Prana-Air?type=design&t=yEMv9RTWfKuOaC7y-1&scaling=contain&page-id=0%3A1&starting-point-node-id=15%3A264&node-id=15-264&mode=design',
+    image: '/projects/pranaAir.png',
   },
 ]
 
@@ -74,20 +81,32 @@ export default function Projects() {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full flex-col border border-line bg-surface/20 p-7 md:p-8 transition-colors duration-500 hover:border-accent/30"
+                className="group flex h-full flex-col overflow-hidden border border-line bg-surface/20 transition-colors duration-500 hover:border-accent/30"
               >
-                <h3 className="font-serif text-text-hi text-2xl leading-snug transition-colors duration-300 group-hover:text-accent">
-                  {project.name}
-                </h3>
-                <p className="mt-3 text-text-md text-sm leading-relaxed font-sans">
-                  {project.brief}
-                </p>
-                <span className="mt-auto inline-flex items-center gap-2 pt-8 text-accent text-xs tracking-widest uppercase font-sans">
-                  View project
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    ↗
+                <div className="relative aspect-[1.91/1] shrink-0 overflow-hidden border-b border-line bg-canvas">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    loading="lazy"
+                    className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+                  />
+                </div>
+
+                <div className="flex flex-1 flex-col p-6 md:p-7">
+                  <h3 className="font-serif text-text-hi text-2xl leading-snug transition-colors duration-300 group-hover:text-accent">
+                    {project.name}
+                  </h3>
+                  <p className="mt-3 text-text-md text-sm leading-relaxed font-sans">
+                    {project.brief}
+                  </p>
+                  <span className="mt-auto inline-flex items-center gap-2 pt-8 text-accent text-xs tracking-widest uppercase font-sans">
+                    View project
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                      ↗
+                    </span>
                   </span>
-                </span>
+                </div>
               </a>
             </SectionReveal>
           ))}
