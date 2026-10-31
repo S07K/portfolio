@@ -66,17 +66,18 @@ const memories: Memory[] = [
   },
   {
     id: 7,
-    type: 'moment',
-    content: 'OneAlbum started as a random conversation with a friend. No whiteboard, no plan — just an idea that refused to go away. He\'s not full-time but he\'s been in it, helped with deployment and more. Some things begin in a room, not alone.',
-    label: 'Day Zero',
-    rotation: -0.8,
-    accent: true,
-  },
-  {
-    id: 8,
     type: 'note',
     content: 'Delhi → the internet. Building for people I\'ll never meet, about problems I figured out from my own experience.',
     rotation: 2.2,
+    accent: false,
+  },
+  {
+    id: 8,
+    type: 'moment',
+    content: 'Failing, and learning. Surviving without a job is harder than I expected — the runway is real, and so is the doubt. I think I need a job soon. Not to give up on building, but to keep going without the pressure crushing it.',
+    label: 'Failing & Learning',
+    date: 'Oct 2026',
+    rotation: -1.6,
     accent: false,
   },
 ]

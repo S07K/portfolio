@@ -1,7 +1,7 @@
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
-import CurrentlyBuilding from '@/components/CurrentlyBuilding'
-import Chapters from '@/components/Chapters'
+import Entrepreneurship from '@/components/Entrepreneurship'
+import Projects from '@/components/Projects'
 import MediaGallery from '@/components/MediaGallery'
 import Canvas from '@/components/Canvas'
 import Journey from '@/components/Journey'
@@ -12,8 +12,8 @@ export default function Home() {
     <main className="bg-canvas min-h-screen">
       <Nav />
       <Hero />
-      <CurrentlyBuilding />
-      <Chapters />
+      <Entrepreneurship />
+      <Projects />
       <MediaGallery />
       <Canvas />
       <Journey />

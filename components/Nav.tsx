@@ -8,7 +8,8 @@ import { useTheme } from './ThemeProvider'
 const navLinks = [
   { label: 'GitHub', href: 'https://github.com/S07K', external: true },
   { label: 'YouTube', href: 'https://www.youtube.com/@function.shubham', external: true },
-  { label: 'Work', href: '#chapters', external: false },
+  { label: 'Startups', href: '#entrepreneurship', external: false },
+  { label: 'Work', href: '#projects', external: false },
   { label: 'Connect', href: '#contact', external: false },
 ]
 
