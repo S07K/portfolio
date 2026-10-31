@@ -25,7 +25,7 @@ html.dark {
   --line:     44 41 35;         /* #2C2923 — warm visible border     */
   --text-hi:  250 245 237;      /* #FAF5ED — rich warm cream         */
   --text-md:  152 143 130;      /* #988F82 — warm readable mid-tone  */
-  --text-lo:  75 69 60;         /* #4B453C — visible warm dark       */
+  --text-lo:  140 131 118;      /* #8C8376 — readable warm muted     */
   --accent:   213 173 79;       /* #D5AD4F — vibrant gold            */
 }
 
