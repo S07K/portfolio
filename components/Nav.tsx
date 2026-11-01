@@ -38,9 +38,9 @@ export default function Nav() {
         {/* Logo pill */}
         <Link
           href="/"
-          className="font-serif text-text-hi text-sm tracking-widest px-4 py-1.5 rounded-full hover:bg-surface/60 transition-colors duration-300 mr-auto sm:mr-0"
+          className="font-serif text-text-hi text-sm tracking-wide px-4 py-1.5 rounded-full hover:bg-surface/60 transition-colors duration-300 mr-auto sm:mr-0"
         >
-          SK
+          shubham
         </Link>
 
         {/* Divider */}
