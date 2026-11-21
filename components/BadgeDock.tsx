@@ -237,7 +237,8 @@ export default function BadgeDock() {
     return () => window.removeEventListener('resize', measure)
   }, [])
 
-  if (gutter < MIN_GUTTER) return null
+  // Never on small screens (MiniBadge shows inline there), and only with room to hang.
+  if (gutter < MIN_GUTTER || gutter * 2 + RAIL < 1024) return null
 
   const cw = Math.round(Math.min(200, gutter - 56))
   // The card is a raised surface in the page's own theme; the strap contrasts

@@ -39,7 +39,7 @@ export default function Contact() {
       </p>
       <a
         href={`mailto:${site.email}`}
-        className="mt-5 inline-flex items-center gap-1.5 font-mono text-[13px] text-text-hi underline-offset-4 hover:underline"
+        className="tap mt-5 gap-1.5 font-mono text-[13px] text-text-hi underline-offset-4 hover:underline"
       >
         {site.email} <ArrowUpRight className="h-3 w-3" />
       </a>
@@ -48,7 +48,7 @@ export default function Contact() {
         <div className="mt-10 border border-line p-6" role="status">
           <p className="meta text-ok">● Message received</p>
           <p className="mt-2 text-text-md">Thanks for writing - I’ll reply within a day or two.</p>
-          <button type="button" onClick={() => setState('idle')} className="meta mt-4 hover:text-text-hi">
+          <button type="button" onClick={() => setState('idle')} className="meta tap mt-4 hover:text-text-hi">
             Send another
           </button>
         </div>

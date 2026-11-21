@@ -132,7 +132,7 @@ export default async function GitHubActivity() {
           href={`https://github.com/${GITHUB_USER}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="meta inline-flex items-center gap-1.5 text-text-hi underline-offset-4 hover:underline"
+          className="meta tap gap-1.5 text-text-hi underline-offset-4 hover:underline"
         >
           <GitHubIcon className="h-3 w-3" /> @{GITHUB_USER} <ArrowUpRight className="h-3 w-3" />
         </a>

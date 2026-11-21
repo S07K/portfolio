@@ -16,13 +16,12 @@ const nav: { key: Key; label: string; href: string }[] = [
 ]
 
 // Which nav item each page section belongs to. Sections not listed
-// (intro, frames, stack) leave nothing active.
+// (intro, stack) leave nothing active.
 const sectionToNav: Record<string, Key | null> = {
   work: 'work',
   projects: 'work',
   activity: 'work',
   experience: 'experience',
-  frames: null,
   stack: null,
   contact: 'contact',
 }
@@ -73,10 +72,10 @@ export default function TopBar() {
     <header className="sticky top-0 z-40 border-b border-line bg-canvas/80 backdrop-blur-md">
       {/* Aligned to the vertical grid lines, which run through the bar */}
       <div className="rail-box flex h-12 items-center justify-between px-4 sm:border-x sm:border-line">
-        <Link href="/" aria-label="Shubham Kumar, home" className="font-serif text-xl leading-none text-text-hi">
+        <Link href="/" aria-label="Shubh, Shubham Kumar, home" className="-ml-1 flex h-11 items-center px-1 font-serif text-xl leading-none text-text-hi">
           Shubh
         </Link>
-        <nav aria-label="Primary" className="flex h-full items-center gap-4 sm:gap-5">
+        <nav aria-label="Primary" className="flex h-full items-center gap-1.5 sm:gap-3">
           {nav.map((n) => {
             const on = active === n.key
             return (
@@ -84,7 +83,7 @@ export default function TopBar() {
                 key={n.key}
                 href={n.href}
                 aria-current={on ? 'location' : undefined}
-                className={`meta relative flex h-full items-center transition-colors duration-200 hover:text-text-hi ${
+                className={`meta relative flex h-full items-center px-2 transition-colors duration-200 hover:text-text-hi ${
                   on ? 'text-text-hi' : ''
                 }`}
               >
@@ -94,7 +93,7 @@ export default function TopBar() {
                   <motion.span
                     layoutId="nav-active"
                     aria-hidden
-                    className="absolute inset-x-0 -bottom-px h-[2px] bg-text-hi"
+                    className="absolute inset-x-2 -bottom-px h-[2px] bg-text-hi"
                     transition={reduced ? { duration: 0 } : { type: 'tween', ease: [0.2, 0.7, 0.2, 1], duration: 0.3 }}
                   />
                 ) : null}
@@ -108,7 +107,7 @@ export default function TopBar() {
               toggle({ x: r.left + r.width / 2, y: r.top + r.height / 2 })
             }}
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            className="-mr-1.5 grid h-8 w-8 place-items-center rounded-full text-text-lo transition-colors hover:text-text-hi"
+            className="-mr-3 grid h-11 w-11 place-items-center rounded-full text-text-lo transition-colors hover:text-text-hi"
           >
             {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
           </button>

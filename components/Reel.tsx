@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { preload } from 'react-dom'
+import Image from 'next/image'
 import { reel, site } from '@/lib/content'
 
 const FPS = 24
@@ -19,9 +19,6 @@ function Corner({ className }: { className: string }) {
 }
 
 export default function Reel() {
-  // Poster is the LCP element - fetch it early.
-  preload(reel.poster, { as: 'image', fetchPriority: 'high' })
-
   const wrapRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const tcRef = useRef<HTMLSpanElement>(null)
@@ -82,10 +79,19 @@ export default function Reel() {
         ref={wrapRef}
         className="relative aspect-[2.39/1] w-full overflow-hidden bg-black ring-1 ring-line"
       >
+        {/* Poster as a real, prioritised image: it is the LCP element, so it must
+            paint before any JS runs. The video fades in over it once playing. */}
+        <Image
+          src={reel.poster}
+          alt=""
+          fill
+          priority
+          sizes="(max-width: 880px) 100vw, 880px"
+          className="object-cover"
+        />
         <video
           ref={videoRef}
-          className="absolute inset-0 h-full w-full object-cover"
-          poster={reel.poster}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${playing ? 'opacity-100' : 'opacity-0'}`}
           muted
           loop
           playsInline
@@ -113,8 +119,8 @@ export default function Reel() {
             type="button"
             onClick={() => setUserPaused((p) => !p)}
             disabled={reduced}
-            aria-label={userPaused ? 'Play reel' : 'Pause reel'}
-            className="absolute left-3 top-2 flex items-center gap-1.5 disabled:cursor-default sm:left-5 sm:top-3"
+            aria-label={live ? 'REC, pause reel' : reduced ? 'Still, reel paused' : 'STBY, play reel'}
+            className="absolute left-3 top-2 flex items-center gap-1.5 after:absolute after:-inset-x-3 after:-inset-y-4 after:content-[''] disabled:cursor-default sm:left-5 sm:top-3"
           >
             {live ? (
               <>
@@ -132,15 +138,15 @@ export default function Reel() {
           <span ref={tcRef} className="absolute right-3 top-2 tabular-nums sm:right-5 sm:top-3" aria-hidden>
             00:00:00:00
           </span>
-          <span className="absolute bottom-2 left-3 sm:bottom-3 sm:left-5" aria-hidden>
+          <span className="absolute bottom-2 left-3 hidden sm:bottom-3 sm:left-5 sm:inline" aria-hidden>
             {FPS} FPS <span className="mx-1 opacity-50">·</span> ISO 400
           </span>
           <span className="absolute bottom-2 right-3 sm:bottom-3 sm:right-5" aria-hidden>
             {site.location}
           </span>
           {/* Center reticle */}
-          <span aria-hidden className="absolute left-1/2 top-1/2 h-3 w-px -translate-x-1/2 -translate-y-1/2 bg-[#ededed]/35" />
-          <span aria-hidden className="absolute left-1/2 top-1/2 h-px w-3 -translate-x-1/2 -translate-y-1/2 bg-[#ededed]/35" />
+          <span aria-hidden className="absolute left-1/2 top-1/2 hidden h-3 w-px sm:block -translate-x-1/2 -translate-y-1/2 bg-[#ededed]/35" />
+          <span aria-hidden className="absolute left-1/2 top-1/2 hidden h-px w-3 sm:block -translate-x-1/2 -translate-y-1/2 bg-[#ededed]/35" />
         </div>
       </div>
       <p className="meta mt-2 flex justify-between gap-4 px-3 sm:px-4">
