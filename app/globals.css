@@ -2,35 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Light theme (default) ─────────────────────────────────────────────────
-   True warm parchment. Deep warm ink for text. Same rich gold accent.       */
+/* ─── Tokens ────────────────────────────────────────────────────────────────
+   Pure black & white. Colour appears only where it carries meaning:
+   --ok  (green)  live / available / success
+   --rec (red)    recording / errors                                        */
 :root {
-  --canvas:   252 249 243;      /* #FCF9F3 — warm parchment          */
-  --surface:  244 240 232;      /* #F4F0E8                           */
-  --card:     234 228 217;      /* #EAE4D9 — distinct card           */
-  --line:     196 188 174;      /* #C4BCAE — warm visible border     */
-  --text-hi:  18 14 8;          /* #120E08 — deep warm black         */
-  --text-md:  72 65 55;         /* #484137 — warm readable           */
-  --text-lo:  140 131 118;      /* #8C8376 — warm muted, legible     */
-  --accent:   190 148 55;       /* #BE9437 — gold, deeper on light   */
+  --canvas:  10 10 10;     /* #0a0a0a */
+  --raised:  22 22 22;     /* #161616 */
+  --line:    46 46 46;     /* #2e2e2e */
+  --text-hi: 237 237 237;  /* #ededed */
+  --text-md: 168 168 168;  /* #a8a8a8 */
+  --text-lo: 128 128 128;  /* #808080 */
+  --ok:      34 197 94;    /* #22c55e */
+  --rec:     239 68 68;    /* #ef4444 */
+  --col: 680px;
+  --rail: 832px; /* reel width (880 minus its 24px side padding) */
+  color-scheme: dark;
 }
 
-/* ─── Dark theme ─────────────────────────────────────────────────────────────
-   Warm-tinted blacks for depth. text-lo is now actually visible.
-   Accent is richer, saturated gold.                                          */
-html.dark {
-  --canvas:   9 8 7;            /* #090807 — warm deep black        */
-  --surface:  15 14 12;         /* #0F0E0C                           */
-  --card:     23 21 18;         /* #171512 — distinct from surface   */
-  --line:     44 41 35;         /* #2C2923 — warm visible border     */
-  --text-hi:  250 245 237;      /* #FAF5ED — rich warm cream         */
-  --text-md:  152 143 130;      /* #988F82 — warm readable mid-tone  */
-  --text-lo:  140 131 118;      /* #8C8376 — readable warm muted     */
-  --accent:   213 173 79;       /* #D5AD4F — vibrant gold            */
+html.light {
+  --canvas:  250 250 250;  /* #fafafa */
+  --raised:  241 241 241;  /* #f1f1f1 */
+  --line:    218 218 218;  /* #dadada */
+  --text-hi: 10 10 10;     /* #0a0a0a */
+  --text-md: 64 64 64;     /* #404040 */
+  --text-lo: 110 110 110;  /* #6e6e6e */
+  --ok:      22 163 74;    /* #16a34a */
+  --rec:     220 38 38;    /* #dc2626 */
+  color-scheme: light;
 }
 
-html {
-  scroll-behavior: smooth;
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 
 body {
@@ -39,54 +43,210 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-/* Subtle ambient warm glow in dark mode — makes the canvas feel alive */
-html.dark body {
-  background-image:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgb(var(--accent) / 0.06) 0%, transparent 70%);
 }
 
 ::selection {
-  background: rgb(var(--accent) / 0.2);
+  background: rgb(var(--text-hi) / 0.18);
   color: rgb(var(--text-hi));
 }
 
-::-webkit-scrollbar { width: 1px; }
-::-webkit-scrollbar-track { background: rgb(var(--canvas)); }
-::-webkit-scrollbar-thumb { background: rgb(var(--accent) / 0.4); }
+:focus-visible {
+  outline: 1.5px solid rgb(var(--text-hi));
+  outline-offset: 3px;
+  border-radius: 2px;
+}
 
-@layer utilities {
-  .scrollbar-none { scrollbar-width: none; }
-  .scrollbar-none::-webkit-scrollbar { display: none; }
+@layer components {
+  /* Centered column */
+  .col { @apply mx-auto w-full px-4 sm:px-6; max-width: calc(var(--col) + 3rem); }
 
-  .text-balance { text-wrap: balance; }
+  /* Monospace metadata */
+  .meta { @apply font-mono text-[11px] uppercase tracking-[0.08em] text-text-lo; }
 
-  /* Glass — for nav, subtle overlays */
-  .glass {
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    background-color: rgb(var(--canvas) / 0.72);
-    border: 1px solid rgb(var(--line) / 0.7);
+  /* Where the vertical grid lines sit: aligned to the reel's edges, wider
+     than the text column so content gets generous side gutters. */
+  .rail-box { @apply mx-auto w-full sm:w-[calc(100%-3rem)]; max-width: var(--rail); }
+
+  /* Full-bleed rules */
+  .rule { @apply relative h-px w-full bg-line; }
+  .rule-dashed {
+    @apply relative h-px w-full;
+    background-image: linear-gradient(to right, rgb(var(--line)) 50%, transparent 50%);
+    background-size: 8px 1px;
   }
 
-  /* Glass card — for content cards with depth */
-  .glass-card {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    background-color: rgb(var(--card) / 0.7);
-    border: 1px solid rgb(var(--line) / 0.6);
-    box-shadow: 0 4px 24px rgb(0 0 0 / 0.15), inset 0 1px 0 rgb(var(--text-hi) / 0.04);
+  /* Pills */
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5
+      font-mono text-[11px] uppercase tracking-[0.06em] text-text-md
+      transition-colors duration-200 hover:border-text-lo hover:text-text-hi;
   }
 
-  /* Grain texture overlay */
-  .grain::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
-    pointer-events: none;
-    border-radius: inherit;
+  /* Thin film frame around thumbnails */
+  .film-frame {
+    @apply relative overflow-hidden border border-line bg-raised;
+    box-shadow: inset 0 0 0 3px rgb(var(--canvas)), inset 0 0 0 4px rgb(var(--line) / 0.6);
   }
+}
+
+/* ─── Grain + vignette (hero) ───────────────────────────────────────────── */
+.grain {
+  position: absolute;
+  inset: -50%;
+  pointer-events: none;
+  /* Grayscale fractal noise with its own alpha, so grain shows in both
+     shadows and highlights (overlay alone vanishes on dark footage). */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.6 -0.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+  opacity: 0.16;
+  animation: grain 0.6s steps(8) infinite;
+}
+/* Second, darker grain pass for texture in the highlights */
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  background-position: 110px 70px;
+  filter: invert(1);
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+}
+@keyframes grain {
+  0%   { transform: translate(0, 0); }
+  12%  { transform: translate(-4%, 3%); }
+  25%  { transform: translate(3%, -5%); }
+  37%  { transform: translate(-6%, -2%); }
+  50%  { transform: translate(5%, 4%); }
+  62%  { transform: translate(-2%, 6%); }
+  75%  { transform: translate(6%, -3%); }
+  87%  { transform: translate(-5%, -6%); }
+  100% { transform: translate(0, 0); }
+}
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 75% 85% at 50% 50%, transparent 55%, rgb(0 0 0 / 0.55) 100%);
+}
+
+.rec-dot { animation: rec 1.6s steps(1) infinite; }
+@keyframes rec { 50% { opacity: 0.15; } }
+
+/* ─── Section reveal (only when JS is running) ──────────────────────────────
+   Content is visible by default; html.js opts below-the-fold blocks into a
+   short fade, and slate labels into a "shutter" wipe.                      */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 360ms ease-out, transform 360ms ease-out;
+}
+html.js [data-reveal].in { opacity: 1; transform: none; }
+
+.slate-shutter { position: relative; display: inline-block; }
+html.js .slate-shutter::after {
+  content: '';
+  position: absolute;
+  inset: -2px -4px;
+  background: rgb(var(--text-hi));
+  transform-origin: right;
+  transform: scaleX(1);
+  transition: transform 280ms cubic-bezier(0.7, 0, 0.3, 1) 60ms;
+}
+html.js .in .slate-shutter::after,
+html.js .slate-shutter.in::after { transform: scaleX(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .grain, .rec-dot { animation: none; }
+  html.js [data-reveal] { opacity: 1; transform: none; transition: none; }
+  html.js .slate-shutter::after { display: none; }
+}
+
+/* Native <dialog> lightbox */
+dialog.lightbox { max-width: 100vw; max-height: 100vh; }
+dialog.lightbox::backdrop { background: rgb(5 5 5 / 0.92); }
+dialog.lightbox[open] { animation: lb-in 220ms ease-out; }
+@keyframes lb-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { dialog.lightbox[open] { animation: none; } }
+
+/* ─── Project card panel ────────────────────────────────────────────────────
+   Soft per-project tint behind a centered screenshot. The tint is the only
+   decorative colour on the site; it stays low-chroma so the page still reads
+   black & white. Set via --h (hue) and --s (saturation) on the element.     */
+.tint-panel {
+  --l: 13%;
+  background: hsl(var(--h) calc(var(--s) * 1%) var(--l));
+  transition: background-color 350ms ease-out;
+}
+html.light .tint-panel { --l: 93%; }
+.group:hover .tint-panel { --l: 16%; }
+html.light .group:hover .tint-panel { --l: 90%; }
+
+.tint-shot {
+  transition: transform 380ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 380ms ease-out;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.25), 0 8px 24px -8px rgb(0 0 0 / 0.45);
+}
+.group:hover .tint-shot {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.2), 0 22px 44px -12px rgb(0 0 0 / 0.55);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tint-shot, .tint-panel { transition: none; }
+  .group:hover .tint-shot { transform: none; }
+}
+
+/* ─── Cell grid ─────────────────────────────────────────────────────────────
+   Pull a block out from the text column to the vertical grid lines.        */
+@media (min-width: 640px) {
+  .bleed-rail {
+    margin-inline: calc((min(100vw - 3rem, var(--rail)) - min(100vw - 3rem, var(--col))) / -2);
+  }
+}
+.cell-hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgb(var(--line) / 0.55) 0 1px,
+    transparent 1px 9px
+  );
+}
+
+/* ─── Theme switch: circular reveal (View Transitions) ──────────────────────
+   Turn off the default cross-fade; ThemeProvider animates a clip-path circle
+   on the new snapshot instead.                                              */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-new(root) { z-index: 1; }
+
+/* Lanyard badge dock: the gutter ignores the pointer, the card doesn't. */
+.badge-dock [role='button'] { pointer-events: auto; }
+
+/* ─── Hand-drawn marks (components/Mark.tsx) ─────────────────────────────── */
+:root { --mark: 250 204 21; --mark-hl: 125 211 252; --mark-a: 0.42; --mark-hl-a: 0.55; } /* circle: yellow, highlighter: light sky blue */
+html.light { --mark-a: 0.6; --mark-hl-a: 0.6; }
+
+.mark-hl svg path { fill: rgb(var(--mark-hl) / var(--mark-hl-a)); }
+.mark-hl svg {
+  clip-path: inset(0 100% 0 0);
+  animation: mark-sweep 520ms cubic-bezier(0.6, 0, 0.3, 1) forwards;
+}
+@keyframes mark-sweep { to { clip-path: inset(0 0 0 0); } }
+
+.mark-circle svg path {
+  fill: none;
+  stroke: rgb(var(--mark));
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: mark-draw 700ms cubic-bezier(0.6, 0, 0.3, 1) forwards;
+}
+@keyframes mark-draw { to { stroke-dashoffset: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .mark-hl svg { animation: none; clip-path: none; }
+  .mark-circle svg path { animation: none; stroke-dashoffset: 0; }
 }
