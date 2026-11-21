@@ -1,213 +1,106 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
-import SectionReveal from './SectionReveal'
+import { site } from '@/lib/content'
+import { ArrowUpRight } from './Icons'
 
 type FormState = 'idle' | 'sending' | 'success' | 'error'
 
+const field =
+  'w-full border-b border-line bg-transparent py-2.5 text-[15px] text-text-hi placeholder:text-text-lo/80 transition-colors focus:border-text-hi focus:outline-none'
+
 export default function Contact() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
-  const [formState, setFormState] = useState<FormState>('idle')
+  const [state, setState] = useState<FormState>('idle')
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setFormState('sending')
-
+    const form = e.currentTarget
+    const data = Object.fromEntries(new FormData(form))
+    setState('sending')
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify(data),
       })
-
-      if (res.ok) {
-        setFormState('success')
-        setName('')
-        setEmail('')
-        setMessage('')
-      } else {
-        setFormState('error')
-      }
+      if (!res.ok) throw new Error()
+      form.reset()
+      setState('success')
     } catch {
-      setFormState('error')
+      setState('error')
     }
   }
 
-  const inputClass =
-    'w-full bg-transparent border border-line px-5 py-4 text-text-hi text-sm font-sans placeholder:text-text-lo focus:outline-none focus:border-text-md transition-colors duration-300'
-
   return (
-    <section id="contact" className="py-24 md:py-40 border-t border-line">
-      <div className="max-w-7xl mx-auto px-8 md:px-16">
+    <div data-reveal>
+      <p className="font-serif text-[30px] leading-[1.1] text-text-hi sm:text-[36px]">
+        Building something with AI that people should actually enjoy using?{' '}
+        <span className="italic text-text-md">I’d love to hear about it.</span>
+      </p>
+      <a
+        href={`mailto:${site.email}`}
+        className="mt-5 inline-flex items-center gap-1.5 font-mono text-[13px] text-text-hi underline-offset-4 hover:underline"
+      >
+        {site.email} <ArrowUpRight className="h-3 w-3" />
+      </a>
 
-        {/* CTA Heading */}
-        <SectionReveal className="mb-20">
-          <p className="text-text-lo text-xs tracking-widest uppercase font-sans mb-8">
-            — 006 &nbsp; Connect
-          </p>
-          <h2
-            className="font-serif text-text-hi leading-tight max-w-3xl"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)' }}
-          >
-            {/* PLACEHOLDER — swap with your chosen CTA */}
-            If you&apos;re building something real,
-            <span className="italic text-text-md"> I want to hear about it.</span>
-          </h2>
-        </SectionReveal>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-
-          {/* Left — context */}
-          <SectionReveal delay={0.1} className="space-y-8">
-            <p className="text-text-md text-sm leading-loose font-sans">
-              I&apos;m not looking for just any opportunity. I&apos;m looking for the right
-              conversation — with founders, builders, and makers who are serious
-              about what they&apos;re working on.
-            </p>
-            <p className="text-text-md text-sm leading-loose font-sans">
-              If something I&apos;ve built resonates, or if you think there&apos;s something
-              worth talking about — send a note. I read every message.
-            </p>
-
-            <div className="space-y-4 pt-4">
-              {[
-                { label: 'GitHub', href: 'https://github.com/S07K' },
-                { label: 'YouTube', href: 'https://www.youtube.com/@function.shubham' },
-                { label: 'Instagram', href: 'https://www.instagram.com/function.shubham/' },
-                { label: 'LinkedIn', href: 'https://www.linkedin.com/in/shubham-kumar-957a33200/' },
-                { label: 'Twitter / X', href: 'https://twitter.com/0700shubham' },
-              ].map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between border-b border-line pb-4 group"
-                >
-                  <span className="text-text-md text-sm tracking-widest uppercase font-sans group-hover:text-text-hi transition-colors duration-300">
-                    {s.label}
-                  </span>
-                  <svg
-                    width="10"
-                    height="10"
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    className="text-text-lo group-hover:text-text-hi transition-colors duration-300"
-                  >
-                    <path d="M2 10L10 2M10 2H4M10 2v6" />
-                  </svg>
-                </a>
-              ))}
-            </div>
-          </SectionReveal>
-
-          {/* Right — Form */}
-          <SectionReveal delay={0.2}>
-            {formState === 'success' ? (
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="border border-line p-10 flex flex-col items-start gap-4"
-              >
-                <div className="w-8 h-8 border border-accent flex items-center justify-center">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-accent">
-                    <path d="M2 7l4 4 6-6" />
-                  </svg>
-                </div>
-                <p className="font-serif text-text-hi text-xl">Message received.</p>
-                <p className="text-text-md text-sm font-sans leading-loose">
-                  I&apos;ll get back to you within a day or two. In the meantime, feel
-                  free to explore the work above.
-                </p>
-                <button
-                  onClick={() => setFormState('idle')}
-                  className="text-text-lo text-xs tracking-widest uppercase font-sans hover:text-text-md transition-colors duration-300 mt-4"
-                >
-                  Send another message
-                </button>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-text-lo text-xs tracking-widest uppercase font-sans block mb-2">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="Your name"
-                      className={inputClass}
-                    />
-                  </div>
-                  <div>
-                    <label className="text-text-lo text-xs tracking-widest uppercase font-sans block mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="your@email.com"
-                      className={inputClass}
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-text-lo text-xs tracking-widest uppercase font-sans block mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    required
-                    rows={6}
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    placeholder="What are you working on?"
-                    className={`${inputClass} resize-none`}
-                  />
-                </div>
-
-                {formState === 'error' && (
-                  <p className="text-red-400/70 text-xs font-sans tracking-widest uppercase">
-                    Something went wrong. Try again or reach out on socials.
-                  </p>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={formState === 'sending'}
-                  className="w-full border border-line px-6 py-4 text-text-md text-xs tracking-widest uppercase font-sans hover:border-text-md hover:text-text-hi transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
-                >
-                  {formState === 'sending' ? (
-                    <>
-                      <span className="w-3 h-3 border border-text-md border-t-transparent rounded-full animate-spin" />
-                      Sending
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        <path d="M2 10L10 2M10 2H4M10 2v6" />
-                      </svg>
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
-          </SectionReveal>
-
+      {state === 'success' ? (
+        <div className="mt-10 border border-line p-6" role="status">
+          <p className="meta text-ok">● Message received</p>
+          <p className="mt-2 text-text-md">Thanks for writing - I’ll reply within a day or two.</p>
+          <button type="button" onClick={() => setState('idle')} className="meta mt-4 hover:text-text-hi">
+            Send another
+          </button>
         </div>
-
-      </div>
-    </section>
+      ) : (
+        <form onSubmit={onSubmit} className="mt-10 grid gap-6">
+          <div className="grid gap-6 sm:grid-cols-2">
+            <label className="block">
+              <span className="meta">Name</span>
+              <input name="name" required autoComplete="name" placeholder="Your name" className={field} />
+            </label>
+            <label className="block">
+              <span className="meta">Email</span>
+              <input
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                placeholder="you@company.com"
+                className={field}
+              />
+            </label>
+          </div>
+          <label className="block">
+            <span className="meta">Message</span>
+            <textarea
+              name="message"
+              required
+              rows={4}
+              placeholder="What are you working on?"
+              className={`${field} resize-none`}
+            />
+          </label>
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <p className="meta" aria-live="polite">
+              {state === 'error' ? (
+                <span className="text-rec">Couldn’t send - try email instead.</span>
+              ) : state === 'sending' ? (
+                'Sending…'
+              ) : (
+                'I read every message.'
+              )}
+            </p>
+            <button
+              type="submit"
+              disabled={state === 'sending'}
+              className="pill border-text-lo text-text-hi hover:border-text-hi disabled:opacity-50"
+            >
+              Send message <ArrowUpRight className="h-3 w-3" />
+            </button>
+          </div>
+        </form>
+      )}
+    </div>
   )
 }

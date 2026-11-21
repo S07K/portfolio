@@ -1,69 +1,85 @@
-import type { Metadata } from 'next'
-import { Playfair_Display, Inter, Caveat } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Instrument_Serif, Inter, JetBrains_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import RevealObserver from '@/components/RevealObserver'
+import { site } from '@/lib/content'
 import './globals.css'
 
-const playfair = Playfair_Display({
+const serif = Instrument_Serif({
   subsets: ['latin'],
-  variable: '--font-playfair',
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: '400',
   style: ['normal', 'italic'],
+  variable: '--font-serif',
   display: 'swap',
 })
 
-const inter = Inter({
+const sans = Inter({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-sans',
   display: 'swap',
 })
 
-const caveat = Caveat({
+const mono = JetBrains_Mono({
   subsets: ['latin'],
-  variable: '--font-caveat',
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500'],
+  variable: '--font-mono',
   display: 'swap',
 })
+
+const title = `${site.name} - ${site.title}`
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://portfolio-indol-three-50.vercel.app'),
-  title: `Shubham's Tech Space 🚀`,
-  description:
-    'Engineer, creator & entrepreneur based in India. Building products, making content, and figuring out what sticks.',
+  metadataBase: new URL(site.url),
+  title: { default: title, template: `%s - ${site.name}` },
+  description: site.description,
   openGraph: {
-    siteName: 'Shubham Kumar',
-    title: 'Shubham Kumar — Engineer, Creator & Builder',
-    description:
-      'Engineer, creator & entrepreneur based in India. Building products, making content, and figuring out what sticks.',
+    siteName: site.name,
+    title,
+    description: site.description,
     type: 'website',
-    url: 'https://portfolio-indol-three-50.vercel.app',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Shubham Kumar — Engineer, Creator & Builder' }],
+    url: site.url,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shubham Kumar — Engineer, Creator & Builder',
-    description:
-      'Engineer, creator & entrepreneur based in India. Building products, making content, and figuring out what sticks.',
-    images: ['/og-image.png'],
+    title,
+    description: site.description,
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+    { media: '(prefers-color-scheme: light)', color: '#fafafa' },
+  ],
+}
+
+// Runs before first paint: apply saved theme, and flag that JS is available so
+// below-the-fold reveals can opt in (content is never hidden without JS).
+const bootScript = `(function(){var d=document.documentElement;d.classList.add('js');try{if(localStorage.getItem('theme')==='light')d.classList.add('light')}catch(e){}})()`
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable} ${caveat.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${serif.variable} ${sans.variable} ${mono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
-        {/* Apply stored theme before first paint to avoid flash */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark')})()`,
-          }}
-        />
+        <script dangerouslySetInnerHTML={{ __html: bootScript }} />
       </head>
-      <body className="bg-canvas font-sans">
+      <body className="bg-canvas font-sans text-[15px] leading-relaxed">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-canvas focus:px-3 focus:py-2 focus:text-text-hi"
+        >
+          Skip to content
+        </a>
+        {/* Technical grid: vertical hairlines on the column edges, full page height */}
+        <div aria-hidden className="pointer-events-none fixed inset-0 z-[1] hidden sm:block">
+          <div className="rail-box h-full border-x border-line" />
+        </div>
         <ThemeProvider>{children}</ThemeProvider>
+        <RevealObserver />
       </body>
     </html>
   )
