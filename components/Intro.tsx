@@ -1,5 +1,6 @@
 import { links, site } from '@/lib/content'
 import Mark from './Mark'
+import MiniBadge from './MiniBadge'
 import { FileIcon, GitHubIcon, LinkedInIcon, MailIcon, XIcon } from './Icons'
 
 const pills = [
@@ -49,6 +50,11 @@ export default function Intro() {
             )
           })}
         </ul>
+
+        {/* Small screens: a static crew pass instead of the swinging lanyard badge */}
+        <div className="mt-8 lg:hidden">
+          <MiniBadge />
+        </div>
       </div>
     </div>
   )

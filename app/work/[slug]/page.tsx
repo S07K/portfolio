@@ -9,6 +9,7 @@ import Footer from '@/components/Footer'
 import { Rule, Slate } from '@/components/Section'
 import { ArrowUpRight, GitHubIcon } from '@/components/Icons'
 import ProductLogo from '@/components/ProductLogo'
+import DemoVideo from '@/components/DemoVideo'
 import StackIcon from '@/components/StackIcon'
 import { caseStudies, featured, getCaseStudy } from '@/lib/content'
 
@@ -78,7 +79,9 @@ export default async function CaseStudyPage({ params }: PageProps<'/work/[slug]'
   const project = featured.find((p) => p.slug === slug)
   if (!cs || !project) notFound()
 
-  const demoExists = hasPublicFile(cs.demo)
+  const demoExists = hasPublicFile(`${cs.demo}.mp4`)
+  const demoWebm = hasPublicFile(`${cs.demo}.webm`) ? `${cs.demo}.webm` : undefined
+  const demoPoster = hasPublicFile(`${cs.demo}.jpg`) ? `${cs.demo}.jpg` : cs.poster
   const linkMap: LinkMap = {
     ...(project.site ? { [project.site.label]: project.site.href } : {}),
     ...(project.github ? { GitHub: project.github } : {}),
@@ -91,7 +94,7 @@ export default async function CaseStudyPage({ params }: PageProps<'/work/[slug]'
       <main id="main">
         <div className="col pb-10 pt-10 sm:pt-14">
           <div className="mx-auto max-w-[var(--col)]">
-            <Link href="/#work" className="meta hover:text-text-hi">
+            <Link href="/#work" className="meta tap hover:text-text-hi">
               ← Back to work
             </Link>
             <h1 className="mt-6 font-serif text-[52px] leading-[0.95] text-text-hi sm:text-[68px]">{cs.name}</h1>
@@ -134,23 +137,15 @@ export default async function CaseStudyPage({ params }: PageProps<'/work/[slug]'
 
         {/* Demo slot */}
         <div className="relative z-[2] mx-auto w-full max-w-[880px] px-4 sm:px-6">
-          <div className="meta mb-2 flex justify-between gap-4 px-3 text-[10px] sm:px-4">
-            <span>Demo</span>
-            <span>{demoExists ? 'Muted · click for controls' : 'Footage pending'}</span>
-          </div>
-          <div className="film-frame aspect-video">
-            {demoExists ? (
-              <video
-                className="absolute inset-0 h-full w-full object-cover"
-                src={cs.demo}
-                poster={cs.poster}
-                controls
-                muted
-                playsInline
-                preload="none"
-              />
-            ) : (
-              <>
+          {demoExists ? (
+            <DemoVideo mp4={`${cs.demo}.mp4`} webm={demoWebm} poster={demoPoster} title={cs.name} />
+          ) : (
+            <>
+              <div className="meta mb-2 flex justify-between gap-4 px-3 text-[10px] sm:px-4">
+                <span>Demo</span>
+                <span>Footage pending</span>
+              </div>
+              <div className="film-frame aspect-video">
                 <Image
                   src={cs.poster}
                   alt={`${cs.name} preview`}
@@ -159,9 +154,9 @@ export default async function CaseStudyPage({ params }: PageProps<'/work/[slug]'
                   sizes="(max-width: 880px) 100vw, 880px"
                   className="object-cover object-top"
                 />
-              </>
-            )}
-          </div>
+              </div>
+            </>
+          )}
         </div>
 
         <Block scene="01" title="Problem">

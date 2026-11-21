@@ -30,3 +30,9 @@ tsconfig.tsbuildinfo
 
 # local tooling
 .claude
+
+# raw demo recordings (scripts/record-demo.mjs)
+/.demo-raw
+
+# original, uncompressed media (encoded copies live in public/media)
+/.media-source

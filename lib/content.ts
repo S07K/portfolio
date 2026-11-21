@@ -39,8 +39,14 @@ export type Project = {
   summary: string
   image: string
   imageAlt: string
-  /** PLACEHOLDER - short muted clip played on hover. Missing files fail silently. */
+  /**
+   * Muted clip played on hover. Case-study products reuse their demo from
+   * /media/demos/; other products use /media/work/. Never store the same video
+   * in both. Missing files fail silently.
+   */
   clip?: string
+  /** 'contain' for portrait/phone recordings, so they are letterboxed, not cropped. */
+  clipFit?: 'cover' | 'contain'
   tags: string[]
   site?: { label: string; href: string }
   github?: string
@@ -58,7 +64,7 @@ export const featured: Project[] = [
       'An open-source AI design studio. Five specialist agents design editable HTML + Tailwind screens on a shared canvas, review each other’s work and revise from your comments.',
     image: '/screens/guildos.jpg',
     imageAlt: 'GuildOS homepage - describe your product, get a reviewed landing page',
-    clip: '/media/work/guildos.mp4',
+    clip: '/media/demos/guildos.mp4',
     tags: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind'],
     site: { label: 'guildos.design', href: 'https://guildos.design' },
     github: 'https://github.com/S07K/guildos',
@@ -72,7 +78,7 @@ export const featured: Project[] = [
       'Live media kits for creators - real-time Instagram and YouTube data, brand campaigns, and payments straight into the creator’s own Stripe or Razorpay at 0% fee.',
     image: '/screens/kitevo.jpg',
     imageAlt: 'Kitevo homepage with a live creator media kit card',
-    clip: '/media/work/kitevo.mp4',
+    clip: '/media/demos/kitevo.mp4',
     tags: ['Next.js', 'React', 'Prisma', 'Postgres', 'Capacitor'],
     site: { label: 'getkitevo.com', href: 'https://getkitevo.com' },
     github: 'https://github.com/S07K/kitevo',
@@ -86,7 +92,8 @@ export const featured: Project[] = [
       'One QR code puts everyone’s event photos into a single shared album. Guests scan, add their shots, and everyone leaves with the whole story. iOS, Android and web.',
     image: '/screens/onealbum-desktop.jpg',
     imageAlt: 'OneAlbum homepage - every photo, in one place',
-    clip: '/media/work/onealbum.mp4',
+    clip: '/media/demos/onealbum.mp4', // reuses the case-study demo (portrait)
+    clipFit: 'contain',
     tags: ['Next.js', 'TypeScript', 'iOS', 'Android', 'QR'],
     site: { label: 'onealbum.app', href: 'https://onealbum.app' },
     live: true,
@@ -99,8 +106,8 @@ export const projects: Project[] = [
     tint: [228, 20],
     summary:
       'An open-source, local-first video editor that runs entirely in your browser. Multi-track timeline, WebGL preview, on-device Whisper captions and frame-exact MP4/WebM export. No account, no upload.',
-    image: '/screens/cutaway.jpg',
-    imageAlt: 'Cutaway editor with media panel, preview and multi-track timeline',
+    image: '/screens/cutaway.png',
+    imageAlt: 'Cutaway editing a clip on its multi-track timeline',
     clip: '/media/work/cutaway.mp4',
     tags: ['WebCodecs', 'WebGL', 'Whisper', 'Local-first'],
     site: { label: 'Live demo', href: 'https://cutaway-one.vercel.app/' },
@@ -111,8 +118,8 @@ export const projects: Project[] = [
     name: 'RAG Chat',
     tint: [215, 22],
     summary: 'Ask questions about your documents and get grounded answers with citations to the exact passages.',
-    image: '/screens/rag-chat.jpg',
-    imageAlt: 'RAG Chat sign-in screen',
+    image: '/projects/rag-chat-answer.jpg', // frame from the demo recording
+    imageAlt: 'RAG Chat answering a question with cited sources',
     clip: '/media/work/rag-chat.mp4',
     tags: ['RAG', 'Embeddings', 'Citations'],
     site: { label: 'Live demo', href: 'https://rag-chat-qqme.onrender.com' },
@@ -176,28 +183,6 @@ export const education = {
   school: 'Shaheed Sukhdev College, University of Delhi',
 }
 
-export type Frame = {
-  src: string
-  alt: string
-  lens: string
-  aperture: string
-  shutter: string
-  iso: number
-  place?: string
-}
-
-// PLACEHOLDER - replace with your own photographs (portrait 4:5 works best).
-export const frames: Frame[] = [
-  { src: '/frames/frame-01.jpg', alt: 'Photograph 01 - replace alt text', lens: '35mm', aperture: 'f/1.8', shutter: '1/250', iso: 200, place: 'Delhi' },
-  { src: '/frames/frame-02.jpg', alt: 'Photograph 02 - replace alt text', lens: '50mm', aperture: 'f/2.0', shutter: '1/125', iso: 400, place: 'Delhi' },
-  { src: '/frames/frame-03.jpg', alt: 'Photograph 03 - replace alt text', lens: '24mm', aperture: 'f/4.0', shutter: '1/500', iso: 100 },
-  { src: '/frames/frame-04.jpg', alt: 'Photograph 04 - replace alt text', lens: '85mm', aperture: 'f/1.4', shutter: '1/320', iso: 200 },
-  { src: '/frames/frame-05.jpg', alt: 'Photograph 05 - replace alt text', lens: '35mm', aperture: 'f/2.8', shutter: '1/60', iso: 800 },
-  { src: '/frames/frame-06.jpg', alt: 'Photograph 06 - replace alt text', lens: '50mm', aperture: 'f/1.8', shutter: '1/200', iso: 400 },
-  { src: '/frames/frame-07.jpg', alt: 'Photograph 07 - replace alt text', lens: '24mm', aperture: 'f/5.6', shutter: '1/1000', iso: 100 },
-  { src: '/frames/frame-08-office.jpg', alt: 'Photograph 08 - replace alt text', lens: '85mm', aperture: 'f/2.0', shutter: '1/160', iso: 640 },
-]
-
 export type StackCategory = 'AI' | 'Frontend' | 'Backend' | 'Design' | 'Tools'
 
 export const stack: Record<StackCategory, string[]> = {
@@ -216,7 +201,11 @@ export type CaseStudy = {
   logline: string
   role: string
   year: string
-  /** PLACEHOLDER - demo video. If the file is missing, a slate placeholder renders instead. */
+  /**
+   * Demo video base path, without extension: expects <demo>.mp4, and
+   * optionally <demo>.webm and <demo>.jpg (poster). If the .mp4 is missing,
+   * the page shows the product screenshot with "Footage pending".
+   */
   demo: string
   poster: string
   problem: string[]
@@ -236,7 +225,7 @@ export const caseStudies: CaseStudy[] = [
     logline: 'An open-source AI design studio where five specialist agents design, critique and revise real screens together.',
     role: 'Design, engineering, agent architecture',
     year: '2026',
-    demo: '/media/demos/guildos-demo.mp4',
+    demo: '/media/demos/guildos',
     poster: '/screens/guildos.jpg',
     problem: [
       'Most AI design tools return a single flat image or a blob of code nobody can edit. The output looks impressive once, then dead-ends: you can’t move a button, you can’t ask for a revision without starting over, and the layout often falls apart the moment you look closely.',
@@ -263,7 +252,7 @@ export const caseStudies: CaseStudy[] = [
     logline: 'Live media kits for creators, with an AI Copilot that only works from the creator’s real numbers.',
     role: 'Product, design, full-stack engineering',
     year: '2026',
-    demo: '/media/demos/kitevo-demo.mp4',
+    demo: '/media/demos/kitevo',
     poster: '/screens/kitevo.jpg',
     problem: [
       'Creators pitch brands with media kits that are out of date the day they’re exported - a PDF of screenshots and numbers from months ago. Brands can’t trust them, and creators waste hours rebuilding them.',
@@ -288,7 +277,7 @@ export const caseStudies: CaseStudy[] = [
     logline: 'A shared photo album for any event. One QR code, every guest’s photos, one place.',
     role: 'Product, design, web & mobile engineering',
     year: '2026',
-    demo: '/media/demos/onealbum-demo.mp4',
+    demo: '/media/demos/onealbum',
     poster: '/screens/onealbum-desktop.jpg',
     links: [
       { label: 'App Store', href: 'https://apps.apple.com/app/id6797670766' },

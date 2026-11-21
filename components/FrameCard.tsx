@@ -4,14 +4,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRef, useState, type CSSProperties } from 'react'
 import type { Project } from '@/lib/content'
+import { frameTimecode } from '@/lib/frame'
 import { ArrowUpRight, GitHubIcon, GlobeIcon } from './Icons'
 import ProductLogo, { hasLogo } from './ProductLogo'
 
-function frameTimecode(n: number) {
-  // Deterministic, plausible-looking slate timecode per frame.
-  const pad = (x: number) => String(x).padStart(2, '0')
-  return `00:${pad(n)}:${pad((n * 17 + 8) % 60)}:${pad((n * 7 + 3) % 24)}`
-}
 
 export default function FrameCard({
   project,
@@ -83,7 +79,9 @@ export default function FrameCard({
               tabIndex={-1}
               onPlaying={() => setClipReady(true)}
               onError={() => setClipFailed(true)}
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
+              className={`absolute inset-0 h-full w-full transition-opacity duration-300 ${
+              project.clipFit === 'contain' ? 'bg-black object-contain' : 'object-cover'
+            } ${
                 clipReady ? 'opacity-100' : 'opacity-0'
               }`}
             />
@@ -98,7 +96,7 @@ export default function FrameCard({
           ) : null}
           <h3 className={`font-serif leading-none text-text-hi ${featured ? 'text-[30px]' : 'text-[24px]'}`}>
             {caseHref ? (
-              <Link href={caseHref} className="underline-offset-4 hover:underline">
+              <Link href={caseHref} className="tap underline-offset-4 hover:underline">
                 {project.name}
               </Link>
             ) : (
@@ -112,7 +110,7 @@ export default function FrameCard({
             </span>
           ) : null}
         </div>
-        <div className="flex shrink-0 items-center gap-1">
+        <div className="-mr-2.5 flex shrink-0 items-center">
           {project.site ? (
             <a
               href={project.site.href}
@@ -120,7 +118,7 @@ export default function FrameCard({
               rel="noopener noreferrer"
               aria-label={`${project.name} - ${project.site.label}`}
               title={project.site.label}
-              className="grid h-8 w-8 place-items-center text-text-lo transition-colors hover:text-text-hi"
+              className="-my-1.5 grid h-11 w-11 place-items-center text-text-lo transition-colors hover:text-text-hi"
             >
               <GlobeIcon className="h-4 w-4" />
             </a>
@@ -132,7 +130,7 @@ export default function FrameCard({
               rel="noopener noreferrer"
               aria-label={`${project.name} on GitHub`}
               title="Source on GitHub"
-              className="grid h-8 w-8 place-items-center text-text-lo transition-colors hover:text-text-hi"
+              className="-my-1.5 grid h-11 w-11 place-items-center text-text-lo transition-colors hover:text-text-hi"
             >
               <GitHubIcon className="h-4 w-4" />
             </a>
@@ -153,7 +151,7 @@ export default function FrameCard({
         {caseHref ? (
           <Link
             href={caseHref}
-            className="meta inline-flex items-center gap-1 text-text-hi underline-offset-4 hover:underline"
+            className="meta tap gap-1 text-text-hi underline-offset-4 hover:underline"
           >
             Case study <ArrowUpRight className="h-3 w-3" />
           </Link>

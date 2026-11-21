@@ -77,10 +77,14 @@ body {
 
   /* Pills */
   .pill {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5
+    @apply inline-flex min-h-11 items-center gap-1.5 rounded-full border border-line px-3.5 py-1.5
       font-mono text-[11px] uppercase tracking-[0.06em] text-text-md
-      transition-colors duration-200 hover:border-text-lo hover:text-text-hi;
+      transition-colors duration-200 hover:border-text-lo hover:text-text-hi sm:min-h-0 sm:px-3;
   }
+
+  /* Taller tap area for small inline links, without moving the layout:
+     padding grows the hit box, the matching negative margin cancels it. */
+  .tap { @apply inline-flex items-center py-3.5 -my-3.5; }
 
   /* Thin film frame around thumbnails */
   .film-frame {
@@ -162,12 +166,6 @@ html.js .slate-shutter.in::after { transform: scaleX(0); }
   html.js .slate-shutter::after { display: none; }
 }
 
-/* Native <dialog> lightbox */
-dialog.lightbox { max-width: 100vw; max-height: 100vh; }
-dialog.lightbox::backdrop { background: rgb(5 5 5 / 0.92); }
-dialog.lightbox[open] { animation: lb-in 220ms ease-out; }
-@keyframes lb-in { from { opacity: 0; } to { opacity: 1; } }
-@media (prefers-reduced-motion: reduce) { dialog.lightbox[open] { animation: none; } }
 
 /* ─── Project card panel ────────────────────────────────────────────────────
    Soft per-project tint behind a centered screenshot. The tint is the only
@@ -249,4 +247,9 @@ html.light { --mark-a: 0.6; --mark-hl-a: 0.6; }
 @media (prefers-reduced-motion: reduce) {
   .mark-hl svg { animation: none; clip-path: none; }
   .mark-circle svg path { animation: none; stroke-dashoffset: 0; }
+}
+
+/* Touchscreens of any width (tablets too): pills keep a 44px tap height. */
+@media (pointer: coarse) {
+  .pill { min-height: 44px; }
 }

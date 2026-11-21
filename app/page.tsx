@@ -5,16 +5,18 @@ import { Section } from '@/components/Section'
 import FrameCard from '@/components/FrameCard'
 import CellGrid from '@/components/CellGrid'
 import Experience from '@/components/Experience'
-import Frames from '@/components/Frames'
 import Stack from '@/components/Stack'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import GitHubActivity from '@/components/GitHubActivity'
+import MoreOnGitHub from '@/components/MoreOnGitHub'
+import { getContributions } from '@/lib/github'
 import BadgeDock from '@/components/BadgeDock'
-import { YouTubeIcon } from '@/components/Icons'
-import { featured, frames, links, projects } from '@/lib/content'
+import { featured, projects } from '@/lib/content'
 
-export default function Home() {
+export default async function Home() {
+  // Same cached fetch GitHubActivity uses, so this costs nothing extra.
+  const contributions = (await getContributions())?.total
   let frame = 0
   const next = () => ++frame
 
@@ -26,7 +28,7 @@ export default function Home() {
         <Intro />
 
         <Section id="work" scene="SC.01" title="Featured work" dashed={false} aside="3 case studies">
-          <CellGrid>
+          <CellGrid filler={<MoreOnGitHub frame={featured.length} label={`${String(featured.length).padStart(3, '0')}A`} contributions={contributions} />}>
             {featured.map((p) => (
               <FrameCard key={p.name} project={p} frame={next()} />
             ))}
@@ -34,7 +36,15 @@ export default function Home() {
         </Section>
 
         <Section id="projects" scene="SC.02" title="Projects">
-          <CellGrid>
+          <CellGrid
+            filler={
+              <MoreOnGitHub
+                frame={featured.length + projects.length}
+                label={`${String(featured.length + projects.length).padStart(3, '0')}A`}
+                contributions={contributions}
+              />
+            }
+          >
             {projects.map((p) => (
               <FrameCard key={p.name} project={p} frame={next()} />
             ))}
@@ -49,27 +59,11 @@ export default function Home() {
           <Experience />
         </Section>
 
-        <Section id="frames" scene="SC.04" title="Frames" aside="Stills & motion">
-          <p data-reveal className="mb-6 max-w-[34rem] text-text-md">
-            I shoot photo and video - it’s where I learned that framing decides what matters.
-            Same instinct, different medium.
-          </p>
-          <Frames frames={frames} />
-          <a
-            href={links.youtube}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="pill mt-6"
-          >
-            <YouTubeIcon className="h-3 w-3" /> Watch on YouTube - @function.shubham
-          </a>
-        </Section>
-
         <Section id="stack" scene="KIT" title="Stack">
           <Stack />
         </Section>
 
-        <Section id="contact" scene="SC.05" title="Contact">
+        <Section id="contact" scene="SC.04" title="Contact">
           <Contact />
         </Section>
       </main>
