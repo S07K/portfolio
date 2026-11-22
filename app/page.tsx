@@ -6,6 +6,7 @@ import FrameCard from '@/components/FrameCard'
 import CellGrid from '@/components/CellGrid'
 import Experience from '@/components/Experience'
 import Stack from '@/components/Stack'
+import Highlights from '@/components/Highlights'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import GitHubActivity from '@/components/GitHubActivity'
@@ -59,11 +60,15 @@ export default async function Home() {
           <Experience />
         </Section>
 
+        <Section id="highlights" scene="SC.04" title="Highlights" aside="From X & LinkedIn">
+          <Highlights />
+        </Section>
+
         <Section id="stack" scene="KIT" title="Stack">
           <Stack />
         </Section>
 
-        <Section id="contact" scene="SC.04" title="Contact">
+        <Section id="contact" scene="SC.05" title="Contact">
           <Contact />
         </Section>
       </main>

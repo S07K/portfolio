@@ -183,6 +183,34 @@ export const education = {
   school: 'Shaheed Sukhdev College, University of Delhi',
 }
 
+// ── Highlights ──────────────────────────────────────────────────────────────
+// Real replies to Shubham's own posts (each checked to be a direct reply) and
+// LinkedIn recommendations, trimmed to one line, each linking to the original. Avatars are the authors' public profile pictures (public/highlights).
+
+export type Highlight = {
+  name: string
+  handle: string // @username on X, role on LinkedIn
+  avatar: string
+  source: 'x' | 'linkedin'
+  quote: string
+  href: string
+}
+
+const LINKEDIN_RECS = 'https://www.linkedin.com/in/0700shubham/details/recommendations/'
+
+export const highlights: Highlight[] = [
+  { name: 'Sourav Dhankhar', handle: 'Sr. Software Engineer', avatar: '/highlights/sourav-dhankhar.webp', source: 'linkedin', quote: 'He always tried to go the extra mile in his work.', href: LINKEDIN_RECS },
+  { name: 'shiva', handle: '@helloshiva0801', avatar: '/highlights/helloshiva0801.webp', source: 'x', quote: 'Agents designing on a shared canvas is a great framing.', href: 'https://x.com/helloshiva0801/status/2123314111031410727' },
+  { name: 'Josh Builds', handle: '@Joshua_WD', avatar: '/highlights/joshua_wd.webp', source: 'x', quote: 'that’s a generous move 🙌 hope the PRs roll in', href: 'https://x.com/Joshua_WD/status/2123302873727738103' },
+  { name: 'Sadhana Shrivastava', handle: 'Full-Stack Developer', avatar: '/highlights/sadhana-shrivastava.webp', source: 'linkedin', quote: 'He’s the kind of person you want on your team.', href: LINKEDIN_RECS },
+  { name: 'Kenji Ginjo', handle: '@KenjiGinjo', avatar: '/highlights/kenjiginjo.webp', source: 'x', quote: 'two products, both open, same day.', href: 'https://x.com/KenjiGinjo/status/2123431913633497412' },
+  { name: 'Jangra', handle: '@jxngrx', avatar: '/highlights/jxngrx.webp', source: 'x', quote: 'both open sourced at once is a move', href: 'https://x.com/jxngrx/status/2123321873811562538' },
+  { name: 'Divyam Gupta', handle: 'Back End Developer', avatar: '/highlights/divyam-gupta.webp', source: 'linkedin', quote: 'Outstanding expertise in both frontend and backend development.', href: LINKEDIN_RECS },
+  { name: 'dhang', handle: '@DarayuthH', avatar: '/highlights/darayuthh.webp', source: 'x', quote: 'shared canvas sounds fun', href: 'https://x.com/DarayuthH/status/2123456207075897503' },
+  { name: 'Miles', handle: '@MilesBuilds', avatar: '/highlights/milesbuilds.webp', source: 'x', quote: 'good luck with the first outside prs on both.', href: 'https://x.com/MilesBuilds/status/2123405520480686454' },
+  { name: 'Arbaz', handle: '@Arbaz152352', avatar: '/highlights/arbaz152352.webp', source: 'x', quote: 'feeling inspired :)', href: 'https://x.com/Arbaz152352/status/1877624143040098418' },
+]
+
 export type StackCategory = 'AI' | 'Frontend' | 'Backend' | 'Design' | 'Tools'
 
 export const stack: Record<StackCategory, string[]> = {

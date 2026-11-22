@@ -16,12 +16,13 @@ const nav: { key: Key; label: string; href: string }[] = [
 ]
 
 // Which nav item each page section belongs to. Sections not listed
-// (intro, stack) leave nothing active.
+// (intro, highlights, stack) leave nothing active.
 const sectionToNav: Record<string, Key | null> = {
   work: 'work',
   projects: 'work',
   activity: 'work',
   experience: 'experience',
+  highlights: null,
   stack: null,
   contact: 'contact',
 }
