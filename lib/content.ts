@@ -20,8 +20,6 @@ export const links = {
   github: 'https://github.com/S07K',
   linkedin: 'https://www.linkedin.com/in/0700shubham',
   x: 'https://x.com/0700shubham',
-  youtube: 'https://www.youtube.com/@function.shubham',
-  instagram: 'https://www.instagram.com/function.shubham/',
   resume:
     'https://drive.google.com/file/d/1fLvMWTyhIKCOE5xZuYDcoN1CSqxuvwYr/view?usp=sharing',
 }

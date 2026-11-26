@@ -37,12 +37,6 @@ export const FileIcon = ({ className }: P) => (
   </svg>
 )
 
-export const YouTubeIcon = ({ className }: P) => (
-  <svg {...base(className)} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z" />
-  </svg>
-)
-
 export const ArrowUpRight = ({ className }: P) => (
   <svg {...base(className)} viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.4">
     <path d="M3 9 9 3M9 3H4.5M9 3v4.5" />
