@@ -262,7 +262,7 @@ export default function BadgeDock() {
           key={theme}
           front={<Front cw={cw} p={p} />}
           back={<Back cw={cw} p={p} />}
-          strapText="function.shubham"
+          strapText=""
           strapLabel="AI PRODUCT ENGINEER"
           {...strap}
           cardWidth={cw}
